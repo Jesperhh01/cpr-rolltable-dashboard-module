@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+import { DESKTOP_ROLLTABLES, DESKTOP_TABLE_GROUPS } from "./desktop-rolltables.js";
+
 export const DATATERM_TABLES = {
   nightMarkets: {
     name: "Dataterm: Night Markets - Where Is It Located?",
@@ -236,21 +238,11 @@ export const DATATERM_TABLES = {
       { range: [9, 9], text: "A suspicious but mundane item (radio, briefcase, wallet, etc.) — Something either blocks your way, makes passage difficult, or draws a crowd that blocks your path." },
       { range: [10, 10], text: "An empty stall or cart — Something either blocks your way, makes passage difficult, or draws a crowd that blocks your path." }
     ]
-  }
+  },
+  ...DESKTOP_ROLLTABLES
 };
 
-export const FUTURE_TABLE_GROUPS = [
-  {
-    label: "Gang Generators",
-    description: "Reserved for the Desktop rolltables source file. No rows were imported because Gang generators.txt is currently empty.",
-    tableKeys: [],
-  },
-  {
-    label: "Location Generators",
-    description: "Reserved for the Desktop rolltables source file. No rows were imported because Location generators.txt is currently empty.",
-    tableKeys: [],
-  },
-];
+export const FUTURE_TABLE_GROUPS = DESKTOP_TABLE_GROUPS;
 
 export const NETRUNNER_HUSTLES = [
   { text: "Cracked a municipal system and sold the data to a fixer.", pay: { rank1to4: 100, rank5to7: 200, rank8to10: 500 }, complicationOn: 2 },
