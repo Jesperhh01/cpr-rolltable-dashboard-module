@@ -5,9 +5,15 @@
       <h1>{{localize "cpr-rolltable-dashboard.title"}}</h1>
       <p>{{localize "cpr-rolltable-dashboard.ui.subtitle"}}</p>
     </div>
-    {{#if isGM}}
-      <button type="button" class="cpr-primary-action js-import-bundled">{{localize "cpr-rolltable-dashboard.button.import"}}</button>
-    {{/if}}
+    <div class="cpr-hero-actions">
+      <label class="cpr-chat-toggle">
+        <input type="checkbox" class="js-toggle-public-chat" {{#if postToChat}}checked{{/if}} />
+        <span>{{localize "cpr-rolltable-dashboard.ui.postToChat"}}</span>
+      </label>
+      {{#if isGM}}
+        <button type="button" class="cpr-primary-action js-import-bundled">{{localize "cpr-rolltable-dashboard.button.import"}}</button>
+      {{/if}}
+    </div>
   </header>
 
   <nav class="cpr-dashboard-tabs tabs" data-group="primary">
@@ -63,28 +69,18 @@
                     <button type="button" class="js-generate-netrunner-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                   </div>
                 </article>
+                <article class="cpr-action-card cpr-accent-hustle">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.hustles"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.roleHustle"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.roleHustleHelp"}}</p>
+                  <div class="cpr-inline-controls cpr-inline-controls-stacked">
+                    <select name="roleHustleGenerator">{{selectOptions roleHustleChoices}}</select>
+                    <select name="roleHustleRankBand">{{selectOptions rankChoices selected="rank1to4" localize=true}}</select>
+                    <button type="button" class="js-generate-role-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
               </div>
             </section>
-            {{#each sceneBuilderGroups as |group|}}
-              <section class="cpr-scene-category">
-                <div class="cpr-scene-category-heading">
-                  <span>{{group.label}}</span>
-                  <p>{{group.description}}</p>
-                </div>
-                {{#if group.tables.length}}
-                  <div class="cpr-scene-table-grid">
-                    {{#each group.tables as |table|}}
-                      <button type="button" class="cpr-scene-table-button js-roll-bundled-table" data-table-key="{{table.key}}">
-                        <strong>{{table.name}}</strong>
-                        <span>{{table.formula}}</span>
-                      </button>
-                    {{/each}}
-                  </div>
-                {{else}}
-                  <p class="cpr-empty-note">{{localize "cpr-rolltable-dashboard.table.emptySource"}}</p>
-                {{/if}}
-              </section>
-            {{/each}}
             <section class="cpr-scene-category">
               <div class="cpr-scene-category-heading">
                 <span>{{localize "cpr-rolltable-dashboard.ui.street"}}</span>
@@ -98,6 +94,57 @@
                   <div class="cpr-inline-controls">
                     <select name="encounterPeriod">{{selectOptions periodChoices selected="day" localize=true}}</select>
                     <button type="button" class="js-generate-encounter">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.group.factions"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.group.factionsHelp"}}</p>
+              </div>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-faction">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.factions"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.faction"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.factionHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="factionGenerator">{{selectOptions factionGeneratorChoices}}</select>
+                    <button type="button" class="js-generate-desktop-chain" data-select-name="factionGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.group.locations"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.group.locationsHelp"}}</p>
+              </div>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-location">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.locations"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.location"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.locationHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="locationGenerator">{{selectOptions locationGeneratorChoices}}</select>
+                    <button type="button" class="js-generate-desktop-chain" data-select-name="locationGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.group.corporateLoot"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.group.corporateLootHelp"}}</p>
+              </div>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-corporate">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.corporateLoot"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.corporateLoot"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.corporateLootHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="corporateGenerator">{{selectOptions corporateGeneratorChoices}}</select>
+                    <button type="button" class="js-generate-desktop-chain" data-select-name="corporateGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                   </div>
                 </article>
               </div>
