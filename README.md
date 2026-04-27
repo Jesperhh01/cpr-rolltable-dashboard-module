@@ -14,8 +14,12 @@ Standalone Foundry VTT module for the `cyberpunk-red-core` system.
 
 ## Requirements
 
-- Foundry VTT v13
+- Foundry VTT v12
 - Cyberpunk RED - CORE system (`cyberpunk-red-core`)
+
+## Install
+
+- Manifest URL: `https://raw.githubusercontent.com/Jesperhh01/cpr-rolltable-dashboard-module/main/module.json`
 
 ## Notes
 
