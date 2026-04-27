@@ -1,4 +1,8 @@
 .cpr-rolltable-dashboard .window-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
   padding: 0;
   background: #14100f;
   color: #f6eee0;
@@ -10,7 +14,9 @@
   flex-direction: column;
   gap: 14px;
   box-sizing: border-box;
+  flex: 1 1 auto;
   height: 100%;
+  max-height: 100%;
   min-height: 100%;
   overflow: hidden;
   padding: 16px;
@@ -110,8 +116,11 @@
 .cpr-dashboard-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 310px;
+  grid-template-rows: minmax(0, 1fr);
   gap: 14px;
   flex: 1 1 auto;
+  height: 100%;
+  max-height: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -122,6 +131,7 @@
 }
 
 .cpr-dashboard-body {
+  height: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -133,10 +143,12 @@
 }
 
 .cpr-dashboard-body .tab.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .cpr-dashboard-body .tab > .cpr-panel {
+  flex: 1 1 auto;
   height: 100%;
   min-height: 0;
 }
@@ -241,6 +253,7 @@
 
 .cpr-scene-categories {
   flex: 1 1 auto;
+  max-height: 100%;
   min-height: 0;
   overflow-y: auto;
   padding-right: 6px;
@@ -353,6 +366,8 @@
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  height: 100%;
+  max-height: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -362,8 +377,14 @@
   flex: 0 0 auto;
 }
 
+.cpr-result-header h2 {
+  font-size: 18px;
+  line-height: 1.15;
+}
+
 .cpr-result-content {
   flex: 1 1 auto;
+  max-height: 100%;
   min-height: 0;
   overflow-y: auto;
   padding-right: 6px;
@@ -373,15 +394,26 @@
 .cpr-result-feed {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .cpr-result-entry {
-  padding: 12px;
-  border: 1px solid rgba(255, 184, 77, 0.18);
+  position: relative;
+  padding: 14px 12px 16px;
+  border: 1px solid rgba(255, 184, 77, 0.28);
   border-left: 4px solid #ffb84d;
   border-radius: 10px;
   background: linear-gradient(135deg, rgba(255, 184, 77, 0.10), rgba(255, 255, 255, 0.04));
+}
+
+.cpr-result-entry + .cpr-result-entry::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 77, 0.55), transparent);
 }
 
 .cpr-result-entry:first-child {
@@ -390,12 +422,13 @@
 }
 
 .cpr-result-entry .cpr-result-meta {
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 184, 77, 0.14);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 184, 77, 0.30);
 }
 
 .cpr-result-entry .cpr-result-lines {
-  padding-left: 16px;
+  margin-top: 12px;
+  padding-left: 18px;
 }
 
 .cpr-result-empty {
