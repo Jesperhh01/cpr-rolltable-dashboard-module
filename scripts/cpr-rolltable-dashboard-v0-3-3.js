@@ -12127,10 +12127,10 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  corporateLootExpandedVenditInventoriesExpandedVenditInventories: {
+  "corporateLootExpandedVenditInventoriesFood1d1014)": {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
-    name: "Expanded Vendit Inventories",
+    name: "Expanded Vendit Inventories - Food (1d10: 1-4)",
     formula: "1d100",
     results: [
       {
@@ -12373,10 +12373,10 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  corporateLootExpandedVenditInventoriesExpandedVenditInventories2: {
+  "corporateLootExpandedVenditInventoriesPersonal1d1058)": {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
-    name: "Expanded Vendit Inventories - Expanded Vendit Inventories 2",
+    name: "Expanded Vendit Inventories - Personal (1d10: 5-8)",
     formula: "1d100",
     results: [
       {
@@ -12619,10 +12619,10 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  corporateLootExpandedVenditInventoriesExpandedVenditInventories3: {
+  "corporateLootExpandedVenditInventoriesWeird1d10910)": {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
-    name: "Expanded Vendit Inventories - Expanded Vendit Inventories 3",
+    name: "Expanded Vendit Inventories - Weird (1d10: 9-10)",
     formula: "1d100",
     results: [
       {
@@ -13572,6 +13572,744 @@ var DESKTOP_ROLLTABLES = {
         text: "Roll twice on this list to combine as a single project, or make up something very strange and elaborate...or sinister."
       }
     ]
+  },
+  "whatsVenditsFood1d1014)": {
+    category: "Whats",
+    folder: "What's..?",
+    name: "vendits - Food (1d10: 1-4)",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          3
+        ],
+        text: "Ramen Noodles"
+      },
+      {
+        range: [
+          4,
+          6
+        ],
+        text: "Liquid Candy Snack"
+      },
+      {
+        range: [
+          7,
+          9
+        ],
+        text: "Shrink Wrapped Hamburger"
+      },
+      {
+        range: [
+          10,
+          12
+        ],
+        text: "Slightly Stale Bread"
+      },
+      {
+        range: [
+          13,
+          15
+        ],
+        text: "Microwave Pizza"
+      },
+      {
+        range: [
+          16,
+          18
+        ],
+        text: "“Beef” Jerky"
+      },
+      {
+        range: [
+          19,
+          21
+        ],
+        text: "Can of Soda or Sports Drinks"
+      },
+      {
+        range: [
+          22,
+          24
+        ],
+        text: "Rosewater Gummy Candies"
+      },
+      {
+        range: [
+          25,
+          27
+        ],
+        text: "Bag of Snack Cookies"
+      },
+      {
+        range: [
+          28,
+          30
+        ],
+        text: "Bottle of Synth-Milk"
+      },
+      {
+        range: [
+          31,
+          33
+        ],
+        text: "Pressure Wrapped Sushi"
+      },
+      {
+        range: [
+          34,
+          36
+        ],
+        text: "Fresh Smelling Baked Pretzel"
+      },
+      {
+        range: [
+          37,
+          39
+        ],
+        text: "Nuts and Chocolate Candy Bar"
+      },
+      {
+        range: [
+          40,
+          42
+        ],
+        text: "Dried Fruit Chips"
+      },
+      {
+        range: [
+          43,
+          45
+        ],
+        text: "Fruit/Cereal Snack Bar"
+      },
+      {
+        range: [
+          46,
+          48
+        ],
+        text: "Microwave Buttered Popcorn"
+      },
+      {
+        range: [
+          49,
+          51
+        ],
+        text: "Cakes or Cupcakes"
+      },
+      {
+        range: [
+          52,
+          54
+        ],
+        text: "Spicy Meat Products"
+      },
+      {
+        range: [
+          55,
+          57
+        ],
+        text: "Canned Beer"
+      },
+      {
+        range: [
+          58,
+          60
+        ],
+        text: "Single Serving Cereal Box"
+      },
+      {
+        range: [
+          61,
+          63
+        ],
+        text: "1kg Bag of Kibble"
+      },
+      {
+        range: [
+          64,
+          66
+        ],
+        text: "Hard Boiled Eggs"
+      },
+      {
+        range: [
+          67,
+          69
+        ],
+        text: "Nuts and Fruit Energy Bar"
+      },
+      {
+        range: [
+          70,
+          72
+        ],
+        text: "Can of Spray Cheese"
+      },
+      {
+        range: [
+          73,
+          75
+        ],
+        text: "Takoyaki or Kebabs"
+      },
+      {
+        range: [
+          76,
+          78
+        ],
+        text: "Can of Cold Brew Coffee"
+      },
+      {
+        range: [
+          79,
+          81
+        ],
+        text: "Flavored Potato Chips"
+      },
+      {
+        range: [
+          82,
+          84
+        ],
+        text: "Pizza Rolls"
+      },
+      {
+        range: [
+          85,
+          87
+        ],
+        text: "Bag of Trail Mix"
+      },
+      {
+        range: [
+          88,
+          90
+        ],
+        text: "Faux Lobster or Caviar"
+      },
+      {
+        range: [
+          91,
+          93
+        ],
+        text: "Can of Juice"
+      },
+      {
+        range: [
+          94,
+          96
+        ],
+        text: "Bottle of Water"
+      },
+      {
+        range: [
+          97,
+          99
+        ],
+        text: "Tub of Kimchi"
+      },
+      {
+        range: [
+          100,
+          100
+        ],
+        text: "Real Meat Jerky"
+      }
+    ]
+  },
+  "whatsVenditsPersonal1d1058)": {
+    category: "Whats",
+    folder: "What's..?",
+    name: "vendits - Personal (1d10: 5-8)",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          3
+        ],
+        text: "Folded Pants or Skirts"
+      },
+      {
+        range: [
+          4,
+          6
+        ],
+        text: "Braindance Chips"
+      },
+      {
+        range: [
+          7,
+          9
+        ],
+        text: "Bottles of Cleaning Solution"
+      },
+      {
+        range: [
+          10,
+          12
+        ],
+        text: "Canned T-Shirts"
+      },
+      {
+        range: [
+          13,
+          15
+        ],
+        text: "Drugs (10eb and Below)"
+      },
+      {
+        range: [
+          16,
+          18
+        ],
+        text: "Underwear"
+      },
+      {
+        range: [
+          19,
+          21
+        ],
+        text: "Disposable Rain Coats"
+      },
+      {
+        range: [
+          22,
+          24
+        ],
+        text: "Sex Toys or Personal Lubricant"
+      },
+      {
+        range: [
+          25,
+          27
+        ],
+        text: "Personal Carepaks"
+      },
+      {
+        range: [
+          28,
+          30
+        ],
+        text: "Gas Mask Filter Refills"
+      },
+      {
+        range: [
+          31,
+          33
+        ],
+        text: "Glowsticks"
+      },
+      {
+        range: [
+          34,
+          36
+        ],
+        text: "Ties or Bowties"
+      },
+      {
+        range: [
+          37,
+          39
+        ],
+        text: "Fireworks or Other Pyrotechnics"
+      },
+      {
+        range: [
+          40,
+          42
+        ],
+        text: "Shotgun Shells"
+      },
+      {
+        range: [
+          43,
+          45
+        ],
+        text: "OTC Medication"
+      },
+      {
+        range: [
+          46,
+          48
+        ],
+        text: "Surgical Masks"
+      },
+      {
+        range: [
+          49,
+          51
+        ],
+        text: "Pregnancy Tests"
+      },
+      {
+        range: [
+          52,
+          54
+        ],
+        text: "Grenades or Rockets"
+      },
+      {
+        range: [
+          55,
+          57
+        ],
+        text: "Light and Medium Knife Weapons"
+      },
+      {
+        range: [
+          58,
+          60
+        ],
+        text: "Cigarettes or Cigars"
+      },
+      {
+        range: [
+          61,
+          63
+        ],
+        text: "Floral Arrangements"
+      },
+      {
+        range: [
+          64,
+          66
+        ],
+        text: "Disposable Cell Phones"
+      },
+      {
+        range: [
+          67,
+          69
+        ],
+        text: "Water Purification Tablets"
+      },
+      {
+        range: [
+          70,
+          72
+        ],
+        text: "Canister of Air Freshener"
+      },
+      {
+        range: [
+          73,
+          75
+        ],
+        text: "Pistol Caliber Ammunition"
+      },
+      {
+        range: [
+          76,
+          78
+        ],
+        text: "Various Electronics Parts"
+      },
+      {
+        range: [
+          79,
+          81
+        ],
+        text: "Unwritten Data Chips"
+      },
+      {
+        range: [
+          82,
+          84
+        ],
+        text: "Medium and Heavy Pistols"
+      },
+      {
+        range: [
+          85,
+          87
+        ],
+        text: "Batteries"
+      },
+      {
+        range: [
+          88,
+          90
+        ],
+        text: "Rifle Caliber Ammunition"
+      },
+      {
+        range: [
+          91,
+          93
+        ],
+        text: "Video Games"
+      },
+      {
+        range: [
+          94,
+          96
+        ],
+        text: "Condoms and Dental Dams"
+      },
+      {
+        range: [
+          97,
+          99
+        ],
+        text: "Whistles and Noise Makers"
+      },
+      {
+        range: [
+          100,
+          100
+        ],
+        text: "Special Ammunition (Choose)"
+      }
+    ]
+  },
+  "whatsVenditsWeird1d10910)": {
+    category: "Whats",
+    folder: "What's..?",
+    name: "vendits - Weird (1d10: 9-10)",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          3
+        ],
+        text: "Pet Wigs"
+      },
+      {
+        range: [
+          4,
+          6
+        ],
+        text: "Big Red Boxing Gloves"
+      },
+      {
+        range: [
+          7,
+          9
+        ],
+        text: "Bags of Finger Puppets"
+      },
+      {
+        range: [
+          10,
+          12
+        ],
+        text: "Cans of Steel Ball Bearings"
+      },
+      {
+        range: [
+          13,
+          15
+        ],
+        text: "Lifelike Marionettes"
+      },
+      {
+        range: [
+          16,
+          18
+        ],
+        text: "Balls of Lettuce"
+      },
+      {
+        range: [
+          19,
+          21
+        ],
+        text: "Signed Celebrity Photos"
+      },
+      {
+        range: [
+          22,
+          24
+        ],
+        text: "Porcelain Animal Figurines"
+      },
+      {
+        range: [
+          25,
+          27
+        ],
+        text: "Vat-Grown Seafood"
+      },
+      {
+        range: [
+          28,
+          30
+        ],
+        text: "Bottle of Synthetic Animal Urine"
+      },
+      {
+        range: [
+          31,
+          33
+        ],
+        text: "Sacks of Animal Feed"
+      },
+      {
+        range: [
+          34,
+          36
+        ],
+        text: "Live Rhinoceros Beetles"
+      },
+      {
+        range: [
+          37,
+          39
+        ],
+        text: "Spy Cameras"
+      },
+      {
+        range: [
+          40,
+          42
+        ],
+        text: "Glitter Bombs"
+      },
+      {
+        range: [
+          43,
+          45
+        ],
+        text: "Flying Fish Soup"
+      },
+      {
+        range: [
+          46,
+          48
+        ],
+        text: "Printed Religious Hymnals"
+      },
+      {
+        range: [
+          49,
+          51
+        ],
+        text: "Canned Smells"
+      },
+      {
+        range: [
+          52,
+          54
+        ],
+        text: "Suicide Pills or Capsules"
+      },
+      {
+        range: [
+          55,
+          57
+        ],
+        text: "Miniature Bicycles"
+      },
+      {
+        range: [
+          58,
+          60
+        ],
+        text: "Bug Snacks"
+      },
+      {
+        range: [
+          61,
+          63
+        ],
+        text: "Cold/Flu Vaccines"
+      },
+      {
+        range: [
+          64,
+          66
+        ],
+        text: "Human Bones"
+      },
+      {
+        range: [
+          67,
+          69
+        ],
+        text: "Mismatched Shoes"
+      },
+      {
+        range: [
+          70,
+          72
+        ],
+        text: "Bizarre Capsule Toys"
+      },
+      {
+        range: [
+          73,
+          75
+        ],
+        text: "Strangely Flavored Soda (i.e. Pizza)"
+      },
+      {
+        range: [
+          76,
+          78
+        ],
+        text: "Paper Cosplay Costumes"
+      },
+      {
+        range: [
+          79,
+          81
+        ],
+        text: "Piñatas"
+      },
+      {
+        range: [
+          82,
+          84
+        ],
+        text: "Used Underwear"
+      },
+      {
+        range: [
+          85,
+          87
+        ],
+        text: "Foldable Podiums"
+      },
+      {
+        range: [
+          88,
+          90
+        ],
+        text: "Live Crabs"
+      },
+      {
+        range: [
+          91,
+          93
+        ],
+        text: "Clarified"
+      },
+      {
+        range: [
+          94,
+          96
+        ],
+        text: "Blowup Sex Dolls"
+      },
+      {
+        range: [
+          97,
+          99
+        ],
+        text: "Caricature Celebrity Masks"
+      },
+      {
+        range: [
+          100,
+          100
+        ],
+        text: "Vials of Poison"
+      }
+    ]
   }
 };
 var DESKTOP_TABLE_GROUPS = [
@@ -13677,10 +14415,19 @@ var DESKTOP_TABLE_GROUPS = [
       "corporateLootThingsToFindWhileLootingBodiesThingsToFindWhileLootingBodies",
       "corporateLootRandomJobsForPeopleOutsideTheOfficeRandomJobsForPeopleOutsideTheOffice",
       "corporateLootRandomJobTitlesForCorporateOfficesRandomJobTitlesForCorporateOffices",
-      "corporateLootExpandedVenditInventoriesExpandedVenditInventories",
-      "corporateLootExpandedVenditInventoriesExpandedVenditInventories2",
-      "corporateLootExpandedVenditInventoriesExpandedVenditInventories3",
+      "corporateLootExpandedVenditInventoriesFood1d1014)",
+      "corporateLootExpandedVenditInventoriesPersonal1d1058)",
+      "corporateLootExpandedVenditInventoriesWeird1d10910)",
       "corporateLootProjectsForExecsAndCorporateEmployeesProjectsForExecsAndCorporateEmployees"
+    ]
+  },
+  {
+    label: "What's..?",
+    description: "Vendit inventory and other what-is-it chained generators.",
+    tableKeys: [
+      "whatsVenditsFood1d1014)",
+      "whatsVenditsPersonal1d1058)",
+      "whatsVenditsWeird1d10910)"
     ]
   }
 ];
@@ -13970,6 +14717,12 @@ var REPEAT_CHOICES = {
   fixed: `${MODULE_ID}.repeat.fixed`,
   previousNumeric: `${MODULE_ID}.repeat.previousNumeric`
 };
+var NETRUNNER_HUSTLE_CHOICE = "datatermNetrunnerHustle";
+var VENDIT_CATEGORIES = [
+  { range: [1, 4], label: "Food", tableNamePart: "Food" },
+  { range: [5, 8], label: "Personal", tableNamePart: "Personal" },
+  { range: [9, 10], label: "Weird stuff", tableNamePart: "Weird" }
+];
 function localize(key) {
   return game.i18n.localize(key);
 }
@@ -14042,6 +14795,11 @@ function getDatatermGroups() {
       label: localize(`${MODULE_ID}.group.corporateLoot`),
       description: localize(`${MODULE_ID}.group.corporateLootHelp`),
       tableKeys: getImportedTableKeys("Corporate, Loot, and Jobs")
+    },
+    {
+      label: localize(`${MODULE_ID}.group.whats`),
+      description: localize(`${MODULE_ID}.group.whatsHelp`),
+      tableKeys: getImportedTableKeys("What's..?")
     }
   ];
 }
@@ -14070,11 +14828,20 @@ function getSceneBuilderGroups() {
 function findSceneBuilderChain(chainId) {
   return getSceneBuilderGroups().flatMap((group) => group.chains.map((chain) => ({ ...chain, groupLabel: group.label }))).find((chain) => chain.id === chainId);
 }
+function findSceneBuilderChainByLabel(groupLabel, chainLabel) {
+  return getSceneBuilderGroups().flatMap((group) => group.chains.map((chain) => ({ ...chain, groupLabel: group.label }))).find((chain) => chain.groupLabel === groupLabel && chain.label === chainLabel);
+}
 function getChainChoices(groupLabel) {
   const group = getSceneBuilderGroups().find((entry) => entry.label === groupLabel);
   if (!group)
     return {};
   return Object.fromEntries(group.chains.map((chain) => [chain.id, chain.label]));
+}
+function getHustleChoices() {
+  return {
+    [NETRUNNER_HUSTLE_CHOICE]: localize(`${MODULE_ID}.generator.netrunnerHustle`),
+    ...getChainChoices("Role Hustles")
+  };
 }
 function localizedCategoryLabel(key) {
   return localize(CATEGORY_CHOICES[key]);
@@ -14132,10 +14899,7 @@ class CPRRolltableDashboard extends FormApplication {
       repeatChoices: REPEAT_CHOICES,
       lastResult: this._lastResult,
       postToChat: game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING),
-      roleHustleChoices: getChainChoices("Role Hustles"),
-      factionGeneratorChoices: getChainChoices("Factions and Gangs"),
-      locationGeneratorChoices: getChainChoices("Locations and Scenes"),
-      corporateGeneratorChoices: getChainChoices("Corporate, Loot, and Jobs"),
+      roleHustleChoices: getHustleChoices(),
       datatermGroups: getDatatermGroups().map((group) => ({
         ...group,
         tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
@@ -14152,9 +14916,10 @@ class CPRRolltableDashboard extends FormApplication {
     html.find(".js-generate-night-market").click(() => this._generateNightMarket());
     html.find(".js-generate-merchant").click(() => this._generateMerchantChat(html.find("[name='merchantCategory']").val()));
     html.find(".js-generate-encounter").click(() => this._generateEncounter(html.find("[name='encounterPeriod']").val()));
-    html.find(".js-generate-netrunner-hustle").click(() => this._generateNetrunnerHustle(html.find("[name='netrunnerRankBand']").val()));
-    html.find(".js-generate-role-hustle").click(() => this._generateRoleHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
+    html.find(".js-generate-role-hustle").click(() => this._generateHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
     html.find(".js-generate-desktop-chain").click((event) => this._generateDesktopChain(html.find(`[name='${event.currentTarget.dataset.selectName}']`).val()));
+    html.find(".js-generate-named-chain").click((event) => this._generateNamedDesktopChain(event.currentTarget.dataset.groupLabel, event.currentTarget.dataset.chainLabel));
+    html.find(".js-generate-vendit").click(() => this._generateVendit());
     html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
     if (!game.user.isGM)
@@ -14265,6 +15030,13 @@ class CPRRolltableDashboard extends FormApplication {
     }
     await this._publishResult(localize(`${MODULE_ID}.hustle.title`), lines);
   }
+  async _generateHustle(choice, rankBand) {
+    if (choice === NETRUNNER_HUSTLE_CHOICE) {
+      await this._generateNetrunnerHustle(rankBand);
+      return;
+    }
+    await this._generateRoleHustle(choice, rankBand);
+  }
   _getChainTable(chain, tableNamePart) {
     const tableKey = chain.tableKeys.find((key) => DATATERM_TABLES[key].name.includes(tableNamePart));
     return tableKey ? DATATERM_TABLES[tableKey] : null;
@@ -14319,6 +15091,38 @@ class CPRRolltableDashboard extends FormApplication {
       return `${label}: ${this._rollInlineTable(table).text}`;
     });
     await this._publishResult(chain.label, lines);
+  }
+  async _generateNamedDesktopChain(groupLabel, chainLabel) {
+    const chain = findSceneBuilderChainByLabel(groupLabel, chainLabel);
+    if (!chain)
+      return;
+    await this._generateDesktopChain(chain.id);
+  }
+  _getVenditTable(category) {
+    const tableKey = getImportedTableKeys("What's..?").find((key) => DATATERM_TABLES[key].name.includes(category.tableNamePart));
+    return tableKey ? DATATERM_TABLES[tableKey] : null;
+  }
+  async _generateVendit() {
+    const categoryRoll = await this._rollFormula("1d10");
+    const itemCountRoll = await this._rollFormula("1d10");
+    const category = VENDIT_CATEGORIES.find((entry) => categoryRoll.total >= entry.range[0] && categoryRoll.total <= entry.range[1]);
+    const table = category ? this._getVenditTable(category) : null;
+    if (!category || !table)
+      return;
+    const items = [];
+    const seen = new Set;
+    while (items.length < itemCountRoll.total && seen.size < table.results.length) {
+      const item = this._rollInlineTable(table).text;
+      if (seen.has(item))
+        continue;
+      seen.add(item);
+      items.push(item);
+    }
+    await this._publishResult(localize(`${MODULE_ID}.vendit.title`), [
+      `${localize(`${MODULE_ID}.vendit.categoryRoll`)}: ${categoryRoll.total} (${category.label})`,
+      `${localize(`${MODULE_ID}.vendit.itemCount`)}: ${itemCountRoll.total}`,
+      ...items.map((item) => `- ${item}`)
+    ]);
   }
   async _generateNightMarket() {
     const categories = Object.keys(CATEGORY_CHOICES).filter((key) => key !== "random");
