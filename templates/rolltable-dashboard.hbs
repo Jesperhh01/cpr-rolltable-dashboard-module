@@ -24,40 +24,64 @@
             <h2>{{localize "cpr-rolltable-dashboard.ui.sceneBuilder"}}</h2>
             <p>{{localize "cpr-rolltable-dashboard.ui.sceneBuilderHelp"}}</p>
           </div>
-          <div class="cpr-action-grid">
-            <article class="cpr-action-card cpr-accent-market">
-              <span>{{localize "cpr-rolltable-dashboard.ui.economy"}}</span>
-              <h3>{{localize "cpr-rolltable-dashboard.generator.nightMarket"}}</h3>
-              <p>{{localize "cpr-rolltable-dashboard.ui.nightMarketHelp"}}</p>
-              <button type="button" class="js-generate-night-market">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
-            </article>
-            <article class="cpr-action-card cpr-accent-merchant">
-              <span>{{localize "cpr-rolltable-dashboard.ui.inventory"}}</span>
-              <h3>{{localize "cpr-rolltable-dashboard.generator.merchant"}}</h3>
-              <p>{{localize "cpr-rolltable-dashboard.ui.merchantHelp"}}</p>
-              <div class="cpr-inline-controls">
-                <select name="merchantCategory">{{selectOptions categoryChoices selected="random" localize=true}}</select>
-                <button type="button" class="js-generate-merchant">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+          <div class="cpr-scene-categories">
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.ui.economy"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.ui.economyHelp"}}</p>
               </div>
-            </article>
-            <article class="cpr-action-card cpr-accent-street">
-              <span>{{localize "cpr-rolltable-dashboard.ui.pressure"}}</span>
-              <h3>{{localize "cpr-rolltable-dashboard.generator.encounter"}}</h3>
-              <p>{{localize "cpr-rolltable-dashboard.ui.encounterHelp"}}</p>
-              <div class="cpr-inline-controls">
-                <select name="encounterPeriod">{{selectOptions periodChoices selected="day" localize=true}}</select>
-                <button type="button" class="js-generate-encounter">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-market">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.economy"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.nightMarket"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.nightMarketHelp"}}</p>
+                  <button type="button" class="js-generate-night-market">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-merchant">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.inventory"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.merchant"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.merchantHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="merchantCategory">{{selectOptions categoryChoices selected="random" localize=true}}</select>
+                    <button type="button" class="js-generate-merchant">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
               </div>
-            </article>
-            <article class="cpr-action-card cpr-accent-net">
-              <span>{{localize "cpr-rolltable-dashboard.ui.net"}}</span>
-              <h3>{{localize "cpr-rolltable-dashboard.generator.netrunnerHustle"}}</h3>
-              <p>{{localize "cpr-rolltable-dashboard.ui.hustleHelp"}}</p>
-              <div class="cpr-inline-controls">
-                <select name="netrunnerRankBand">{{selectOptions rankChoices selected="rank1to4" localize=true}}</select>
-                <button type="button" class="js-generate-netrunner-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+            </section>
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.ui.hustles"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.ui.hustlesHelp"}}</p>
               </div>
-            </article>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-net">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.net"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.netrunnerHustle"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.hustleHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="netrunnerRankBand">{{selectOptions rankChoices selected="rank1to4" localize=true}}</select>
+                    <button type="button" class="js-generate-netrunner-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="cpr-scene-category">
+              <div class="cpr-scene-category-heading">
+                <span>{{localize "cpr-rolltable-dashboard.ui.street"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.ui.streetHelp"}}</p>
+              </div>
+              <div class="cpr-action-grid">
+                <article class="cpr-action-card cpr-accent-street">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.pressure"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.encounter"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.encounterHelp"}}</p>
+                  <div class="cpr-inline-controls">
+                    <select name="encounterPeriod">{{selectOptions periodChoices selected="day" localize=true}}</select>
+                    <button type="button" class="js-generate-encounter">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                  </div>
+                </article>
+              </div>
+            </section>
           </div>
         </section>
       </div>

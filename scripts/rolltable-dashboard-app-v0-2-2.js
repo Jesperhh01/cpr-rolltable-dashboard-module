@@ -57,16 +57,29 @@ function shuffleArray(items) {
   return shuffled;
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function notify(type, key) {
   const message = localize(key);
   ui.notifications[type](message);
 }
 
+function getImportedTableKeys(groupLabel) {
+  return FUTURE_TABLE_GROUPS.find((group) => group.label === groupLabel)?.tableKeys ?? [];
+}
+
 function getDatatermGroups() {
   return [
     {
-      label: localize(`${MODULE_ID}.group.nightMarkets`),
-      description: localize(`${MODULE_ID}.group.nightMarketsHelp`),
+      label: localize(`${MODULE_ID}.group.economy`),
+      description: localize(`${MODULE_ID}.group.economyHelp`),
       tableKeys: [
         "nightMarkets",
         "nightMarketClientele",
@@ -76,34 +89,39 @@ function getDatatermGroups() {
       ],
     },
     {
-      label: localize(`${MODULE_ID}.group.netrunnerHustles`),
-      description: localize(`${MODULE_ID}.group.netrunnerHustlesHelp`),
+      label: localize(`${MODULE_ID}.group.hustles`),
+      description: localize(`${MODULE_ID}.group.hustlesHelp`),
       tableKeys: [
         "netrunnerHustleChart",
         "netrunnerWhatWentWrong",
         "netrunnerTroubleNow",
         "netrunnerOpportunity",
+        ...getImportedTableKeys("Role Hustles"),
       ],
     },
     {
-      label: localize(`${MODULE_ID}.group.cityEncounters`),
-      description: localize(`${MODULE_ID}.group.cityEncountersHelp`),
+      label: localize(`${MODULE_ID}.group.locations`),
+      description: localize(`${MODULE_ID}.group.locationsHelp`),
       tableKeys: [
         "cityDayType",
         "cityNightType",
         "cityNonViolent",
         "cityViolent",
         "cityEnvironmental",
+        ...getImportedTableKeys("Locations and Scenes"),
       ],
     },
-  ].concat(
-    FUTURE_TABLE_GROUPS.map((group) => ({
-      label: group.label,
-      description: group.description,
-      tableKeys: group.tableKeys,
-      empty: group.tableKeys.length === 0,
-    }))
-  );
+    {
+      label: localize(`${MODULE_ID}.group.factions`),
+      description: localize(`${MODULE_ID}.group.factionsHelp`),
+      tableKeys: getImportedTableKeys("Factions and Gangs"),
+    },
+    {
+      label: localize(`${MODULE_ID}.group.corporateLoot`),
+      description: localize(`${MODULE_ID}.group.corporateLootHelp`),
+      tableKeys: getImportedTableKeys("Corporate, Loot, and Jobs"),
+    },
+  ];
 }
 
 function localizedCategoryLabel(key) {
@@ -230,13 +248,15 @@ export default class CPRRolltableDashboard extends FormApplication {
   }
 
   async _publishResult(title, lines, options = {}) {
-    const { postToChat = true } = options;
+    const { postToChat = true, allowHtml = false } = options;
+    const safeTitle = allowHtml ? title : escapeHtml(title);
+    const safeLines = allowHtml ? lines : lines.map((line) => escapeHtml(line));
     const timestamp = new Date().toLocaleTimeString();
-    this._lastResult = { title, lines, timestamp };
+    this._lastResult = { title: safeTitle, lines: safeLines, timestamp };
     this._renderResultPanel();
     if (!postToChat) return;
-    const content = [`<h2>${title}</h2>`, "<ul>"]
-      .concat(lines.map((line) => `<li>${line}</li>`))
+    const content = [`<h2>${safeTitle}</h2>`, "<ul>"]
+      .concat(safeLines.map((line) => `<li>${line}</li>`))
       .concat(["</ul>"])
       .join("");
     await ChatMessage.create({
@@ -332,7 +352,7 @@ export default class CPRRolltableDashboard extends FormApplication {
         merchant.items.forEach((item) => lines.push(`- ${item.name} (${item.price} eb)`));
         return lines;
       }),
-    ]);
+    ], { allowHtml: true });
   }
 
   async _generateMerchantChat(category) {
