@@ -7,6 +7,7 @@ const sources = [
   { file: "Gang generators.txt", category: "Factions", folder: "Factions and Gangs" },
   { file: "Location generators.txt", category: "Locations", folder: "Locations and Scenes" },
   { file: "What's is.txt", category: "CorporateLoot", folder: "Corporate, Loot, and Jobs" },
+  { file: "vendits.txt", category: "Whats", folder: "What's..?" },
 ];
 
 function decodeSource(filePath) {
@@ -148,6 +149,12 @@ function parseSource(source, used) {
       continue;
     }
 
+    const rollColumns = raw.split("\t").map((value) => value.trim()).filter(Boolean);
+    if (/^Roll\b/i.test(line) && rollColumns.length === 2 && !/^result\b/i.test(rollColumns[1])) {
+      start(rollColumns[1]);
+      continue;
+    }
+
     if (/^Roll\b/i.test(line) || /^1d6\b/i.test(line)) {
       const columns = raw.split("\t").map((value) => value.trim()).filter(Boolean);
       if (columns.length > 1) headers = columns;
@@ -207,6 +214,7 @@ const groups = [
   ["Factions and Gangs", "Road gangs, city gangs, organized crime, cults, and strange crews.", "Factions"],
   ["Locations and Scenes", "Clubs, bodegas, pop-up markets, alleys, downtown blocks, and other scene dressing.", "Locations"],
   ["Corporate, Loot, and Jobs", "Corporate industries, civic bodies, computer finds, loot, job complications, and vendit inventory.", "CorporateLoot"],
+  ["What's..?", "Vendit inventory and other what-is-it chained generators.", "Whats"],
 ].map(([label, description, category]) => ({
   label,
   description,
