@@ -239,6 +239,19 @@ export const DATATERM_TABLES = {
   }
 };
 
+export const FUTURE_TABLE_GROUPS = [
+  {
+    label: "Gang Generators",
+    description: "Reserved for the Desktop rolltables source file. No rows were imported because Gang generators.txt is currently empty.",
+    tableKeys: [],
+  },
+  {
+    label: "Location Generators",
+    description: "Reserved for the Desktop rolltables source file. No rows were imported because Location generators.txt is currently empty.",
+    tableKeys: [],
+  },
+];
+
 export const NETRUNNER_HUSTLES = [
   { text: "Cracked a municipal system and sold the data to a fixer.", pay: { rank1to4: 100, rank5to7: 200, rank8to10: 500 }, complicationOn: 2 },
   { text: "Cracked a corp system and sold the data to a fixer.", pay: { rank1to4: 200, rank5to7: 300, rank8to10: 600 }, complicationOn: 3 },

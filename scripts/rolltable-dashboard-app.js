@@ -2,6 +2,7 @@
 
 import {
   DATATERM_TABLES,
+  FUTURE_TABLE_GROUPS,
   NETRUNNER_HUSTLES,
   FOOD_GEAR_NAMES,
   CYBER_GEAR_MATCHERS,
@@ -56,6 +57,7 @@ function getDatatermGroups() {
   return [
     {
       label: localize(`${MODULE_ID}.group.nightMarkets`),
+      description: localize(`${MODULE_ID}.group.nightMarketsHelp`),
       tableKeys: [
         "nightMarkets",
         "nightMarketClientele",
@@ -66,6 +68,7 @@ function getDatatermGroups() {
     },
     {
       label: localize(`${MODULE_ID}.group.netrunnerHustles`),
+      description: localize(`${MODULE_ID}.group.netrunnerHustlesHelp`),
       tableKeys: [
         "netrunnerHustleChart",
         "netrunnerWhatWentWrong",
@@ -75,6 +78,7 @@ function getDatatermGroups() {
     },
     {
       label: localize(`${MODULE_ID}.group.cityEncounters`),
+      description: localize(`${MODULE_ID}.group.cityEncountersHelp`),
       tableKeys: [
         "cityDayType",
         "cityNightType",
@@ -83,7 +87,14 @@ function getDatatermGroups() {
         "cityEnvironmental",
       ],
     },
-  ];
+  ].concat(
+    FUTURE_TABLE_GROUPS.map((group) => ({
+      label: group.label,
+      description: group.description,
+      tableKeys: group.tableKeys,
+      empty: group.tableKeys.length === 0,
+    }))
+  );
 }
 
 function localizedCategoryLabel(key) {
@@ -113,6 +124,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     super(object, options);
     this._tableChoices = null;
     this._merchantCache = null;
+    this._lastResult = null;
   }
 
   static get defaultOptions() {
@@ -126,6 +138,7 @@ export default class CPRRolltableDashboard extends FormApplication {
       submitOnChange: false,
       submitOnClose: false,
       resizable: true,
+      tabs: [{ navSelector: ".cpr-dashboard-tabs", contentSelector: ".cpr-dashboard-body", initial: "generators" }],
       classes: super.defaultOptions.classes.concat([MODULE_ID]),
     });
   }
@@ -145,9 +158,10 @@ export default class CPRRolltableDashboard extends FormApplication {
       rankChoices: RANK_CHOICES,
       periodChoices: PERIOD_CHOICES,
       repeatChoices: REPEAT_CHOICES,
+      lastResult: this._lastResult,
       datatermGroups: getDatatermGroups().map((group) => ({
         ...group,
-        tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name })),
+        tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula })),
       })),
     };
   }
@@ -191,7 +205,12 @@ export default class CPRRolltableDashboard extends FormApplication {
     return choices;
   }
 
-  async _postChat(title, lines) {
+  async _publishResult(title, lines, options = {}) {
+    const { postToChat = true } = options;
+    const timestamp = new Date().toLocaleTimeString();
+    this._lastResult = { title, lines, timestamp };
+    this._renderResultPanel();
+    if (!postToChat) return;
     const content = [`<h2>${title}</h2>`, "<ul>"]
       .concat(lines.map((line) => `<li>${line}</li>`))
       .concat(["</ul>"])
@@ -200,6 +219,19 @@ export default class CPRRolltableDashboard extends FormApplication {
       content,
       speaker: ChatMessage.getSpeaker({ alias: title }),
     });
+  }
+
+  _renderResultPanel() {
+    if (!this.rendered || !this.element?.length) return;
+    const panel = this.element.find(".cpr-result-panel");
+    panel.removeClass("is-empty");
+    panel.find(".cpr-result-empty").hide();
+    panel.find(".cpr-result-content").show();
+    panel.find(".cpr-result-title").text(this._lastResult.title);
+    panel.find(".cpr-result-time").text(this._lastResult.timestamp);
+    const list = panel.find(".cpr-result-lines");
+    list.empty();
+    this._lastResult.lines.forEach((line) => list.append($(`<li>${line}</li>`)));
   }
 
   _rollInlineTable(tableDef) {
@@ -218,7 +250,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     const table = await this._ensureBundledTable(tableKey);
     if (!table) return;
     const draw = await table.draw({ displayChat: false });
-    await this._postChat(DATATERM_TABLES[tableKey].name, (draw.results || []).map((result) => result.text));
+    await this._publishResult(DATATERM_TABLES[tableKey].name, (draw.results || []).map((result) => result.text));
   }
 
   async _generateEncounter(period) {
@@ -226,7 +258,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     let encounterTable = DATATERM_TABLES.cityViolent;
     if (typeResult === "Non-Violent") encounterTable = DATATERM_TABLES.cityNonViolent;
     if (typeResult === "Environmental") encounterTable = DATATERM_TABLES.cityEnvironmental;
-    await this._postChat(localize(`${MODULE_ID}.encounter.title`), [
+    await this._publishResult(localize(`${MODULE_ID}.encounter.title`), [
       `${localize(`${MODULE_ID}.period.label`)}: ${localize(PERIOD_CHOICES[period])}`,
       `${localize(`${MODULE_ID}.encounter.type`)}: ${typeResult}`,
       this._rollInlineTable(encounterTable).text,
@@ -248,7 +280,7 @@ export default class CPRRolltableDashboard extends FormApplication {
         `${localize(`${MODULE_ID}.hustle.opportunity`)}: ${this._rollInlineTable(DATATERM_TABLES.netrunnerOpportunity).text}`,
       );
     }
-    await this._postChat(localize(`${MODULE_ID}.hustle.title`), lines);
+    await this._publishResult(localize(`${MODULE_ID}.hustle.title`), lines);
   }
 
   async _generateNightMarket() {
@@ -262,7 +294,7 @@ export default class CPRRolltableDashboard extends FormApplication {
       await this._generateMerchantInventory(firstCategory),
       await this._generateMerchantInventory(secondCategory),
     ];
-    await this._postChat(localize(`${MODULE_ID}.nightMarket.title`), [
+    await this._publishResult(localize(`${MODULE_ID}.nightMarket.title`), [
       `${localize(`${MODULE_ID}.nightMarket.location`)}: ${this._rollInlineTable(DATATERM_TABLES.nightMarkets).text}`,
       `${localize(`${MODULE_ID}.nightMarket.clientele`)}: ${this._rollInlineTable(DATATERM_TABLES.nightMarketClientele).text}`,
       `${localize(`${MODULE_ID}.nightMarket.danger`)}: ${this._rollInlineTable(DATATERM_TABLES.nightMarketDanger).text}`,
@@ -281,7 +313,7 @@ export default class CPRRolltableDashboard extends FormApplication {
 
   async _generateMerchantChat(category) {
     const merchant = await this._generateMerchantInventory(category);
-    await this._postChat(localize(`${MODULE_ID}.nightMarket.merchantTitle`), [
+    await this._publishResult(localize(`${MODULE_ID}.nightMarket.merchantTitle`), [
       `${localize(`${MODULE_ID}.nightMarket.merchantCategory`)}: ${merchant.categoryLabel}`,
       `${localize(`${MODULE_ID}.nightMarket.itemCount`)}: ${merchant.count}`,
       ...merchant.items.map((item) => `- ${item.name} (${item.price} eb)`),
@@ -374,6 +406,11 @@ export default class CPRRolltableDashboard extends FormApplication {
       created += 1;
     }
     notify("notify", created > 0 ? `${MODULE_ID}.import.success` : `${MODULE_ID}.import.alreadyExists`);
+    this._lastResult = {
+      title: localize(`${MODULE_ID}.import.resultTitle`),
+      timestamp: new Date().toLocaleTimeString(),
+      lines: [localize(created > 0 ? `${MODULE_ID}.import.success` : `${MODULE_ID}.import.alreadyExists`)],
+    };
     this._tableChoices = null;
     this.render(true);
   }
@@ -480,7 +517,7 @@ export default class CPRRolltableDashboard extends FormApplication {
       }
       lines.push(`<strong>${step.label}</strong>: ${rolled.join("; ")}`);
     }
-    await this._postChat(chain.name, lines);
+    await this._publishResult(chain.name, lines);
   }
 
   _extractNumericResult(result, fallback = 1) {
