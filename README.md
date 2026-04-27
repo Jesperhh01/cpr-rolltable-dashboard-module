@@ -19,7 +19,13 @@ Standalone Foundry VTT module for the `cyberpunk-red-core` system.
 
 ## Install
 
-- Manifest URL: `https://raw.githubusercontent.com/Jesperhh01/cpr-rolltable-dashboard-module/main/module.json`
+In Foundry VTT, go to **Settings → Add-on Modules → Install Module**.
+
+Paste this manifest URL:
+
+`https://github.com/Jesperhh01/cpr-rolltable-dashboard-module/releases/latest/download/module.json`
+
+Click **Install**, then enable **CPR Rolltable Dashboard** in your world.
 
 ## Notes
 
