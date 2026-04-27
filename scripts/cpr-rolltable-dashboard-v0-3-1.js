@@ -14041,6 +14041,13 @@ function getDatatermGroups() {
     }
   ];
 }
+function getSceneBuilderGroups() {
+  return FUTURE_TABLE_GROUPS.map((group) => ({
+    label: group.label,
+    description: group.description,
+    tableKeys: group.tableKeys
+  }));
+}
 function localizedCategoryLabel(key) {
   return localize(CATEGORY_CHOICES[key]);
 }
@@ -14097,6 +14104,10 @@ class CPRRolltableDashboard extends FormApplication {
       repeatChoices: REPEAT_CHOICES,
       lastResult: this._lastResult,
       datatermGroups: getDatatermGroups().map((group) => ({
+        ...group,
+        tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
+      })),
+      sceneBuilderGroups: getSceneBuilderGroups().map((group) => ({
         ...group,
         tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
       }))
