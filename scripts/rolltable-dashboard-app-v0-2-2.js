@@ -13,6 +13,7 @@ const CHAIN_SETTING = "rolltableDashboardChains";
 const POST_TO_CHAT_SETTING = "postRollsToChat";
 const ROOT_FOLDER_NAME = "CPR Rolltable Dashboard";
 const REQUIRED_SYSTEM_ID = "cyberpunk-red-core";
+const RESULT_HISTORY_LIMIT = 50;
 
 const CATEGORY_CHOICES = {
   random: `${MODULE_ID}.category.random`,
@@ -216,7 +217,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     super(object, options);
     this._tableChoices = null;
     this._merchantCache = null;
-    this._lastResult = null;
+    this._resultHistory = [];
     this._activeTab = "generators";
   }
 
@@ -250,7 +251,8 @@ export default class CPRRolltableDashboard extends FormApplication {
       rankChoices: RANK_CHOICES,
       periodChoices: PERIOD_CHOICES,
       repeatChoices: REPEAT_CHOICES,
-      lastResult: this._lastResult,
+      resultHistory: this._resultHistory,
+      hasResultHistory: this._resultHistory.length > 0,
       postToChat: game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING),
       roleHustleChoices: getHustleChoices(),
       datatermGroups: getDatatermGroups().map((group) => ({
@@ -278,6 +280,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     html.find(".js-generate-vendit").click(() => this._generateVendit());
     html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
+    html.find(".js-clear-result-history").click(() => this._clearResultHistory());
 
     if (!game.user.isGM) return;
 
@@ -323,7 +326,8 @@ export default class CPRRolltableDashboard extends FormApplication {
     const safeTitle = allowHtml ? title : escapeHtml(title);
     const safeLines = allowHtml ? lines : lines.map((line) => escapeHtml(line));
     const timestamp = new Date().toLocaleTimeString();
-    this._lastResult = { title: safeTitle, lines: safeLines, timestamp };
+    this._resultHistory.unshift({ id: foundry.utils.randomID(), title: safeTitle, lines: safeLines, timestamp });
+    this._resultHistory = this._resultHistory.slice(0, RESULT_HISTORY_LIMIT);
     this._renderResultPanel();
     if (!postToChat) return;
     const content = [`<h2>${safeTitle}</h2>`, "<ul>"]
@@ -339,14 +343,28 @@ export default class CPRRolltableDashboard extends FormApplication {
   _renderResultPanel() {
     if (!this.rendered || !this.element?.length) return;
     const panel = this.element.find(".cpr-result-panel");
-    panel.removeClass("is-empty");
-    panel.find(".cpr-result-empty").hide();
-    panel.find(".cpr-result-content").show();
-    panel.find(".cpr-result-title").text(this._lastResult.title);
-    panel.find(".cpr-result-time").text(this._lastResult.timestamp);
-    const list = panel.find(".cpr-result-lines");
-    list.empty();
-    this._lastResult.lines.forEach((line) => list.append($(`<li>${line}</li>`)));
+    const hasHistory = this._resultHistory.length > 0;
+    panel.toggleClass("is-empty", !hasHistory);
+    panel.find(".cpr-result-empty").toggle(!hasHistory);
+    panel.find(".cpr-result-content").toggle(hasHistory);
+    panel.find(".js-clear-result-history").toggle(hasHistory);
+    const feed = panel.find(".cpr-result-feed");
+    feed.empty();
+    this._resultHistory.forEach((result) => {
+      const item = $("<article class='cpr-result-entry'></article>");
+      const header = $("<div class='cpr-result-meta'></div>");
+      header.append($(`<strong class="cpr-result-title">${result.title}</strong>`));
+      header.append($(`<span class="cpr-result-time">${result.timestamp}</span>`));
+      const list = $("<ol class='cpr-result-lines'></ol>");
+      result.lines.forEach((line) => list.append($(`<li>${line}</li>`)));
+      item.append(header, list);
+      feed.append(item);
+    });
+  }
+
+  _clearResultHistory() {
+    this._resultHistory = [];
+    this._renderResultPanel();
   }
 
   _rollInlineTable(tableDef) {
@@ -614,11 +632,13 @@ export default class CPRRolltableDashboard extends FormApplication {
       created += 1;
     }
     notify("notify", created > 0 ? `${MODULE_ID}.import.success` : `${MODULE_ID}.import.alreadyExists`);
-    this._lastResult = {
-      title: localize(`${MODULE_ID}.import.resultTitle`),
+    this._resultHistory.unshift({
+      id: foundry.utils.randomID(),
+      title: escapeHtml(localize(`${MODULE_ID}.import.resultTitle`)),
       timestamp: new Date().toLocaleTimeString(),
-      lines: [localize(created > 0 ? `${MODULE_ID}.import.success` : `${MODULE_ID}.import.alreadyExists`)],
-    };
+      lines: [escapeHtml(localize(created > 0 ? `${MODULE_ID}.import.success` : `${MODULE_ID}.import.alreadyExists`))],
+    });
+    this._resultHistory = this._resultHistory.slice(0, RESULT_HISTORY_LIMIT);
     this._tableChoices = null;
     this.render(true);
   }

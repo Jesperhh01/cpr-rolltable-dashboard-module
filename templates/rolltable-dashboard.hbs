@@ -237,25 +237,34 @@
       </div>
     </section>
 
-    <aside class="cpr-result-panel {{#unless lastResult}}is-empty{{/unless}}">
+    <aside class="cpr-result-panel {{#unless hasResultHistory}}is-empty{{/unless}}">
       <div class="cpr-result-header">
-        <p class="cpr-kicker">{{localize "cpr-rolltable-dashboard.result.kicker"}}</p>
-        <h2>{{localize "cpr-rolltable-dashboard.result.title"}}</h2>
+        <div>
+          <p class="cpr-kicker">{{localize "cpr-rolltable-dashboard.result.kicker"}}</p>
+          <h2>{{localize "cpr-rolltable-dashboard.result.title"}}</h2>
+        </div>
+        <button type="button" class="cpr-clear-history js-clear-result-history" {{#unless hasResultHistory}}style="display:none"{{/unless}}>{{localize "cpr-rolltable-dashboard.button.clearHistory"}}</button>
       </div>
-      <div class="cpr-result-empty" {{#if lastResult}}style="display:none"{{/if}}>
+      <div class="cpr-result-empty" {{#if hasResultHistory}}style="display:none"{{/if}}>
         <i class="fas fa-dice-d20"></i>
         <p>{{localize "cpr-rolltable-dashboard.result.empty"}}</p>
       </div>
-      <div class="cpr-result-content" {{#unless lastResult}}style="display:none"{{/unless}}>
-        <div class="cpr-result-meta">
-          <strong class="cpr-result-title">{{lastResult.title}}</strong>
-          <span class="cpr-result-time">{{lastResult.timestamp}}</span>
-        </div>
-        <ol class="cpr-result-lines">
-          {{#each lastResult.lines as |line|}}
-            <li>{{{line}}}</li>
+      <div class="cpr-result-content" {{#unless hasResultHistory}}style="display:none"{{/unless}}>
+        <div class="cpr-result-feed">
+          {{#each resultHistory as |result|}}
+            <article class="cpr-result-entry">
+              <div class="cpr-result-meta">
+                <strong class="cpr-result-title">{{{result.title}}}</strong>
+                <span class="cpr-result-time">{{result.timestamp}}</span>
+              </div>
+              <ol class="cpr-result-lines">
+                {{#each result.lines as |line|}}
+                  <li>{{{line}}}</li>
+                {{/each}}
+              </ol>
+            </article>
           {{/each}}
-        </ol>
+        </div>
       </div>
     </aside>
   </div>
