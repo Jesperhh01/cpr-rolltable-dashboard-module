@@ -7,8 +7,9 @@
 .cpr-rolltable-dashboard .window-content {
   display: flex;
   flex-direction: column;
-  height: min(780px, calc(100vh - 34px));
-  max-height: calc(100vh - 34px);
+  flex: 1;
+  height: auto;
+  max-height: none;
   min-height: 0;
   padding: 0;
   background: #14100f;
@@ -21,9 +22,9 @@
   flex-direction: column;
   gap: 14px;
   box-sizing: border-box;
-  flex: 1 1 auto;
-  height: min(780px, calc(100vh - 34px));
-  max-height: calc(100vh - 34px);
+  flex: 1;
+  height: auto;
+  max-height: none;
   min-height: 0;
   overflow: hidden;
   padding: 16px;
@@ -125,7 +126,7 @@
   grid-template-columns: minmax(0, 1fr) 310px;
   grid-template-rows: minmax(0, 1fr);
   gap: 14px;
-  flex: 1 1 auto;
+  flex: 1;
   height: auto;
   max-height: none;
   min-height: 0;
@@ -139,16 +140,13 @@
 
 .cpr-dashboard-body {
   height: 100%;
-  max-height: 100%;
   min-height: 0;
   overflow: hidden;
 }
 
 .cpr-dashboard-body .tab {
   display: none;
-  flex: 1 1 auto;
-  height: 100%;
-  max-height: 100%;
+  flex: 1;
   min-height: 0;
 }
 
@@ -158,9 +156,7 @@
 }
 
 .cpr-dashboard-body .tab > .cpr-panel {
-  flex: 1 1 auto;
-  height: 100%;
-  max-height: 100%;
+  flex: 1;
   min-height: 0;
 }
 
@@ -254,7 +250,7 @@
 .cpr-chain-list {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 1;
   gap: 12px;
   min-height: 0;
   overflow-y: auto;
@@ -264,8 +260,7 @@
 }
 
 .cpr-scene-categories {
-  flex: 1 1 auto;
-  max-height: 100%;
+  flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -380,7 +375,6 @@
   flex-direction: column;
   align-self: stretch;
   height: 100%;
-  max-height: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -396,8 +390,7 @@
 }
 
 .cpr-result-content {
-  flex: 1 1 auto;
-  max-height: 100%;
+  flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -447,7 +440,7 @@
 
 .cpr-result-empty {
   display: grid;
-  flex: 1 1 auto;
+  flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
