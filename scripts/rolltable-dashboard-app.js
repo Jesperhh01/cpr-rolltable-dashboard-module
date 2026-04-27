@@ -48,6 +48,15 @@ function deepClone(data) {
   return foundry.utils.deepClone(data);
 }
 
+function shuffleArray(items) {
+  const shuffled = Array.from(items);
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+}
+
 function notify(type, key) {
   const message = localize(key);
   ui.notifications[type](message);
@@ -328,7 +337,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     }
     const count = (await this._rollFormula("1d10")).total;
     const pool = await this._getMerchantPool(finalCategory);
-    const shuffled = foundry.utils.shuffle(pool);
+    const shuffled = shuffleArray(pool);
     return {
       category: finalCategory,
       categoryLabel: localizedCategoryLabel(finalCategory),
