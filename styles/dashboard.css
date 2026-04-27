@@ -2,13 +2,17 @@
   padding: 0;
   background: #14100f;
   color: #f6eee0;
+  overflow: hidden;
 }
 
 .cpr-rolltable-dashboard-form {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-sizing: border-box;
+  height: 100%;
   min-height: 100%;
+  overflow: hidden;
   padding: 16px;
   background:
     radial-gradient(circle at top left, rgba(255, 54, 54, 0.24), transparent 28rem),
@@ -26,6 +30,7 @@
 
 .cpr-dashboard-hero {
   display: flex;
+  flex: 0 0 auto;
   justify-content: space-between;
   gap: 16px;
   padding: 18px;
@@ -81,6 +86,7 @@
 
 .cpr-dashboard-tabs {
   display: flex;
+  flex: 0 0 auto;
   gap: 8px;
   border: 0;
 }
@@ -105,7 +111,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 310px;
   gap: 14px;
+  flex: 1 1 auto;
   min-height: 0;
+  overflow: hidden;
 }
 
 .cpr-panel,
@@ -113,12 +121,30 @@
   padding: 14px;
 }
 
+.cpr-dashboard-body {
+  min-height: 0;
+  overflow: hidden;
+}
+
 .cpr-dashboard-body .tab {
   display: none;
+  height: 100%;
+  min-height: 0;
 }
 
 .cpr-dashboard-body .tab.active {
   display: block;
+}
+
+.cpr-dashboard-body .tab > .cpr-panel {
+  height: 100%;
+  min-height: 0;
+}
+
+.cpr-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .cpr-panel-heading,
@@ -131,6 +157,10 @@
   justify-content: space-between;
   gap: 12px;
   align-items: flex-start;
+}
+
+.cpr-panel-heading {
+  flex: 0 0 auto;
 }
 
 .cpr-action-grid {
@@ -201,7 +231,45 @@
 .cpr-chain-list {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-gutter: stable;
+}
+
+.cpr-scene-categories {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-gutter: stable;
+}
+
+.cpr-scene-categories::-webkit-scrollbar,
+.cpr-table-groups::-webkit-scrollbar,
+.cpr-chain-list::-webkit-scrollbar,
+.cpr-result-content::-webkit-scrollbar,
+.cpr-result-empty::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cpr-scene-categories::-webkit-scrollbar-thumb,
+.cpr-table-groups::-webkit-scrollbar-thumb,
+.cpr-chain-list::-webkit-scrollbar-thumb,
+.cpr-result-content::-webkit-scrollbar-thumb,
+.cpr-result-empty::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 184, 77, 0.38);
+}
+
+.cpr-scene-categories::-webkit-scrollbar-track,
+.cpr-table-groups::-webkit-scrollbar-track,
+.cpr-chain-list::-webkit-scrollbar-track,
+.cpr-result-content::-webkit-scrollbar-track,
+.cpr-result-empty::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .cpr-table-list,
@@ -274,15 +342,67 @@
   color: #160d0b;
 }
 
+.cpr-clear-history {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
 .cpr-result-panel {
-  position: sticky;
-  top: 0;
-  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cpr-result-header,
+.cpr-result-meta {
+  flex: 0 0 auto;
+}
+
+.cpr-result-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-gutter: stable;
+}
+
+.cpr-result-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cpr-result-entry {
+  padding: 12px;
+  border: 1px solid rgba(255, 184, 77, 0.18);
+  border-left: 4px solid #ffb84d;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 184, 77, 0.10), rgba(255, 255, 255, 0.04));
+}
+
+.cpr-result-entry:first-child {
+  border-left-color: #f75fb8;
+  background: linear-gradient(135deg, rgba(247, 95, 184, 0.14), rgba(255, 184, 77, 0.06));
+}
+
+.cpr-result-entry .cpr-result-meta {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 184, 77, 0.14);
+}
+
+.cpr-result-entry .cpr-result-lines {
+  padding-left: 16px;
 }
 
 .cpr-result-empty {
   display: grid;
-  min-height: 220px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
   place-items: center;
   text-align: center;
   color: #cdbfa8;
@@ -304,5 +424,9 @@
   .cpr-chain-step,
   .cpr-chain-meta {
     grid-template-columns: 1fr;
+  }
+
+  .cpr-dashboard-shell {
+    grid-template-rows: minmax(0, 1fr) minmax(180px, 0.45fr);
   }
 }
