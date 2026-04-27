@@ -1,0 +1,93 @@
+<form class="flexcol cpr-rolltable-dashboard-form">
+  <section class="flexcol">
+    <h2>{{localize "cpr-rolltable-dashboard.section.generators"}}</h2>
+    <hr/>
+    <div class="dialog-grid flexcol">
+      <div class="dialog-item flexrow">
+        <div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.generator.nightMarket"}}</div>
+        <div class="dialog-item-input text-nowrap"><button type="button" class="js-generate-night-market">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>
+      </div>
+      <div class="dialog-item flexrow">
+        <div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.generator.merchant"}}</div>
+        <div class="dialog-item-input text-nowrap">
+          <select name="merchantCategory">{{selectOptions categoryChoices selected="random" localize=true}}</select>
+          <button type="button" class="js-generate-merchant">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+        </div>
+      </div>
+      <div class="dialog-item flexrow">
+        <div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.generator.encounter"}}</div>
+        <div class="dialog-item-input text-nowrap">
+          <select name="encounterPeriod">{{selectOptions periodChoices selected="day" localize=true}}</select>
+          <button type="button" class="js-generate-encounter">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+        </div>
+      </div>
+      <div class="dialog-item flexrow">
+        <div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.generator.netrunnerHustle"}}</div>
+        <div class="dialog-item-input text-nowrap">
+          <select name="netrunnerRankBand">{{selectOptions rankChoices selected="rank1to4" localize=true}}</select>
+          <button type="button" class="js-generate-netrunner-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flexcol">
+    <h2>{{localize "cpr-rolltable-dashboard.section.bundled"}}</h2>
+    <hr/>
+    <p>{{localize "cpr-rolltable-dashboard.import.help"}}</p>
+    {{#if isGM}}<button type="button" class="js-import-bundled">{{localize "cpr-rolltable-dashboard.button.import"}}</button>{{/if}}
+    {{#each datatermGroups as |group|}}
+      <h3>{{group.label}}</h3>
+      <ol>
+        {{#each group.tables as |table|}}
+          <li class="flexrow"><span class="flex-grow">{{table.name}}</span><button type="button" class="js-roll-bundled-table" data-table-key="{{table.key}}">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></li>
+        {{/each}}
+      </ol>
+    {{/each}}
+  </section>
+
+  <section class="flexcol">
+    <h2>{{localize "cpr-rolltable-dashboard.section.customChains"}}</h2>
+    <hr/>
+    {{#if isGM}}<button type="button" class="js-add-chain">{{localize "cpr-rolltable-dashboard.button.addChain"}}</button>{{/if}}
+    {{#if customChains.length}}
+      {{#each customChains as |chain|}}
+        <div class="cpr-chain-card" data-chain-id="{{chain.id}}">
+          <hr/>
+          <div class="dialog-grid flexcol">
+            <div class="dialog-item flexrow"><div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.customChain.name"}}</div><div class="dialog-item-input text-nowrap"><input type="text" name="chain-name" value="{{chain.name}}" /></div></div>
+            <div class="dialog-item flexrow"><div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.customChain.category"}}</div><div class="dialog-item-input text-nowrap"><input type="text" name="chain-category" value="{{chain.category}}" /></div></div>
+          </div>
+          <ol>
+            {{#each chain.steps as |step|}}
+              <li class="cpr-chain-step" data-step-index="{{@index}}">
+                <div class="dialog-grid flexcol">
+                  <div class="dialog-item flexrow"><div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.customChain.step"}}</div><div class="dialog-item-input text-nowrap"><input type="text" name="step-label" value="{{step.label}}" /></div></div>
+                  <div class="dialog-item flexrow"><div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.customChain.table"}}</div><div class="dialog-item-input text-nowrap"><select name="step-table-uuid">{{selectOptions ../../tableChoices selected=step.tableUuid}}</select></div></div>
+                  <div class="dialog-item flexrow">
+                    <div class="dialog-item-name text-nowrap">{{localize "cpr-rolltable-dashboard.customChain.repeatMode"}}</div>
+                    <div class="dialog-item-input text-nowrap">
+                      <select name="step-repeat-mode">{{selectOptions ../../repeatChoices selected=step.repeatMode localize=true}}</select>
+                      <input type="number" min="1" name="step-repeat-value" value="{{step.repeatValue}}" />
+                      {{#if ../../isGM}}<button type="button" class="js-remove-step" data-chain-id="{{../id}}" data-step-index="{{@index}}">{{localize "cpr-rolltable-dashboard.button.removeStep"}}</button>{{/if}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+          </ol>
+          <div class="flexrow">
+            {{#if ../isGM}}
+              <button type="button" class="js-add-step" data-chain-id="{{chain.id}}">{{localize "cpr-rolltable-dashboard.button.addStep"}}</button>
+              <button type="button" class="js-save-chain" data-chain-id="{{chain.id}}">{{localize "cpr-rolltable-dashboard.button.saveChain"}}</button>
+              <button type="button" class="js-delete-chain" data-chain-id="{{chain.id}}">{{localize "cpr-rolltable-dashboard.button.deleteChain"}}</button>
+            {{/if}}
+            <button type="button" class="js-run-chain" data-chain-id="{{chain.id}}">{{localize "cpr-rolltable-dashboard.button.runChain"}}</button>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>{{localize "cpr-rolltable-dashboard.customChain.none"}}</p>
+    {{/if}}
+  </section>
+</form>
