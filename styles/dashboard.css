@@ -1,12 +1,19 @@
+.app.cpr-rolltable-dashboard,
+.window-app.cpr-rolltable-dashboard {
+  max-height: calc(100vh - 12px);
+  overflow: hidden;
+}
+
 .cpr-rolltable-dashboard .window-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: min(780px, calc(100vh - 34px));
+  max-height: calc(100vh - 34px);
   min-height: 0;
   padding: 0;
   background: #14100f;
   color: #f6eee0;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .cpr-rolltable-dashboard-form {
@@ -15,9 +22,9 @@
   gap: 14px;
   box-sizing: border-box;
   flex: 1 1 auto;
-  height: 100%;
-  max-height: 100%;
-  min-height: 100%;
+  height: min(780px, calc(100vh - 34px));
+  max-height: calc(100vh - 34px);
+  min-height: 0;
   overflow: hidden;
   padding: 16px;
   background:
@@ -119,8 +126,8 @@
   grid-template-rows: minmax(0, 1fr);
   gap: 14px;
   flex: 1 1 auto;
-  height: 100%;
-  max-height: 100%;
+  height: auto;
+  max-height: none;
   min-height: 0;
   overflow: hidden;
 }
@@ -132,13 +139,16 @@
 
 .cpr-dashboard-body {
   height: 100%;
+  max-height: 100%;
   min-height: 0;
   overflow: hidden;
 }
 
 .cpr-dashboard-body .tab {
   display: none;
+  flex: 1 1 auto;
   height: 100%;
+  max-height: 100%;
   min-height: 0;
 }
 
@@ -150,6 +160,7 @@
 .cpr-dashboard-body .tab > .cpr-panel {
   flex: 1 1 auto;
   height: 100%;
+  max-height: 100%;
   min-height: 0;
 }
 
@@ -247,6 +258,7 @@
   gap: 12px;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-right: 6px;
   scrollbar-gutter: stable;
 }
@@ -256,6 +268,7 @@
   max-height: 100%;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-right: 6px;
   scrollbar-gutter: stable;
 }
@@ -387,6 +400,7 @@
   max-height: 100%;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-right: 6px;
   scrollbar-gutter: stable;
 }
@@ -436,6 +450,7 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   place-items: center;
   text-align: center;
   color: #cdbfa8;
