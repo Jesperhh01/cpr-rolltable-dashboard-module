@@ -134,6 +134,7 @@ export default class CPRRolltableDashboard extends FormApplication {
     this._tableChoices = null;
     this._merchantCache = null;
     this._lastResult = null;
+    this._activeTab = "generators";
   }
 
   static get defaultOptions() {
@@ -147,7 +148,6 @@ export default class CPRRolltableDashboard extends FormApplication {
       submitOnChange: false,
       submitOnClose: false,
       resizable: true,
-      tabs: [{ navSelector: ".cpr-dashboard-tabs", contentSelector: ".cpr-dashboard-body", initial: "generators" }],
       classes: super.defaultOptions.classes.concat([MODULE_ID]),
     });
   }
@@ -178,6 +178,12 @@ export default class CPRRolltableDashboard extends FormApplication {
   activateListeners(html) {
     super.activateListeners(html);
 
+    this._activateDashboardTab(html, this._activeTab);
+    html.find(".cpr-dashboard-tabs .item").click((event) => {
+      event.preventDefault();
+      this._activateDashboardTab(html, event.currentTarget.dataset.tab);
+    });
+
     html.find(".js-generate-night-market").click(() => this._generateNightMarket());
     html.find(".js-generate-merchant").click(() => this._generateMerchantChat(html.find("[name='merchantCategory']").val()));
     html.find(".js-generate-encounter").click(() => this._generateEncounter(html.find("[name='encounterPeriod']").val()));
@@ -196,6 +202,15 @@ export default class CPRRolltableDashboard extends FormApplication {
   }
 
   async _updateObject() {}
+
+  _activateDashboardTab(html, tabName) {
+    if (!tabName) return;
+    this._activeTab = tabName;
+    html.find(".cpr-dashboard-tabs .item").removeClass("active");
+    html.find(`.cpr-dashboard-tabs .item[data-tab="${tabName}"]`).addClass("active");
+    html.find(".cpr-dashboard-body .tab").removeClass("active");
+    html.find(`.cpr-dashboard-body .tab[data-tab="${tabName}"]`).addClass("active");
+  }
 
   async _getTableChoices() {
     if (this._tableChoices) return this._tableChoices;
