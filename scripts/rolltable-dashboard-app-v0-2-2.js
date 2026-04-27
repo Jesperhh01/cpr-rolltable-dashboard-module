@@ -41,6 +41,14 @@ const REPEAT_CHOICES = {
   previousNumeric: `${MODULE_ID}.repeat.previousNumeric`,
 };
 
+const NETRUNNER_HUSTLE_CHOICE = "datatermNetrunnerHustle";
+
+const VENDIT_CATEGORIES = [
+  { range: [1, 4], label: "Food", tableNamePart: "Food" },
+  { range: [5, 8], label: "Personal", tableNamePart: "Personal" },
+  { range: [9, 10], label: "Weird stuff", tableNamePart: "Weird" },
+];
+
 function localize(key) {
   return game.i18n.localize(key);
 }
@@ -126,6 +134,11 @@ function getDatatermGroups() {
       description: localize(`${MODULE_ID}.group.corporateLootHelp`),
       tableKeys: getImportedTableKeys("Corporate, Loot, and Jobs"),
     },
+    {
+      label: localize(`${MODULE_ID}.group.whats`),
+      description: localize(`${MODULE_ID}.group.whatsHelp`),
+      tableKeys: getImportedTableKeys("What's..?"),
+    },
   ];
 }
 
@@ -157,10 +170,23 @@ function findSceneBuilderChain(chainId) {
     .find((chain) => chain.id === chainId);
 }
 
+function findSceneBuilderChainByLabel(groupLabel, chainLabel) {
+  return getSceneBuilderGroups()
+    .flatMap((group) => group.chains.map((chain) => ({ ...chain, groupLabel: group.label })))
+    .find((chain) => chain.groupLabel === groupLabel && chain.label === chainLabel);
+}
+
 function getChainChoices(groupLabel) {
   const group = getSceneBuilderGroups().find((entry) => entry.label === groupLabel);
   if (!group) return {};
   return Object.fromEntries(group.chains.map((chain) => [chain.id, chain.label]));
+}
+
+function getHustleChoices() {
+  return {
+    [NETRUNNER_HUSTLE_CHOICE]: localize(`${MODULE_ID}.generator.netrunnerHustle`),
+    ...getChainChoices("Role Hustles"),
+  };
 }
 
 function localizedCategoryLabel(key) {
@@ -226,10 +252,7 @@ export default class CPRRolltableDashboard extends FormApplication {
       repeatChoices: REPEAT_CHOICES,
       lastResult: this._lastResult,
       postToChat: game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING),
-      roleHustleChoices: getChainChoices("Role Hustles"),
-      factionGeneratorChoices: getChainChoices("Factions and Gangs"),
-      locationGeneratorChoices: getChainChoices("Locations and Scenes"),
-      corporateGeneratorChoices: getChainChoices("Corporate, Loot, and Jobs"),
+      roleHustleChoices: getHustleChoices(),
       datatermGroups: getDatatermGroups().map((group) => ({
         ...group,
         tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula })),
@@ -249,9 +272,10 @@ export default class CPRRolltableDashboard extends FormApplication {
     html.find(".js-generate-night-market").click(() => this._generateNightMarket());
     html.find(".js-generate-merchant").click(() => this._generateMerchantChat(html.find("[name='merchantCategory']").val()));
     html.find(".js-generate-encounter").click(() => this._generateEncounter(html.find("[name='encounterPeriod']").val()));
-    html.find(".js-generate-netrunner-hustle").click(() => this._generateNetrunnerHustle(html.find("[name='netrunnerRankBand']").val()));
-    html.find(".js-generate-role-hustle").click(() => this._generateRoleHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
+    html.find(".js-generate-role-hustle").click(() => this._generateHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
     html.find(".js-generate-desktop-chain").click((event) => this._generateDesktopChain(html.find(`[name='${event.currentTarget.dataset.selectName}']`).val()));
+    html.find(".js-generate-named-chain").click((event) => this._generateNamedDesktopChain(event.currentTarget.dataset.groupLabel, event.currentTarget.dataset.chainLabel));
+    html.find(".js-generate-vendit").click(() => this._generateVendit());
     html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
 
@@ -374,6 +398,14 @@ export default class CPRRolltableDashboard extends FormApplication {
     await this._publishResult(localize(`${MODULE_ID}.hustle.title`), lines);
   }
 
+  async _generateHustle(choice, rankBand) {
+    if (choice === NETRUNNER_HUSTLE_CHOICE) {
+      await this._generateNetrunnerHustle(rankBand);
+      return;
+    }
+    await this._generateRoleHustle(choice, rankBand);
+  }
+
   _getChainTable(chain, tableNamePart) {
     const tableKey = chain.tableKeys.find((key) => DATATERM_TABLES[key].name.includes(tableNamePart));
     return tableKey ? DATATERM_TABLES[tableKey] : null;
@@ -425,6 +457,38 @@ export default class CPRRolltableDashboard extends FormApplication {
       return `${label}: ${this._rollInlineTable(table).text}`;
     });
     await this._publishResult(chain.label, lines);
+  }
+
+  async _generateNamedDesktopChain(groupLabel, chainLabel) {
+    const chain = findSceneBuilderChainByLabel(groupLabel, chainLabel);
+    if (!chain) return;
+    await this._generateDesktopChain(chain.id);
+  }
+
+  _getVenditTable(category) {
+    const tableKey = getImportedTableKeys("What's..?").find((key) => DATATERM_TABLES[key].name.includes(category.tableNamePart));
+    return tableKey ? DATATERM_TABLES[tableKey] : null;
+  }
+
+  async _generateVendit() {
+    const categoryRoll = await this._rollFormula("1d10");
+    const itemCountRoll = await this._rollFormula("1d10");
+    const category = VENDIT_CATEGORIES.find((entry) => categoryRoll.total >= entry.range[0] && categoryRoll.total <= entry.range[1]);
+    const table = category ? this._getVenditTable(category) : null;
+    if (!category || !table) return;
+    const items = [];
+    const seen = new Set();
+    while (items.length < itemCountRoll.total && seen.size < table.results.length) {
+      const item = this._rollInlineTable(table).text;
+      if (seen.has(item)) continue;
+      seen.add(item);
+      items.push(item);
+    }
+    await this._publishResult(localize(`${MODULE_ID}.vendit.title`), [
+      `${localize(`${MODULE_ID}.vendit.categoryRoll`)}: ${categoryRoll.total} (${category.label})`,
+      `${localize(`${MODULE_ID}.vendit.itemCount`)}: ${itemCountRoll.total}`,
+      ...items.map((item) => `- ${item}`),
+    ]);
   }
 
   async _generateNightMarket() {

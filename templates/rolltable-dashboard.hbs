@@ -52,26 +52,9 @@
                     <button type="button" class="js-generate-merchant">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                   </div>
                 </article>
-              </div>
-            </section>
-            <section class="cpr-scene-category">
-              <div class="cpr-scene-category-heading">
-                <span>{{localize "cpr-rolltable-dashboard.ui.hustles"}}</span>
-                <p>{{localize "cpr-rolltable-dashboard.ui.hustlesHelp"}}</p>
-              </div>
-              <div class="cpr-action-grid">
-                <article class="cpr-action-card cpr-accent-net">
-                  <span>{{localize "cpr-rolltable-dashboard.ui.net"}}</span>
-                  <h3>{{localize "cpr-rolltable-dashboard.generator.netrunnerHustle"}}</h3>
-                  <p>{{localize "cpr-rolltable-dashboard.ui.hustleHelp"}}</p>
-                  <div class="cpr-inline-controls">
-                    <select name="netrunnerRankBand">{{selectOptions rankChoices selected="rank1to4" localize=true}}</select>
-                    <button type="button" class="js-generate-netrunner-hustle">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
-                  </div>
-                </article>
                 <article class="cpr-action-card cpr-accent-hustle">
                   <span>{{localize "cpr-rolltable-dashboard.ui.hustles"}}</span>
-                  <h3>{{localize "cpr-rolltable-dashboard.generator.roleHustle"}}</h3>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.hustle"}}</h3>
                   <p>{{localize "cpr-rolltable-dashboard.ui.roleHustleHelp"}}</p>
                   <div class="cpr-inline-controls cpr-inline-controls-stacked">
                     <select name="roleHustleGenerator">{{selectOptions roleHustleChoices}}</select>
@@ -106,12 +89,21 @@
               <div class="cpr-action-grid">
                 <article class="cpr-action-card cpr-accent-faction">
                   <span>{{localize "cpr-rolltable-dashboard.ui.factions"}}</span>
-                  <h3>{{localize "cpr-rolltable-dashboard.generator.faction"}}</h3>
-                  <p>{{localize "cpr-rolltable-dashboard.ui.factionHelp"}}</p>
-                  <div class="cpr-inline-controls">
-                    <select name="factionGenerator">{{selectOptions factionGeneratorChoices}}</select>
-                    <button type="button" class="js-generate-desktop-chain" data-select-name="factionGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
-                  </div>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.cityGangs"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.cityGangsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Factions and Gangs" data-chain-label="City Gangs, Urban Gangs, and Organized Crime">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-faction">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.factions"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.roadGangs"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.roadGangsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Factions and Gangs" data-chain-label="Road Gangs and Nomad Packs">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-faction">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.factions"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.cults"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.cultsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Factions and Gangs" data-chain-label="interesting modern Cults and Religious Weirdos">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                 </article>
               </div>
             </section>
@@ -123,29 +115,41 @@
               <div class="cpr-action-grid">
                 <article class="cpr-action-card cpr-accent-location">
                   <span>{{localize "cpr-rolltable-dashboard.ui.locations"}}</span>
-                  <h3>{{localize "cpr-rolltable-dashboard.generator.location"}}</h3>
-                  <p>{{localize "cpr-rolltable-dashboard.ui.locationHelp"}}</p>
-                  <div class="cpr-inline-controls">
-                    <select name="locationGenerator">{{selectOptions locationGeneratorChoices}}</select>
-                    <button type="button" class="js-generate-desktop-chain" data-select-name="locationGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
-                  </div>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.clubsBars"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.clubsBarsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Locations and Scenes" data-chain-label="Clubs, Bars and Nightlife spots in the City">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-location">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.locations"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.bodegas"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.bodegasHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Locations and Scenes" data-chain-label="Bodegas, Shops, and the Strange People Found There">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-location">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.locations"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.alleysStreets"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.alleysStreetsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Locations and Scenes" data-chain-label="Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
+                </article>
+                <article class="cpr-action-card cpr-accent-location">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.locations"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.urbanEnvironments"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.urbanEnvironmentsHelp"}}</p>
+                  <button type="button" class="js-generate-named-chain" data-group-label="Locations and Scenes" data-chain-label="busy Downtown scenes">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                 </article>
               </div>
             </section>
             <section class="cpr-scene-category">
               <div class="cpr-scene-category-heading">
-                <span>{{localize "cpr-rolltable-dashboard.group.corporateLoot"}}</span>
-                <p>{{localize "cpr-rolltable-dashboard.group.corporateLootHelp"}}</p>
+                <span>{{localize "cpr-rolltable-dashboard.group.whats"}}</span>
+                <p>{{localize "cpr-rolltable-dashboard.group.whatsHelp"}}</p>
               </div>
               <div class="cpr-action-grid">
-                <article class="cpr-action-card cpr-accent-corporate">
-                  <span>{{localize "cpr-rolltable-dashboard.ui.corporateLoot"}}</span>
-                  <h3>{{localize "cpr-rolltable-dashboard.generator.corporateLoot"}}</h3>
-                  <p>{{localize "cpr-rolltable-dashboard.ui.corporateLootHelp"}}</p>
-                  <div class="cpr-inline-controls">
-                    <select name="corporateGenerator">{{selectOptions corporateGeneratorChoices}}</select>
-                    <button type="button" class="js-generate-desktop-chain" data-select-name="corporateGenerator">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
-                  </div>
+                <article class="cpr-action-card cpr-accent-whats">
+                  <span>{{localize "cpr-rolltable-dashboard.ui.whats"}}</span>
+                  <h3>{{localize "cpr-rolltable-dashboard.generator.vendit"}}</h3>
+                  <p>{{localize "cpr-rolltable-dashboard.ui.venditHelp"}}</p>
+                  <button type="button" class="js-generate-vendit">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>
                 </article>
               </div>
             </section>
