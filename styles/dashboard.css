@@ -1,0 +1,235 @@
+.cpr-rolltable-dashboard .window-content {
+  padding: 0;
+  background: #14100f;
+  color: #f6eee0;
+}
+
+.cpr-rolltable-dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100%;
+  padding: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 54, 54, 0.24), transparent 28rem),
+    linear-gradient(145deg, #1d1614 0%, #0d0c0c 100%);
+}
+
+.cpr-dashboard-hero,
+.cpr-panel,
+.cpr-result-panel {
+  border: 1px solid rgba(255, 184, 77, 0.28);
+  border-radius: 12px;
+  background: rgba(23, 20, 18, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+}
+
+.cpr-dashboard-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+}
+
+.cpr-dashboard-hero h1,
+.cpr-panel h2,
+.cpr-result-panel h2,
+.cpr-action-card h3,
+.cpr-table-group h3 {
+  margin: 0;
+  color: #fff7de;
+}
+
+.cpr-dashboard-hero p,
+.cpr-panel-heading p,
+.cpr-action-card p,
+.cpr-table-group p,
+.cpr-empty-note {
+  color: #cdbfa8;
+}
+
+.cpr-kicker,
+.cpr-action-card span {
+  margin: 0 0 4px;
+  color: #ffb84d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cpr-dashboard-tabs {
+  display: flex;
+  gap: 8px;
+  border: 0;
+}
+
+.cpr-dashboard-tabs .item {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 184, 77, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #efe2c8;
+  text-align: center;
+}
+
+.cpr-dashboard-tabs .item.active {
+  background: linear-gradient(135deg, #b92727, #f0a23a);
+  color: #160d0b;
+  text-shadow: none;
+}
+
+.cpr-dashboard-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 14px;
+  min-height: 0;
+}
+
+.cpr-panel,
+.cpr-result-panel {
+  padding: 14px;
+}
+
+.cpr-panel-heading,
+.cpr-heading-actions,
+.cpr-table-group-header,
+.cpr-result-header,
+.cpr-result-meta,
+.cpr-chain-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cpr-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cpr-action-card,
+.cpr-table-group,
+.cpr-chain-card {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.cpr-action-card {
+  border-left: 4px solid #ffb84d;
+}
+
+.cpr-accent-market { border-left-color: #f0a23a; }
+.cpr-accent-merchant { border-left-color: #62d36f; }
+.cpr-accent-street { border-left-color: #ff4f4f; }
+.cpr-accent-net { border-left-color: #3bd6ff; }
+
+.cpr-inline-controls,
+.cpr-chain-meta,
+.cpr-chain-step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.cpr-table-groups,
+.cpr-chain-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cpr-table-list,
+.cpr-result-lines,
+.cpr-chain-steps {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.cpr-table-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.cpr-table-list span,
+.cpr-result-time {
+  display: block;
+  color: #9f927f;
+  font-size: 12px;
+}
+
+.cpr-chain-meta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cpr-chain-step {
+  grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) minmax(120px, 1fr) 84px auto;
+  margin-bottom: 8px;
+}
+
+.cpr-rolltable-dashboard label {
+  color: #d8cbb5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cpr-rolltable-dashboard input,
+.cpr-rolltable-dashboard select {
+  width: 100%;
+  margin-top: 4px;
+  color: #1a1210;
+}
+
+.cpr-rolltable-dashboard button,
+.cpr-primary-action {
+  border: 1px solid rgba(255, 184, 77, 0.55);
+  border-radius: 8px;
+  background: rgba(255, 184, 77, 0.14);
+  color: #fff4d4;
+}
+
+.cpr-rolltable-dashboard button:hover,
+.cpr-primary-action:hover {
+  background: #ffb84d;
+  color: #160d0b;
+}
+
+.cpr-result-panel {
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+.cpr-result-empty {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  text-align: center;
+  color: #cdbfa8;
+}
+
+.cpr-result-empty i {
+  color: #ffb84d;
+  font-size: 36px;
+}
+
+.cpr-result-lines li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+@media (max-width: 920px) {
+  .cpr-dashboard-shell,
+  .cpr-action-grid,
+  .cpr-chain-step,
+  .cpr-chain-meta {
+    grid-template-columns: 1fr;
+  }
+}
