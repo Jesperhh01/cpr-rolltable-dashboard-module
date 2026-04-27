@@ -16,11 +16,7 @@
     "systems": [
       {
         "id": "cyberpunk-red-core",
-        "type": "system",
-        "compatibility": {
-          "minimum": "12",
-          "verified": "12"
-        }
+        "type": "system"
       }
     ]
   },
