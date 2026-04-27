@@ -1,6 +1,6 @@
 // scripts/desktop-rolltables.js
 var DESKTOP_ROLLTABLES = {
-  "hustlesRockerboyHustlesAndDowntimeJobsHustleChart ": {
+  hustlesRockerboyHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Rockerboy Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -78,7 +78,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesRockerboyHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesRockerboyHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Rockerboy Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -226,7 +226,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesRockerboyHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesRockerboyHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Rockerboy Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -304,7 +304,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesRockerboyHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesRockerboyHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Rockerboy Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -354,7 +354,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesSoloHustlesAndDowntimeJobsHustleChart ": {
+  hustlesSoloHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Solo Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -432,7 +432,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesSoloHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesSoloHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Solo Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -580,7 +580,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesSoloHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesSoloHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Solo Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -658,7 +658,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesSoloHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesSoloHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Solo Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -708,7 +708,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesTechHustlesAndDowntimeJobsHustleChart ": {
+  hustlesTechHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Tech Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -786,7 +786,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesTechHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesTechHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Tech Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -934,7 +934,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Tech Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -1012,7 +1012,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Tech Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -1062,7 +1062,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMedTechHustlesAndDowntimeJobsHustleChart ": {
+  hustlesMedTechHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "MedTech Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -1140,7 +1140,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMedTechHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesMedTechHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "MedTech Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -1288,7 +1288,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMedTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesMedTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "MedTech Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -1366,7 +1366,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMedTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesMedTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "MedTech Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -1416,7 +1416,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMediaHustlesAndDowntimeJobsHustleChart ": {
+  hustlesMediaHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Media Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -1494,7 +1494,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMediaHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesMediaHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Media Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -1642,7 +1642,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMediaHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesMediaHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Media Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -1720,7 +1720,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesMediaHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesMediaHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Media Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -1770,7 +1770,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesLawmanHustlesAndDowntimeJobsHustleChart ": {
+  hustlesLawmanHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Lawman Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -1848,7 +1848,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesLawmanHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesLawmanHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Lawman Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -1996,7 +1996,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesLawmanHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesLawmanHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Lawman Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -2074,7 +2074,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesLawmanHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesLawmanHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Lawman Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -2124,7 +2124,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesExecHustlesAndDowntimeJobsHustleChart ": {
+  hustlesExecHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Exec Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -2202,7 +2202,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesExecHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesExecHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Exec Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -2350,7 +2350,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesExecHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesExecHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Exec Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -2428,7 +2428,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesExecHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesExecHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Exec Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -2478,7 +2478,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesFixerHustlesAndDowntimeJobsHustleChart ": {
+  hustlesFixerHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Fixer Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -2556,7 +2556,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesFixerHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesFixerHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Fixer Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -2704,7 +2704,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesFixerHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesFixerHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Fixer Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -2782,7 +2782,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesFixerHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesFixerHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Fixer Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -2832,7 +2832,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesNomadHustlesAndDowntimeJobsHustleChart ": {
+  hustlesNomadHustlesAndDowntimeJobsHustleChart: {
     category: "Hustles",
     folder: "Hustles",
     name: "Nomad Hustles and Downtime Jobs - Hustle Chart [1d10]",
@@ -2910,7 +2910,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesNomadHustlesAndDowntimeJobsWhatWentWrong ": {
+  hustlesNomadHustlesAndDowntimeJobsWhatWentWrong: {
     category: "Hustles",
     folder: "Hustles",
     name: "Nomad Hustles and Downtime Jobs - What Went Wrong? [1d6 + 1d10]",
@@ -3058,7 +3058,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesNomadHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ": {
+  hustlesNomadHustlesAndDowntimeJobsSoWhatIsTheTroubleNow: {
     category: "Hustles",
     folder: "Hustles",
     name: "Nomad Hustles and Downtime Jobs - So What is the Trouble Now? [1d10]",
@@ -3136,7 +3136,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "hustlesNomadHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ": {
+  hustlesNomadHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis: {
     category: "Hustles",
     folder: "Hustles",
     name: "Nomad Hustles and Downtime Jobs - What is the Opportunity if You Fix This? [1d6]",
@@ -3186,7 +3186,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksStyle ": {
+  factionsRoadGangsAndNomadPacksStyle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Style [1d10]",
@@ -3264,7 +3264,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksAttitude ": {
+  factionsRoadGangsAndNomadPacksAttitude: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Attitude [1d10]",
@@ -3342,7 +3342,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksTurfAndTravelRange ": {
+  factionsRoadGangsAndNomadPacksTurfAndTravelRange: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Turf and Travel Range [1d10]",
@@ -3420,7 +3420,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksGoals ": {
+  factionsRoadGangsAndNomadPacksGoals: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Goals [1d10]",
@@ -3498,7 +3498,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksEquipmentAndTactics ": {
+  factionsRoadGangsAndNomadPacksEquipmentAndTactics: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Equipment & Tactics [1d10]",
@@ -3576,7 +3576,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsRoadGangsAndNomadPacksRegularHustle ": {
+  factionsRoadGangsAndNomadPacksRegularHustle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "Road Gangs and Nomad Packs - Regular Hustle [1d10]",
@@ -3654,7 +3654,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeStyle ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeStyle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Style [1d10]",
@@ -3732,7 +3732,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeAttitudeType ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeAttitudeType: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Attitude/Type [1d10]",
@@ -3810,7 +3810,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeTurf ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeTurf: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Turf [1d10]",
@@ -3888,7 +3888,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeGoals ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeGoals: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Goals [1d10]",
@@ -3966,7 +3966,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeEquipmentAndTactics ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeEquipmentAndTactics: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Equipment & Tactics [1d10]",
@@ -4044,7 +4044,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsCityGangsUrbanGangsAndOrganizedCrimeRegularHustle ": {
+  factionsCityGangsUrbanGangsAndOrganizedCrimeRegularHustle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "City Gangs, Urban Gangs, and Organized Crime - Regular Hustle [1d10]",
@@ -4122,7 +4122,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosStyle ": {
+  factionsInterestingModernCultsAndReligiousWeirdosStyle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Style [1d10]",
@@ -4200,7 +4200,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosAttitudeBeliefs ": {
+  factionsInterestingModernCultsAndReligiousWeirdosAttitudeBeliefs: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Attitude/Beliefs [1d10]",
@@ -4278,7 +4278,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosTurf ": {
+  factionsInterestingModernCultsAndReligiousWeirdosTurf: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Turf [1d10]",
@@ -4356,7 +4356,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosGoals ": {
+  factionsInterestingModernCultsAndReligiousWeirdosGoals: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Goals [1d10]",
@@ -4434,7 +4434,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosEquipmentAndTactics ": {
+  factionsInterestingModernCultsAndReligiousWeirdosEquipmentAndTactics: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Equipment & Tactics [1d10]",
@@ -4512,7 +4512,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "factionsInterestingModernCultsAndReligiousWeirdosRegularHustle ": {
+  factionsInterestingModernCultsAndReligiousWeirdosRegularHustle: {
     category: "Factions",
     folder: "Factions and Gangs",
     name: "interesting modern Cults and Religious Weirdos - Regular Hustle [1d10]",
@@ -4590,7 +4590,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCityLocationAndEntrance ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCityLocationAndEntrance: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Location & Entrance [1d10]",
@@ -4668,7 +4668,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCityAppearanceAndStyle ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCityAppearanceAndStyle: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Appearance and Style [1d10]",
@@ -4746,7 +4746,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCityWhoComesHereAndWhy ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCityWhoComesHereAndWhy: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Who Comes Here and Why? [1d10]",
@@ -4824,7 +4824,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCityOwnersProprietors ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCityOwnersProprietors: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Owners/Proprietors [1d10]",
@@ -4902,7 +4902,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCityDangers ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCityDangers: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Dangers [1d10]",
@@ -4980,7 +4980,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsClubsBarsAndNightlifeSpotsInTheCitySecurity ": {
+  locationsClubsBarsAndNightlifeSpotsInTheCitySecurity: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Clubs, Bars and Nightlife spots in the City - Security [1d10]",
@@ -5058,7 +5058,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsBodegasShopsAndTheStrangePeopleFoundThereLocation ": {
+  locationsBodegasShopsAndTheStrangePeopleFoundThereLocation: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Bodegas, Shops, and the Strange People Found There - Location [1d10]",
@@ -5136,7 +5136,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsBodegasShopsAndTheStrangePeopleFoundThereDescription ": {
+  locationsBodegasShopsAndTheStrangePeopleFoundThereDescription: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Bodegas, Shops, and the Strange People Found There - Description [1d10]",
@@ -5214,7 +5214,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsBodegasShopsAndTheStrangePeopleFoundThereThePeopleHere ": {
+  locationsBodegasShopsAndTheStrangePeopleFoundThereThePeopleHere: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Bodegas, Shops, and the Strange People Found There - The People Here [1d6 + 1d10 for each result column]",
@@ -5362,7 +5362,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsPopUpNightMarketsWithCharacterWhereIsItLocated ": {
+  locationsPopUpNightMarketsWithCharacterWhereIsItLocated: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Pop-Up Night Markets with Character - Where is it located? [1d6 + 1d10]",
@@ -5510,7 +5510,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsPopUpNightMarketsWithCharacterWhoAreTheClienteleHere ": {
+  locationsPopUpNightMarketsWithCharacterWhoAreTheClienteleHere: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Pop-Up Night Markets with Character - Who are the Clientele Here? [1d10]",
@@ -5588,7 +5588,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsPopUpNightMarketsWithCharacterWhatSDangerousAboutThisMarket ": {
+  locationsPopUpNightMarketsWithCharacterWhatSDangerousAboutThisMarket: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Pop-Up Night Markets with Character - What's Dangerous About This Market? [1d10]",
@@ -5666,7 +5666,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsPopUpNightMarketsWithCharacterWhoIsSellingHere ": {
+  locationsPopUpNightMarketsWithCharacterWhoIsSellingHere: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Pop-Up Night Markets with Character - Who is selling here? [1d10]",
@@ -5744,7 +5744,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatDoesItLookLike ": {
+  locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatDoesItLookLike: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc - What Does it Look Like? [1d10]",
@@ -5822,7 +5822,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatIsHere ": {
+  locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatIsHere: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc - What is Here? [1d10]",
@@ -5900,7 +5900,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSecretsAreHereOptional ": {
+  locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSecretsAreHereOptional: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc - What Secrets Are Here (Optional) [1d10]",
@@ -5978,7 +5978,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSAround ": {
+  locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSAround: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc - What’s Around? [1d100]",
@@ -6224,7 +6224,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "locationsBusyDowntownScenesDowntownEnvironment ": {
+  locationsBusyDowntownScenesDowntownEnvironment: {
     category: "Locations",
     folder: "Locations and Scenes",
     name: "busy Downtown scenes - Downtown Environment [1d100]",
@@ -12127,7 +12127,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "corporateLootExpandedVenditInventoriesFood1d1014)": {
+  corporateLootExpandedVenditInventoriesFood1d1014: {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
     name: "Expanded Vendit Inventories - Food (1d10: 1-4)",
@@ -12373,7 +12373,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "corporateLootExpandedVenditInventoriesPersonal1d1058)": {
+  corporateLootExpandedVenditInventoriesPersonal1d1058: {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
     name: "Expanded Vendit Inventories - Personal (1d10: 5-8)",
@@ -12619,7 +12619,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "corporateLootExpandedVenditInventoriesWeird1d10910)": {
+  corporateLootExpandedVenditInventoriesWeird1d10910: {
     category: "CorporateLoot",
     folder: "Corporate, Loot, and Jobs",
     name: "Expanded Vendit Inventories - Weird (1d10: 9-10)",
@@ -13573,7 +13573,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "whatsVenditsFood1d1014)": {
+  whatsVenditsFood1d1014: {
     category: "Whats",
     folder: "What's..?",
     name: "vendits - Food (1d10: 1-4)",
@@ -13819,7 +13819,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "whatsVenditsPersonal1d1058)": {
+  whatsVenditsPersonal1d1058: {
     category: "Whats",
     folder: "What's..?",
     name: "vendits - Personal (1d10: 5-8)",
@@ -14065,7 +14065,7 @@ var DESKTOP_ROLLTABLES = {
       }
     ]
   },
-  "whatsVenditsWeird1d10910)": {
+  whatsVenditsWeird1d10910: {
     category: "Whats",
     folder: "What's..?",
     name: "vendits - Weird (1d10: 9-10)",
@@ -14310,6 +14310,714 @@ var DESKTOP_ROLLTABLES = {
         text: "Vials of Poison"
       }
     ]
+  },
+  whatsWhatSInTheFileWhatSInTheFile: {
+    category: "Whats",
+    folder: "What's..?",
+    name: "What's in the File?",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "A DeckKrash trap, roll (1d10+4)."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Codes to access a secure room."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "An overflowing spam message folder."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "A 3D map of a building."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Messages with a partner about a date."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "A dossier of a trusted mercenary."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "A log dump of network traffic."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "A note of a mysterious meeting spot."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "A special access Datapool program."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Record of recent cyberware purchase."
+      },
+      {
+        range: [
+          11,
+          11
+        ],
+        text: "A saved pop-media download."
+      },
+      {
+        range: [
+          12,
+          12
+        ],
+        text: "An exclusive music file."
+      },
+      {
+        range: [
+          13,
+          13
+        ],
+        text: "A video of a mysterious target."
+      },
+      {
+        range: [
+          14,
+          14
+        ],
+        text: "Bio-scans or bloodwork records."
+      },
+      {
+        range: [
+          15,
+          15
+        ],
+        text: "A business contract or agreement."
+      },
+      {
+        range: [
+          16,
+          16
+        ],
+        text: "A BD designed for meditation."
+      },
+      {
+        range: [
+          17,
+          17
+        ],
+        text: "Bank account information."
+      },
+      {
+        range: [
+          18,
+          18
+        ],
+        text: "An old saved screamsheet download."
+      },
+      {
+        range: [
+          19,
+          19
+        ],
+        text: "Record of an Old NET access point."
+      },
+      {
+        range: [
+          20,
+          20
+        ],
+        text: "Money (digital): 1d6x20eb"
+      },
+      {
+        range: [
+          21,
+          21
+        ],
+        text: "Engineering documents or drawings."
+      },
+      {
+        range: [
+          22,
+          22
+        ],
+        text: "Photos of family or relatives."
+      },
+      {
+        range: [
+          23,
+          23
+        ],
+        text: "A recording of a sexual encounter."
+      },
+      {
+        range: [
+          24,
+          24
+        ],
+        text: "Messages to an edgerunner or fixer."
+      },
+      {
+        range: [
+          25,
+          25
+        ],
+        text: "A record of a planned assassination."
+      },
+      {
+        range: [
+          26,
+          26
+        ],
+        text: "Evidence of a corporate conspiracy."
+      },
+      {
+        range: [
+          27,
+          27
+        ],
+        text: "Money: 1d6x40eb"
+      },
+      {
+        range: [
+          28,
+          28
+        ],
+        text: "Reservations at a restaurant/venue."
+      },
+      {
+        range: [
+          29,
+          29
+        ],
+        text: "Invoice from recent contractor work."
+      },
+      {
+        range: [
+          30,
+          30
+        ],
+        text: "Legal filings or legal paperwork."
+      },
+      {
+        range: [
+          31,
+          31
+        ],
+        text: "NCPD official investigation files."
+      },
+      {
+        range: [
+          32,
+          32
+        ],
+        text: "Plans for a tech invention."
+      },
+      {
+        range: [
+          33,
+          33
+        ],
+        text: "Charges from a prostitute/brothel."
+      },
+      {
+        range: [
+          34,
+          34
+        ],
+        text: "Pictures of something truly weird."
+      },
+      {
+        range: [
+          35,
+          35
+        ],
+        text: "Record of medical treatment."
+      },
+      {
+        range: [
+          36,
+          36
+        ],
+        text: "A dormant virus or malware."
+      },
+      {
+        range: [
+          37,
+          37
+        ],
+        text: "A lot of photos of food."
+      },
+      {
+        range: [
+          38,
+          38
+        ],
+        text: "Money: 1d6x60eb"
+      },
+      {
+        range: [
+          39,
+          39
+        ],
+        text: "A mundane recorded conversation."
+      },
+      {
+        range: [
+          40,
+          40
+        ],
+        text: "Random saved camera footage."
+      },
+      {
+        range: [
+          41,
+          41
+        ],
+        text: "A recent shipping manifest."
+      },
+      {
+        range: [
+          42,
+          42
+        ],
+        text: "Messages hinting at a conspiracy."
+      },
+      {
+        range: [
+          43,
+          43
+        ],
+        text: "A saved earnings report/presentation."
+      },
+      {
+        range: [
+          44,
+          44
+        ],
+        text: "Route map for a smuggling ring."
+      },
+      {
+        range: [
+          45,
+          45
+        ],
+        text: "A BD of a sexually deviant encounter."
+      },
+      {
+        range: [
+          46,
+          46
+        ],
+        text: "Access codes to remote drone/robot."
+      },
+      {
+        range: [
+          47,
+          47
+        ],
+        text: "A saved academic paper."
+      },
+      {
+        range: [
+          48,
+          48
+        ],
+        text: "A very very large log file."
+      },
+      {
+        range: [
+          49,
+          49
+        ],
+        text: "Architectural plans or designs."
+      },
+      {
+        range: [
+          50,
+          50
+        ],
+        text: "A personnel or employee list."
+      },
+      {
+        range: [
+          51,
+          51
+        ],
+        text: "A message chain about a betting pool."
+      },
+      {
+        range: [
+          52,
+          52
+        ],
+        text: "An XBD of a murder or torture scene."
+      },
+      {
+        range: [
+          53,
+          53
+        ],
+        text: "An Ihara-Grubb installation program."
+      },
+      {
+        range: [
+          54,
+          54
+        ],
+        text: "A children's cartoon or animation."
+      },
+      {
+        range: [
+          55,
+          55
+        ],
+        text: "Boring work related message chains."
+      },
+      {
+        range: [
+          56,
+          56
+        ],
+        text: "A network map or list of architectures."
+      },
+      {
+        range: [
+          57,
+          57
+        ],
+        text: "A Demon solving a big math problem."
+      },
+      {
+        range: [
+          58,
+          58
+        ],
+        text: "A model of a machine or tool."
+      },
+      {
+        range: [
+          59,
+          59
+        ],
+        text: "Records of contract negotiation."
+      },
+      {
+        range: [
+          60,
+          60
+        ],
+        text: "Angry/threat messages to a friend."
+      },
+      {
+        range: [
+          61,
+          61
+        ],
+        text: "A patent record for some device."
+      },
+      {
+        range: [
+          62,
+          62
+        ],
+        text: "Scandalous audio journal recordings."
+      },
+      {
+        range: [
+          63,
+          63
+        ],
+        text: "Files on a known edgerunner."
+      },
+      {
+        range: [
+          64,
+          64
+        ],
+        text: "A secret file of blackmail material."
+      },
+      {
+        range: [
+          65,
+          65
+        ],
+        text: "A free deck program."
+      },
+      {
+        range: [
+          66,
+          66
+        ],
+        text: "A funny cat video."
+      },
+      {
+        range: [
+          67,
+          67
+        ],
+        text: "A travel plan to some far off place."
+      },
+      {
+        range: [
+          68,
+          68
+        ],
+        text: "Text files containing codes/passwords."
+      },
+      {
+        range: [
+          69,
+          69
+        ],
+        text: "Money: 1d6x80eb"
+      },
+      {
+        range: [
+          70,
+          70
+        ],
+        text: "A popular video game."
+      },
+      {
+        range: [
+          71,
+          71
+        ],
+        text: "Scientific records or reports."
+      },
+      {
+        range: [
+          72,
+          72
+        ],
+        text: "A language learning software."
+      },
+      {
+        range: [
+          73,
+          73
+        ],
+        text: "Compromising pictures of the owner."
+      },
+      {
+        range: [
+          74,
+          74
+        ],
+        text: "Doctored video of a public official."
+      },
+      {
+        range: [
+          75,
+          75
+        ],
+        text: "Access code to a Control Node."
+      },
+      {
+        range: [
+          76,
+          76
+        ],
+        text: "Purchase order for a new vehicle."
+      },
+      {
+        range: [
+          77,
+          77
+        ],
+        text: "Passwords to a network architecture."
+      },
+      {
+        range: [
+          78,
+          78
+        ],
+        text: "News broadcast saved to video."
+      },
+      {
+        range: [
+          79,
+          79
+        ],
+        text: "A corrupted data file."
+      },
+      {
+        range: [
+          80,
+          80
+        ],
+        text: "A map/layout of some other building."
+      },
+      {
+        range: [
+          81,
+          81
+        ],
+        text: "A program named “DON’T CLICK THIS”"
+      },
+      {
+        range: [
+          82,
+          82
+        ],
+        text: "Records of security installations."
+      },
+      {
+        range: [
+          83,
+          83
+        ],
+        text: "Love notes to someone unexpected."
+      },
+      {
+        range: [
+          84,
+          84
+        ],
+        text: "Photos from a trip or travel."
+      },
+      {
+        range: [
+          85,
+          85
+        ],
+        text: "An old data encryption program."
+      },
+      {
+        range: [
+          86,
+          86
+        ],
+        text: "Religious scripture or documents."
+      },
+      {
+        range: [
+          87,
+          87
+        ],
+        text: "Worried messages from family/lovers."
+      },
+      {
+        range: [
+          88,
+          88
+        ],
+        text: "A message about a hidden dead drop."
+      },
+      {
+        range: [
+          89,
+          89
+        ],
+        text: "A secretly recorded conversation."
+      },
+      {
+        range: [
+          90,
+          90
+        ],
+        text: "Embarrassing diary/journal entries."
+      },
+      {
+        range: [
+          91,
+          91
+        ],
+        text: "VPN connection to an old NET server."
+      },
+      {
+        range: [
+          92,
+          92
+        ],
+        text: "An inactive romantic partner program."
+      },
+      {
+        range: [
+          93,
+          93
+        ],
+        text: "Money: 1d6x100eb"
+      },
+      {
+        range: [
+          94,
+          94
+        ],
+        text: "A half-written review of a new book."
+      },
+      {
+        range: [
+          95,
+          95
+        ],
+        text: "Masters of an unreleased song."
+      },
+      {
+        range: [
+          96,
+          96
+        ],
+        text: "Draft of a book the owner is writing."
+      },
+      {
+        range: [
+          97,
+          97
+        ],
+        text: "Pictures of the owners pets."
+      },
+      {
+        range: [
+          98,
+          98
+        ],
+        text: "Information about a drug deal."
+      },
+      {
+        range: [
+          99,
+          99
+        ],
+        text: "Downloadable Black ICE."
+      },
+      {
+        range: [
+          100,
+          100
+        ],
+        text: "There is something extremely lucky or useful for the player, or perhaps let them decide what they find in the file."
+      }
+    ]
   }
 };
 var DESKTOP_TABLE_GROUPS = [
@@ -14317,90 +15025,90 @@ var DESKTOP_TABLE_GROUPS = [
     label: "Role Hustles",
     description: "Downtime job tables for Cyberpunk RED roles, imported from Hustles.txt.",
     tableKeys: [
-      "hustlesRockerboyHustlesAndDowntimeJobsHustleChart ",
-      "hustlesRockerboyHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesRockerboyHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesRockerboyHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesSoloHustlesAndDowntimeJobsHustleChart ",
-      "hustlesSoloHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesSoloHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesSoloHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesTechHustlesAndDowntimeJobsHustleChart ",
-      "hustlesTechHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesMedTechHustlesAndDowntimeJobsHustleChart ",
-      "hustlesMedTechHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesMedTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesMedTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesMediaHustlesAndDowntimeJobsHustleChart ",
-      "hustlesMediaHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesMediaHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesMediaHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesLawmanHustlesAndDowntimeJobsHustleChart ",
-      "hustlesLawmanHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesLawmanHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesLawmanHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesExecHustlesAndDowntimeJobsHustleChart ",
-      "hustlesExecHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesExecHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesExecHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesFixerHustlesAndDowntimeJobsHustleChart ",
-      "hustlesFixerHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesFixerHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesFixerHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis ",
-      "hustlesNomadHustlesAndDowntimeJobsHustleChart ",
-      "hustlesNomadHustlesAndDowntimeJobsWhatWentWrong ",
-      "hustlesNomadHustlesAndDowntimeJobsSoWhatIsTheTroubleNow ",
-      "hustlesNomadHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis "
+      "hustlesRockerboyHustlesAndDowntimeJobsHustleChart",
+      "hustlesRockerboyHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesRockerboyHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesRockerboyHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesSoloHustlesAndDowntimeJobsHustleChart",
+      "hustlesSoloHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesSoloHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesSoloHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesTechHustlesAndDowntimeJobsHustleChart",
+      "hustlesTechHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesMedTechHustlesAndDowntimeJobsHustleChart",
+      "hustlesMedTechHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesMedTechHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesMedTechHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesMediaHustlesAndDowntimeJobsHustleChart",
+      "hustlesMediaHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesMediaHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesMediaHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesLawmanHustlesAndDowntimeJobsHustleChart",
+      "hustlesLawmanHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesLawmanHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesLawmanHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesExecHustlesAndDowntimeJobsHustleChart",
+      "hustlesExecHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesExecHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesExecHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesFixerHustlesAndDowntimeJobsHustleChart",
+      "hustlesFixerHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesFixerHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesFixerHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis",
+      "hustlesNomadHustlesAndDowntimeJobsHustleChart",
+      "hustlesNomadHustlesAndDowntimeJobsWhatWentWrong",
+      "hustlesNomadHustlesAndDowntimeJobsSoWhatIsTheTroubleNow",
+      "hustlesNomadHustlesAndDowntimeJobsWhatIsTheOpportunityIfYouFixThis"
     ]
   },
   {
     label: "Factions and Gangs",
     description: "Road gangs, city gangs, organized crime, cults, and strange crews.",
     tableKeys: [
-      "factionsRoadGangsAndNomadPacksStyle ",
-      "factionsRoadGangsAndNomadPacksAttitude ",
-      "factionsRoadGangsAndNomadPacksTurfAndTravelRange ",
-      "factionsRoadGangsAndNomadPacksGoals ",
-      "factionsRoadGangsAndNomadPacksEquipmentAndTactics ",
-      "factionsRoadGangsAndNomadPacksRegularHustle ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeStyle ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeAttitudeType ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeTurf ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeGoals ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeEquipmentAndTactics ",
-      "factionsCityGangsUrbanGangsAndOrganizedCrimeRegularHustle ",
-      "factionsInterestingModernCultsAndReligiousWeirdosStyle ",
-      "factionsInterestingModernCultsAndReligiousWeirdosAttitudeBeliefs ",
-      "factionsInterestingModernCultsAndReligiousWeirdosTurf ",
-      "factionsInterestingModernCultsAndReligiousWeirdosGoals ",
-      "factionsInterestingModernCultsAndReligiousWeirdosEquipmentAndTactics ",
-      "factionsInterestingModernCultsAndReligiousWeirdosRegularHustle "
+      "factionsRoadGangsAndNomadPacksStyle",
+      "factionsRoadGangsAndNomadPacksAttitude",
+      "factionsRoadGangsAndNomadPacksTurfAndTravelRange",
+      "factionsRoadGangsAndNomadPacksGoals",
+      "factionsRoadGangsAndNomadPacksEquipmentAndTactics",
+      "factionsRoadGangsAndNomadPacksRegularHustle",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeStyle",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeAttitudeType",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeTurf",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeGoals",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeEquipmentAndTactics",
+      "factionsCityGangsUrbanGangsAndOrganizedCrimeRegularHustle",
+      "factionsInterestingModernCultsAndReligiousWeirdosStyle",
+      "factionsInterestingModernCultsAndReligiousWeirdosAttitudeBeliefs",
+      "factionsInterestingModernCultsAndReligiousWeirdosTurf",
+      "factionsInterestingModernCultsAndReligiousWeirdosGoals",
+      "factionsInterestingModernCultsAndReligiousWeirdosEquipmentAndTactics",
+      "factionsInterestingModernCultsAndReligiousWeirdosRegularHustle"
     ]
   },
   {
     label: "Locations and Scenes",
     description: "Clubs, bodegas, pop-up markets, alleys, downtown blocks, and other scene dressing.",
     tableKeys: [
-      "locationsClubsBarsAndNightlifeSpotsInTheCityLocationAndEntrance ",
-      "locationsClubsBarsAndNightlifeSpotsInTheCityAppearanceAndStyle ",
-      "locationsClubsBarsAndNightlifeSpotsInTheCityWhoComesHereAndWhy ",
-      "locationsClubsBarsAndNightlifeSpotsInTheCityOwnersProprietors ",
-      "locationsClubsBarsAndNightlifeSpotsInTheCityDangers ",
-      "locationsClubsBarsAndNightlifeSpotsInTheCitySecurity ",
-      "locationsBodegasShopsAndTheStrangePeopleFoundThereLocation ",
-      "locationsBodegasShopsAndTheStrangePeopleFoundThereDescription ",
-      "locationsBodegasShopsAndTheStrangePeopleFoundThereThePeopleHere ",
-      "locationsPopUpNightMarketsWithCharacterWhereIsItLocated ",
-      "locationsPopUpNightMarketsWithCharacterWhoAreTheClienteleHere ",
-      "locationsPopUpNightMarketsWithCharacterWhatSDangerousAboutThisMarket ",
-      "locationsPopUpNightMarketsWithCharacterWhoIsSellingHere ",
-      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatDoesItLookLike ",
-      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatIsHere ",
-      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSecretsAreHereOptional ",
-      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSAround ",
-      "locationsBusyDowntownScenesDowntownEnvironment "
+      "locationsClubsBarsAndNightlifeSpotsInTheCityLocationAndEntrance",
+      "locationsClubsBarsAndNightlifeSpotsInTheCityAppearanceAndStyle",
+      "locationsClubsBarsAndNightlifeSpotsInTheCityWhoComesHereAndWhy",
+      "locationsClubsBarsAndNightlifeSpotsInTheCityOwnersProprietors",
+      "locationsClubsBarsAndNightlifeSpotsInTheCityDangers",
+      "locationsClubsBarsAndNightlifeSpotsInTheCitySecurity",
+      "locationsBodegasShopsAndTheStrangePeopleFoundThereLocation",
+      "locationsBodegasShopsAndTheStrangePeopleFoundThereDescription",
+      "locationsBodegasShopsAndTheStrangePeopleFoundThereThePeopleHere",
+      "locationsPopUpNightMarketsWithCharacterWhereIsItLocated",
+      "locationsPopUpNightMarketsWithCharacterWhoAreTheClienteleHere",
+      "locationsPopUpNightMarketsWithCharacterWhatSDangerousAboutThisMarket",
+      "locationsPopUpNightMarketsWithCharacterWhoIsSellingHere",
+      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatDoesItLookLike",
+      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatIsHere",
+      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSecretsAreHereOptional",
+      "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSAround",
+      "locationsBusyDowntownScenesDowntownEnvironment"
     ]
   },
   {
@@ -14415,9 +15123,9 @@ var DESKTOP_TABLE_GROUPS = [
       "corporateLootThingsToFindWhileLootingBodiesThingsToFindWhileLootingBodies",
       "corporateLootRandomJobsForPeopleOutsideTheOfficeRandomJobsForPeopleOutsideTheOffice",
       "corporateLootRandomJobTitlesForCorporateOfficesRandomJobTitlesForCorporateOffices",
-      "corporateLootExpandedVenditInventoriesFood1d1014)",
-      "corporateLootExpandedVenditInventoriesPersonal1d1058)",
-      "corporateLootExpandedVenditInventoriesWeird1d10910)",
+      "corporateLootExpandedVenditInventoriesFood1d1014",
+      "corporateLootExpandedVenditInventoriesPersonal1d1058",
+      "corporateLootExpandedVenditInventoriesWeird1d10910",
       "corporateLootProjectsForExecsAndCorporateEmployeesProjectsForExecsAndCorporateEmployees"
     ]
   },
@@ -14425,9 +15133,10 @@ var DESKTOP_TABLE_GROUPS = [
     label: "What's..?",
     description: "Vendit inventory and other what-is-it chained generators.",
     tableKeys: [
-      "whatsVenditsFood1d1014)",
-      "whatsVenditsPersonal1d1058)",
-      "whatsVenditsWeird1d10910)"
+      "whatsVenditsFood1d1014",
+      "whatsVenditsPersonal1d1058",
+      "whatsVenditsWeird1d10910",
+      "whatsWhatSInTheFileWhatSInTheFile"
     ]
   }
 ];
