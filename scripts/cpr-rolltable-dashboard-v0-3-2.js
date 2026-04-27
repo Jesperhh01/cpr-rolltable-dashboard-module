@@ -13944,6 +13944,7 @@ var CYBER_GEAR_MATCHERS = ["cyberdeck", "smart glasses", "battleglove", "linear 
 // scripts/rolltable-dashboard-app-v0-2-2.js
 var MODULE_ID = "cpr-rolltable-dashboard";
 var CHAIN_SETTING = "rolltableDashboardChains";
+var POST_TO_CHAT_SETTING = "postRollsToChat";
 var ROOT_FOLDER_NAME = "CPR Rolltable Dashboard";
 var REQUIRED_SYSTEM_ID = "cyberpunk-red-core";
 var CATEGORY_CHOICES = {
@@ -13992,6 +13993,9 @@ function notify(type, key) {
 }
 function getImportedTableKeys(groupLabel) {
   return FUTURE_TABLE_GROUPS.find((group) => group.label === groupLabel)?.tableKeys ?? [];
+}
+function slugify(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 function getDatatermGroups() {
   return [
@@ -14042,11 +14046,35 @@ function getDatatermGroups() {
   ];
 }
 function getSceneBuilderGroups() {
-  return FUTURE_TABLE_GROUPS.map((group) => ({
-    label: group.label,
-    description: group.description,
-    tableKeys: group.tableKeys
-  }));
+  return FUTURE_TABLE_GROUPS.map((group) => {
+    const chains = [];
+    group.tableKeys.forEach((tableKey) => {
+      const table = DATATERM_TABLES[tableKey];
+      if (!table)
+        return;
+      const [baseName] = table.name.split(" - ");
+      let chain = chains.find((entry) => entry.label === baseName);
+      if (!chain) {
+        chain = { id: `${slugify(group.label)}:${slugify(baseName)}`, label: baseName, tableKeys: [] };
+        chains.push(chain);
+      }
+      chain.tableKeys.push(tableKey);
+    });
+    return {
+      label: group.label,
+      description: group.description,
+      chains
+    };
+  });
+}
+function findSceneBuilderChain(chainId) {
+  return getSceneBuilderGroups().flatMap((group) => group.chains.map((chain) => ({ ...chain, groupLabel: group.label }))).find((chain) => chain.id === chainId);
+}
+function getChainChoices(groupLabel) {
+  const group = getSceneBuilderGroups().find((entry) => entry.label === groupLabel);
+  if (!group)
+    return {};
+  return Object.fromEntries(group.chains.map((chain) => [chain.id, chain.label]));
 }
 function localizedCategoryLabel(key) {
   return localize(CATEGORY_CHOICES[key]);
@@ -14103,11 +14131,12 @@ class CPRRolltableDashboard extends FormApplication {
       periodChoices: PERIOD_CHOICES,
       repeatChoices: REPEAT_CHOICES,
       lastResult: this._lastResult,
+      postToChat: game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING),
+      roleHustleChoices: getChainChoices("Role Hustles"),
+      factionGeneratorChoices: getChainChoices("Factions and Gangs"),
+      locationGeneratorChoices: getChainChoices("Locations and Scenes"),
+      corporateGeneratorChoices: getChainChoices("Corporate, Loot, and Jobs"),
       datatermGroups: getDatatermGroups().map((group) => ({
-        ...group,
-        tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
-      })),
-      sceneBuilderGroups: getSceneBuilderGroups().map((group) => ({
         ...group,
         tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
       }))
@@ -14124,6 +14153,9 @@ class CPRRolltableDashboard extends FormApplication {
     html.find(".js-generate-merchant").click(() => this._generateMerchantChat(html.find("[name='merchantCategory']").val()));
     html.find(".js-generate-encounter").click(() => this._generateEncounter(html.find("[name='encounterPeriod']").val()));
     html.find(".js-generate-netrunner-hustle").click(() => this._generateNetrunnerHustle(html.find("[name='netrunnerRankBand']").val()));
+    html.find(".js-generate-role-hustle").click(() => this._generateRoleHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
+    html.find(".js-generate-desktop-chain").click((event) => this._generateDesktopChain(html.find(`[name='${event.currentTarget.dataset.selectName}']`).val()));
+    html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
     if (!game.user.isGM)
       return;
@@ -14163,7 +14195,7 @@ class CPRRolltableDashboard extends FormApplication {
     return choices;
   }
   async _publishResult(title, lines, options = {}) {
-    const { postToChat = true, allowHtml = false } = options;
+    const { postToChat = game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING), allowHtml = false } = options;
     const safeTitle = allowHtml ? title : escapeHtml(title);
     const safeLines = allowHtml ? lines : lines.map((line) => escapeHtml(line));
     const timestamp = new Date().toLocaleTimeString();
@@ -14232,6 +14264,61 @@ class CPRRolltableDashboard extends FormApplication {
       lines.push(`${localize(`${MODULE_ID}.hustle.complication`)}: ${this._rollInlineTable(DATATERM_TABLES.netrunnerWhatWentWrong).text}`, `${localize(`${MODULE_ID}.hustle.trouble`)}: ${this._rollInlineTable(DATATERM_TABLES.netrunnerTroubleNow).text}`, `${localize(`${MODULE_ID}.hustle.opportunity`)}: ${this._rollInlineTable(DATATERM_TABLES.netrunnerOpportunity).text}`);
     }
     await this._publishResult(localize(`${MODULE_ID}.hustle.title`), lines);
+  }
+  _getChainTable(chain, tableNamePart) {
+    const tableKey = chain.tableKeys.find((key) => DATATERM_TABLES[key].name.includes(tableNamePart));
+    return tableKey ? DATATERM_TABLES[tableKey] : null;
+  }
+  _parseHustleResult(text, rankBand) {
+    const parts = text.split(" / ");
+    const payIndex = { rank1to4: 1, rank5to7: 2, rank8to10: 3 }[rankBand];
+    const complication = Number(parts[4]);
+    return {
+      result: parts[0],
+      pay: parts[payIndex] ?? "?",
+      complicationOn: Number.isNaN(complication) ? null : complication
+    };
+  }
+  async _generateRoleHustle(chainId, rankBand) {
+    const chain = findSceneBuilderChain(chainId);
+    if (!chain)
+      return;
+    const hustleTable = this._getChainTable(chain, "Hustle Chart");
+    if (!hustleTable)
+      return;
+    const hustle = this._parseHustleResult(this._rollInlineTable(hustleTable).text, rankBand);
+    const complicationRoll = await this._rollFormula("1d6");
+    const lines = [
+      `${localize(`${MODULE_ID}.rank.label`)}: ${localize(RANK_CHOICES[rankBand])}`,
+      `${localize(`${MODULE_ID}.hustle.result`)}: ${hustle.result}`,
+      `${localize(`${MODULE_ID}.hustle.pay`)}: ${hustle.pay} eb`
+    ];
+    if (hustle.complicationOn) {
+      lines.push(`${localize(`${MODULE_ID}.hustle.complicationRoll`)}: ${complicationRoll.total}/${hustle.complicationOn}`);
+    }
+    if (hustle.complicationOn && complicationRoll.total <= hustle.complicationOn) {
+      const wentWrong = this._getChainTable(chain, "What Went Wrong");
+      const trouble = this._getChainTable(chain, "So What is the Trouble Now");
+      const opportunity = this._getChainTable(chain, "What is the Opportunity");
+      if (wentWrong)
+        lines.push(`${localize(`${MODULE_ID}.hustle.complication`)}: ${this._rollInlineTable(wentWrong).text}`);
+      if (trouble)
+        lines.push(`${localize(`${MODULE_ID}.hustle.trouble`)}: ${this._rollInlineTable(trouble).text}`);
+      if (opportunity)
+        lines.push(`${localize(`${MODULE_ID}.hustle.opportunity`)}: ${this._rollInlineTable(opportunity).text}`);
+    }
+    await this._publishResult(chain.label, lines);
+  }
+  async _generateDesktopChain(chainId) {
+    const chain = findSceneBuilderChain(chainId);
+    if (!chain)
+      return;
+    const lines = chain.tableKeys.map((tableKey) => {
+      const table = DATATERM_TABLES[tableKey];
+      const label = table.name.replace(`${chain.label} - `, "");
+      return `${label}: ${this._rollInlineTable(table).text}`;
+    });
+    await this._publishResult(chain.label, lines);
   }
   async _generateNightMarket() {
     const categories = Object.keys(CATEGORY_CHOICES).filter((key) => key !== "random");
@@ -14487,6 +14574,12 @@ function registerRolltableDashboard() {
     config: false,
     type: Array,
     default: []
+  });
+  game.settings.register(MODULE_ID, POST_TO_CHAT_SETTING, {
+    scope: "client",
+    config: false,
+    type: Boolean,
+    default: true
   });
   Hooks.on("getSceneControlButtons", (controls) => {
     const tokenControls = controls.find((control) => control.name === "token");
