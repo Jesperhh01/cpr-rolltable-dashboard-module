@@ -38,10 +38,11 @@ Open the dashboard from the token controls toolbar using the table icon.
 Use this tab when you need something immediately during play:
 
 - **Economy** contains Night Market and Merchant generators.
-- **Hustles** contains downtime-oriented hustle generation.
+- **Hustles** contains Netrunner Hustle and Role Hustle chained generators.
 - **Street Pressure** contains daytime and nighttime encounter generation.
+- **Factions and Gangs**, **Locations and Scenes**, and **Corporate, Loot, and Jobs** generate connected table chains from the bundled Desktop sources.
 
-Every roll appears in the **Latest Roll** panel on the right and is also posted to chat for a table-visible log.
+Every roll appears in the **Latest Roll** panel on the right. Use **Post rolls to public chat** to control whether those results are also posted to the main chat.
 
 ### Bundled Rolltables
 
