@@ -141,6 +141,37 @@
   color: #cdbfa8;
 }
 
+.cpr-scene-table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.cpr-scene-table-button {
+  display: flex;
+  min-height: 66px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 9px 10px;
+  text-align: left;
+  white-space: normal;
+}
+
+.cpr-scene-table-button strong {
+  color: #fff7de;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.cpr-scene-table-button span {
+  color: #ffb84d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .cpr-action-card,
 .cpr-table-group,
 .cpr-chain-card {

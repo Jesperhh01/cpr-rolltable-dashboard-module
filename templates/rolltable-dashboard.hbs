@@ -65,6 +65,26 @@
                 </article>
               </div>
             </section>
+            {{#each sceneBuilderGroups as |group|}}
+              <section class="cpr-scene-category">
+                <div class="cpr-scene-category-heading">
+                  <span>{{group.label}}</span>
+                  <p>{{group.description}}</p>
+                </div>
+                {{#if group.tables.length}}
+                  <div class="cpr-scene-table-grid">
+                    {{#each group.tables as |table|}}
+                      <button type="button" class="cpr-scene-table-button js-roll-bundled-table" data-table-key="{{table.key}}">
+                        <strong>{{table.name}}</strong>
+                        <span>{{table.formula}}</span>
+                      </button>
+                    {{/each}}
+                  </div>
+                {{else}}
+                  <p class="cpr-empty-note">{{localize "cpr-rolltable-dashboard.table.emptySource"}}</p>
+                {{/if}}
+              </section>
+            {{/each}}
             <section class="cpr-scene-category">
               <div class="cpr-scene-category-heading">
                 <span>{{localize "cpr-rolltable-dashboard.ui.street"}}</span>
