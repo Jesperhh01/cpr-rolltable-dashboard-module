@@ -92,6 +92,14 @@
   padding: 14px;
 }
 
+.cpr-dashboard-body .tab {
+  display: none;
+}
+
+.cpr-dashboard-body .tab.active {
+  display: block;
+}
+
 .cpr-panel-heading,
 .cpr-heading-actions,
 .cpr-table-group-header,
