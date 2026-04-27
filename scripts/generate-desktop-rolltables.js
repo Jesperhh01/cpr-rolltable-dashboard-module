@@ -8,6 +8,7 @@ const sources = [
   { file: "Location generators.txt", category: "Locations", folder: "Locations and Scenes" },
   { file: "What's is.txt", category: "CorporateLoot", folder: "Corporate, Loot, and Jobs" },
   { file: "vendits.txt", category: "Whats", folder: "What's..?" },
+  { file: "file.txt", category: "Whats", folder: "What's..?", title: "What's in the File?" },
 ];
 
 function decodeSource(filePath) {
@@ -30,6 +31,7 @@ function makeKey(parts, used) {
     .replace(/&/g, " and ")
     .replace(/[^A-Za-z0-9]+(.)/g, (_, char) => char.toUpperCase())
     .replace(/^[^A-Za-z]+/, "")
+    .replace(/[^A-Za-z0-9]+$/g, "")
     .replace(/^./, (char) => char.toLowerCase()) || "desktopTable";
   let key = base;
   let suffix = 2;
@@ -102,7 +104,7 @@ function addTable(output, used, source, blockTitle, tableTitle, rows) {
 function parseSource(source, used) {
   const lines = decodeSource(path.join(sourceDir, source.file)).replace(/^\uFEFF/, "").split(/\r?\n/);
   const output = [];
-  let blockTitle = source.file.replace(/\.txt$/i, "");
+  let blockTitle = source.title || source.file.replace(/\.txt$/i, "");
   let tableTitle = null;
   let rows = [];
   let headers = [];
@@ -133,7 +135,7 @@ function parseSource(source, used) {
 
     if (/^Random tables for generating/i.test(line)) {
       finish();
-      blockTitle = line;
+      blockTitle = source.title || line;
       tableTitle = null;
       continue;
     }
