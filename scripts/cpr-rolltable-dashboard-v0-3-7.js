@@ -17731,10 +17731,12 @@ class CPRRolltableDashboard extends FormApplication {
     if (!cardId || !SCENE_CARD_IDS.includes(cardId))
       return;
     const layout = this._getSceneLayout();
-    if (layout.favoriteCardIds.includes(cardId))
+    if (layout.favoriteCardIds.includes(cardId)) {
       layout.favoriteCardIds = layout.favoriteCardIds.filter((id) => id !== cardId);
-    else
+      delete layout.useCounts[cardId];
+    } else {
       layout.favoriteCardIds.unshift(cardId);
+    }
     await this._saveSceneLayout(layout);
   }
   async _toggleCategoryVisibility(categoryId) {
