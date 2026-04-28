@@ -15018,6 +15018,1664 @@ var DESKTOP_ROLLTABLES = {
         text: "There is something extremely lucky or useful for the player, or perhaps let them decide what they find in the file."
       }
     ]
+  },
+  buildingsBuildingsInCombatZonesAndAbandonedAreasDescriptionOutside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Combat Zones and Abandoned Areas - Description (Outside) [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "A ruined façade with wide cracks and stripped paint."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Rusted sheet metal with dents and bullet holes."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Ramshackle, made of scavenged parts of random stuff."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "An old brick building riddled with chips from bullets."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Plain building covered in old blood and graffiti."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Dirty, surrounded by trash, bloodstains, and scrap heaps."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Partially collapsed, supported by makeshift pillars."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Mostly destroyed, fallen apart, big holes in the walls."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Rubble, large parts of the building collapsed/inaccessible."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Rebuilt ramshackle, piles of rubble stacked to form walls."
+      }
+    ]
+  },
+  buildingsBuildingsInCombatZonesAndAbandonedAreasWhatSInside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Combat Zones and Abandoned Areas - What’s Inside? [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "An urban market/bazaar, or the remains of one."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Abandoned, completely empty with small amount of trash."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Obvious signs of squatters, stinks of old kibble and urine."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Signs of gang activity, random furniture, and cheap lighting."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "A drug lab, chemical setups made of reclaimed materials."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Completely overturned, looks wrecked, signs of a fight."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Remains of an old gunfight, blood stains and a big mess."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Remains of a recent gunfight, bodies, blood, smell of death."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Signs of a mass execution, gross experiment, or torture."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "A fortified hideout, sandbags, barbed wire, cover, etc."
+      }
+    ]
+  },
+  buildingsBuildingsInCombatZonesAndAbandonedAreasResidents: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Combat Zones and Abandoned Areas - Residents [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "This is a homeless camp, filled with drug addicted or starving homeless squatters just trying to live."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "The building is inhabited by a criminal gang, organized crime crew, or independent smuggling/criminal crew."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "This building is inhabited by scavengers, perhaps a place to breakdown scrap, harvest organs, or live."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "There are scared and trapped people hiding here from the violence outside."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "No one is here."
+      }
+    ]
+  },
+  buildingsBuildingsInCombatZonesAndAbandonedAreasDangers: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Combat Zones and Abandoned Areas - Dangers [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Gangs are nearby and could show up at any time..."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "There’s actually a fight going on right now!"
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Someone is already here looting the place."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "The residents are jumpy and trigger-happy."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Tons of rigged traps from makeshift materials."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Mines, rigged explosives, and chemical traps."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Radiation levels here are incredibly high."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "There is unexploded ordinance from the war."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "The infrastructure crumbles and threatens to bury you."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "A cyberpsycho has taken up residence somewhere inside."
+      }
+    ]
+  },
+  buildingsBuildingsInCombatZonesAndAbandonedAreasEntrances: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Combat Zones and Abandoned Areas - Entrances [1d100]",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          5
+        ],
+        text: "A ruined open doorway looks into a main lobby or floor area."
+      },
+      {
+        range: [
+          16,
+          20
+        ],
+        text: "A flimsy doorway at street level leads inside."
+      },
+      {
+        range: [
+          21,
+          25
+        ],
+        text: "Accessible via a tunnel below the street."
+      },
+      {
+        range: [
+          26,
+          30
+        ],
+        text: "A random discreet door on the side of the road."
+      },
+      {
+        range: [
+          31,
+          35
+        ],
+        text: "An open yard lies on the other side of a tall wire fence."
+      },
+      {
+        range: [
+          36,
+          40
+        ],
+        text: "An obvious doorway, blocked with boards."
+      },
+      {
+        range: [
+          41,
+          45
+        ],
+        text: "Barbed wire is laid over an obvious hole in the wall."
+      },
+      {
+        range: [
+          46,
+          50
+        ],
+        text: "A crater and blown out wall opens up a back room."
+      },
+      {
+        range: [
+          51,
+          55
+        ],
+        text: "Sidle down a pile of rubble onto the main floor."
+      },
+      {
+        range: [
+          56,
+          60
+        ],
+        text: "A broken door can be forced or blown open."
+      },
+      {
+        range: [
+          61,
+          65
+        ],
+        text: "Rubble filled opening can be cleared."
+      },
+      {
+        range: [
+          66,
+          70
+        ],
+        text: "There is an obvious window that goes into an upper floor."
+      },
+      {
+        range: [
+          71,
+          75
+        ],
+        text: "A door or hole on the roof leads inside."
+      },
+      {
+        range: [
+          76,
+          80
+        ],
+        text: "A weak wall can be demolished to get inside."
+      },
+      {
+        range: [
+          81,
+          85
+        ],
+        text: "A makeshift tunnel across the street leads inside."
+      },
+      {
+        range: [
+          86,
+          90
+        ],
+        text: "You can drop into the sewers and go through a wall."
+      },
+      {
+        range: [
+          91,
+          95
+        ],
+        text: "A skylight looks down on the main floor area."
+      },
+      {
+        range: [
+          96,
+          100
+        ],
+        text: "A recessed garage door may be revealed."
+      }
+    ]
+  },
+  buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadDescriptionOutside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Outskirts and on The Open Road - Description (Outside) [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Dusty concrete building with windblown damage."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "A smooth, sandblasted exterior with nomad graffiti."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Covered partially with sand/dirt buildup on every surface."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Collapsed roof while the rest of the structure mostly stands."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Smooth and sand polished sheet metal."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Rusty and ruined metal structure, partially fallen."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Mostly destroyed, fallen apart, big holes in the walls."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Rubble, large parts of the building collapsed/inaccessible."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Building made of wrecked vehicles or compacted cars."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Partially reconstructed, obvious signs of abandoned work."
+      }
+    ]
+  },
+  buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadWhatSInside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Outskirts and on The Open Road - What’s Inside? [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Nomad safe house, sparse living space, car parts abound."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Abandoned, completely empty with small amount of trash."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Obvious signs of squatters, stinks of old kibble and urine."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Nomad work space, grease, gun, and car parts everywhere."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "A drug lab, chemical setups made of reclaimed materials."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Completely overturned, looks wrecked, signs of a fight."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Remains of an old gunfight, blood stains and a big mess."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Remains of a recent gunfight, bodies, blood, smell of death."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "A fortified hideout, sandbags, barbed wire, cover, etc."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Untouched abandoned building from before the war."
+      }
+    ]
+  },
+  buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadResidents: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Outskirts and on The Open Road - Residents [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "There are scared and trapped people hiding here with nowhere to go."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "The building is inhabited by a criminal gang, organized crime crew, or independent smuggling/criminal crew."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "There are nomads here, or perhaps people who live in and around nomads."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "This building is inhabited by scavengers, perhaps a place to breakdown scrap, harvest organs, or live."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "No one is here. Though there might be animals here."
+      }
+    ]
+  },
+  buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadDangers: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Outskirts and on The Open Road - Dangers [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Nomads protect the building from invaders."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "A road gang is nearby and could be here at any time."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "There are automated defenses from before the war."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "The residents will kill you on sight."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Wild animals (mutated?) will try to eat your face."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Toxic compounds make the whole place noxious."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "There is unexploded ordinance from the war."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "A cyberpsycho has taken up residence here."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "The inside crumbles and threatens to bury you."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Old electronics malfunction and threaten to kill you."
+      }
+    ]
+  },
+  buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadEntrances: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Outskirts and on The Open Road - Entrances [1d100]",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          5
+        ],
+        text: "A simple flimsy doorway at street level opens into the main lobby of the place."
+      },
+      {
+        range: [
+          16,
+          20
+        ],
+        text: "A large industrial bay door can be opened to a floor area."
+      },
+      {
+        range: [
+          21,
+          25
+        ],
+        text: "A random discreet door on the side of the road."
+      },
+      {
+        range: [
+          26,
+          30
+        ],
+        text: "An open yard lies on the other side of a tall wire fence."
+      },
+      {
+        range: [
+          31,
+          35
+        ],
+        text: "An obvious doorway, blocked with boards."
+      },
+      {
+        range: [
+          36,
+          40
+        ],
+        text: "A side door in the floor leads to a basement."
+      },
+      {
+        range: [
+          41,
+          45
+        ],
+        text: "A crater and blown out wall opens up a back room."
+      },
+      {
+        range: [
+          46,
+          50
+        ],
+        text: "A makeshift tunnel nearby leads inside."
+      },
+      {
+        range: [
+          51,
+          55
+        ],
+        text: "A secret escape hatch or tunnel leads far away from here."
+      },
+      {
+        range: [
+          56,
+          60
+        ],
+        text: "A broken door can be forced or blown open."
+      },
+      {
+        range: [
+          61,
+          65
+        ],
+        text: "Hidden elevator to underground."
+      },
+      {
+        range: [
+          66,
+          70
+        ],
+        text: "There is an obvious window that goes into an upper floor."
+      },
+      {
+        range: [
+          71,
+          75
+        ],
+        text: "A recessed garage door may be revealed."
+      },
+      {
+        range: [
+          76,
+          80
+        ],
+        text: "Rubble filled opening can be cleared."
+      },
+      {
+        range: [
+          81,
+          85
+        ],
+        text: "A skylight looks down on the main floor area."
+      },
+      {
+        range: [
+          86,
+          90
+        ],
+        text: "You can drop into the sewers and go through a wall."
+      },
+      {
+        range: [
+          91,
+          95
+        ],
+        text: "A trash or laundry chute opens behind the building."
+      },
+      {
+        range: [
+          96,
+          100
+        ],
+        text: "Accessible via a tunnel leading to a nearby cave."
+      }
+    ]
+  },
+  buildingsBuildingsInTheSuburbsAndInIndustrialZonesDescriptionOutside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Suburbs and in Industrial Zones - Description (Outside) [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Worn and cracked, but overall still looks okay."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Boring and plain, built of cheap steel and wood amalgams."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Partially rebuilt, with obvious signs of construction."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Sheet metal, cheap rivets, and covered in grime."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "A mostly wood structure, with an old-timey charm."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Brick and mortar, old and worn look."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "A mix of old and new, tech elements on brick or wood."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Dirty, grimy, cracked paint, and littered with junk."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Semi-ruined, partially blown out or destroyed."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Nearly destroyed, a lot of rubble and broken glass."
+      }
+    ]
+  },
+  buildingsBuildingsInTheSuburbsAndInIndustrialZonesWhatSInside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Suburbs and in Industrial Zones - What’s Inside? [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "A clean living space, may be lavish or bare-bones."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Reclaimed living space, disheveled, messy, obvious damage."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "A storage place, random boxes empty or full, nothing else."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Reclaimed office, desks against cracked walls and paint."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Abandoned, completely empty with small amount of trash."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Obvious signs of squatters, stinks of old kibble and urine."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Signs of gang activity, random furniture, and cheap lighting."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "A drug lab, chemical setups made of reclaimed materials."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Completely overturned, looks wrecked, signs of a fight."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Remains of an old gunfight, blood stains and a big mess."
+      }
+    ]
+  },
+  buildingsBuildingsInTheSuburbsAndInIndustrialZonesResidents: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Suburbs and in Industrial Zones - Residents [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "This is a homeless camp, filled with drug addicted or starving homeless squatters just trying to live."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "The building is inhabited by a criminal gang, organized crime crew, or independent smuggling/criminal crew."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "This building is a communal living space for working poor, either set up or in the process of moving in."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "This building is inhabited by scavengers, perhaps a place to breakdown scrap, harvest organs, or live."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "No one is here."
+      }
+    ]
+  },
+  buildingsBuildingsInTheSuburbsAndInIndustrialZonesDangers: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Suburbs and in Industrial Zones - Dangers [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Residents have rigged firearms all over the place."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Traps, barbed wire, and pits are present."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Even the seemingly peaceful residents are violent."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "The infrastructure has weak points that may collapse."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "There are placed explosives, mines, etc."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Gangs are nearby and could show up at any time."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Homemade automated defenses kill anyone who enters."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Toxic chemicals and gases choke and burn skin and eyes."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Nomads protect the place from anyone."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Someone else is already here looting the place."
+      }
+    ]
+  },
+  buildingsBuildingsInTheSuburbsAndInIndustrialZonesEntrances: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in the Suburbs and in Industrial Zones - Entrances [1d100]",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          5
+        ],
+        text: "A simple flimsy doorway at street level opens into the main lobby of the place."
+      },
+      {
+        range: [
+          16,
+          20
+        ],
+        text: "Accessible via a tunnel below the street."
+      },
+      {
+        range: [
+          21,
+          25
+        ],
+        text: "A random discreet door on the side of the road."
+      },
+      {
+        range: [
+          26,
+          30
+        ],
+        text: "A large industrial bay door can be opened to a floor area."
+      },
+      {
+        range: [
+          31,
+          35
+        ],
+        text: "Grand double doors on a platform mark the entrance."
+      },
+      {
+        range: [
+          36,
+          40
+        ],
+        text: "An open yard lies on the other side of a tall wire fence."
+      },
+      {
+        range: [
+          41,
+          45
+        ],
+        text: "A large armored sliding door can be opened."
+      },
+      {
+        range: [
+          46,
+          50
+        ],
+        text: "There is an open doorway with a broken door."
+      },
+      {
+        range: [
+          51,
+          55
+        ],
+        text: "A skylight looks down on the main floor area."
+      },
+      {
+        range: [
+          56,
+          60
+        ],
+        text: "A broken door can be forced or blown open."
+      },
+      {
+        range: [
+          61,
+          65
+        ],
+        text: "A small hole in a wall can be crawled through."
+      },
+      {
+        range: [
+          66,
+          70
+        ],
+        text: "There is an obvious window that goes into an upper floor."
+      },
+      {
+        range: [
+          71,
+          75
+        ],
+        text: "A doorway in the floor leads to a basement."
+      },
+      {
+        range: [
+          76,
+          80
+        ],
+        text: "A door or hole on the roof leads inside."
+      },
+      {
+        range: [
+          81,
+          85
+        ],
+        text: "A secret escape hatch or tunnel leads far away from here."
+      },
+      {
+        range: [
+          86,
+          90
+        ],
+        text: "A weak wall can be demolished to get inside."
+      },
+      {
+        range: [
+          91,
+          95
+        ],
+        text: "A recessed garage door may be revealed."
+      },
+      {
+        range: [
+          96,
+          100
+        ],
+        text: "You can drop into the sewers and go through a wall."
+      }
+    ]
+  },
+  buildingsBuildingsInUrbanZonesAndTheConcreteJungleDescriptionOutside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Urban Zones and the Concrete Jungle - Description (Outside) [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Glass and metal, looks good but could use a polish."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "Gray lifeless concrete with a brutal façade."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "Worn and cracked, but overall still looks okay."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Cracked and broken glass, a ruined or reclaimed look."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Brick and mortar, old and worn look."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "A concrete slab covered in graffiti."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "A building made of sheet metal and rivets."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Technological, metal with light strips and hologram ads."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Semi-ruined, partially blown out or destroyed."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Partially rebuilt, with obvious signs of construction."
+      }
+    ]
+  },
+  buildingsBuildingsInUrbanZonesAndTheConcreteJungleWhatSInside: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Urban Zones and the Concrete Jungle - What’s Inside? [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "Clean, organized, filled with office supplies and desks."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "A clean living space, may be lavish or bare-bones."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "An urban market/bazaar, or the remains of one."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Reclaimed office, desks against cracked walls and paint."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Reclaimed living space, disheveled, messy, obvious damage."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "Abandoned, completely empty with small amount of trash."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "Obvious signs of squatters, stinks of old kibble and urine."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Signs of gang activity, random furniture, and cheap lighting."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Completely overturned, looks wrecked, signs of a fight."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "Remains of an old gunfight, blood stains and a big mess."
+      }
+    ]
+  },
+  buildingsBuildingsInUrbanZonesAndTheConcreteJungleResidents: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Urban Zones and the Concrete Jungle - Residents [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "This is used by a small or medium sized corp, perhaps either set up or in the process of moving in."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "The building is inhabited by a criminal gang, organized crime crew, or independent smuggling/criminal crew."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "This is a homeless camp, filled with drug addicted or starving homeless squatters just trying to live."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "This building is a communal living space for working poor, either set up or in the process of moving in."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "No one is here."
+      }
+    ]
+  },
+  buildingsBuildingsInUrbanZonesAndTheConcreteJungleDangers: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Urban Zones and the Concrete Jungle - Dangers [1d10]",
+    formula: "1d10",
+    results: [
+      {
+        range: [
+          1,
+          1
+        ],
+        text: "The building is filled with automated turrets and lasers."
+      },
+      {
+        range: [
+          2,
+          2
+        ],
+        text: "A toxic gas leak is leaving the area hazardous to traverse."
+      },
+      {
+        range: [
+          3,
+          3
+        ],
+        text: "There are remnants of explosive chemicals that may go off."
+      },
+      {
+        range: [
+          4,
+          4
+        ],
+        text: "Traps, barbed wire, and pits are present."
+      },
+      {
+        range: [
+          5,
+          5
+        ],
+        text: "Even the seemingly peaceful residents are violent."
+      },
+      {
+        range: [
+          6,
+          6
+        ],
+        text: "The infrastructure has weak points that may collapse."
+      },
+      {
+        range: [
+          7,
+          7
+        ],
+        text: "There are placed explosives, mines, etc."
+      },
+      {
+        range: [
+          8,
+          8
+        ],
+        text: "Malfunctions, slamming doors, sparking wires, etc."
+      },
+      {
+        range: [
+          9,
+          9
+        ],
+        text: "Someone has hired active security to patrol the place."
+      },
+      {
+        range: [
+          10,
+          10
+        ],
+        text: "An edgerunner crew protects the place."
+      }
+    ]
+  },
+  buildingsBuildingsInUrbanZonesAndTheConcreteJungleEntrances: {
+    category: "Buildings",
+    folder: "Buildings",
+    name: "buildings in Urban Zones and the Concrete Jungle - Entrances [1d100]",
+    formula: "1d100",
+    results: [
+      {
+        range: [
+          1,
+          5
+        ],
+        text: "A recessed door in an alley leads to a back room."
+      },
+      {
+        range: [
+          6,
+          10
+        ],
+        text: "A main entrance through a marked door on the street."
+      },
+      {
+        range: [
+          11,
+          15
+        ],
+        text: "A hidden staircase in a wall leads to the main floor."
+      },
+      {
+        range: [
+          16,
+          20
+        ],
+        text: "A random discreet door on the side of the road."
+      },
+      {
+        range: [
+          21,
+          25
+        ],
+        text: "Grand double doors on a platform mark the entrance."
+      },
+      {
+        range: [
+          26,
+          30
+        ],
+        text: "Revolving doors lead into a lobby area."
+      },
+      {
+        range: [
+          31,
+          35
+        ],
+        text: "A small hidden stairway leads to a door below street level."
+      },
+      {
+        range: [
+          36,
+          40
+        ],
+        text: "You have to go through the back of another joint."
+      },
+      {
+        range: [
+          41,
+          45
+        ],
+        text: "Accessible via a tunnel below the street."
+      },
+      {
+        range: [
+          46,
+          50
+        ],
+        text: "A walkway above the street drops down into the place."
+      },
+      {
+        range: [
+          51,
+          55
+        ],
+        text: "A broken door can be forced or blown open."
+      },
+      {
+        range: [
+          56,
+          60
+        ],
+        text: "An open door on a balcony above you leads inside."
+      },
+      {
+        range: [
+          61,
+          65
+        ],
+        text: "There is an obvious window that goes into an upper floor."
+      },
+      {
+        range: [
+          66,
+          70
+        ],
+        text: "Ventilation or HVAC ducts lead inside."
+      },
+      {
+        range: [
+          71,
+          75
+        ],
+        text: "A trash or laundry chute opens into a back alley."
+      },
+      {
+        range: [
+          76,
+          80
+        ],
+        text: "You can drop into the sewers and go through a wall."
+      },
+      {
+        range: [
+          81,
+          85
+        ],
+        text: "There is a discreet street level elevator to this place."
+      },
+      {
+        range: [
+          86,
+          90
+        ],
+        text: "A weak wall can be demolished to get inside."
+      },
+      {
+        range: [
+          91,
+          95
+        ],
+        text: "A secure door can be hacked or hotwired to get inside."
+      },
+      {
+        range: [
+          96,
+          100
+        ],
+        text: "A false wall may be revealed to be a door instead."
+      }
+    ]
   }
 };
 var DESKTOP_TABLE_GROUPS = [
@@ -15109,6 +16767,32 @@ var DESKTOP_TABLE_GROUPS = [
       "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSecretsAreHereOptional",
       "locationsAlleysPlazasCourtyardsWalkwaysFootpathsYardsEtcWhatSAround",
       "locationsBusyDowntownScenesDowntownEnvironment"
+    ]
+  },
+  {
+    label: "Buildings",
+    description: "Building generators for urban zones, suburbs, industrial zones, combat zones, abandoned areas, outskirts, and open roads.",
+    tableKeys: [
+      "buildingsBuildingsInCombatZonesAndAbandonedAreasDescriptionOutside",
+      "buildingsBuildingsInCombatZonesAndAbandonedAreasWhatSInside",
+      "buildingsBuildingsInCombatZonesAndAbandonedAreasResidents",
+      "buildingsBuildingsInCombatZonesAndAbandonedAreasDangers",
+      "buildingsBuildingsInCombatZonesAndAbandonedAreasEntrances",
+      "buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadDescriptionOutside",
+      "buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadWhatSInside",
+      "buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadResidents",
+      "buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadDangers",
+      "buildingsBuildingsInTheOutskirtsAndOnTheOpenRoadEntrances",
+      "buildingsBuildingsInTheSuburbsAndInIndustrialZonesDescriptionOutside",
+      "buildingsBuildingsInTheSuburbsAndInIndustrialZonesWhatSInside",
+      "buildingsBuildingsInTheSuburbsAndInIndustrialZonesResidents",
+      "buildingsBuildingsInTheSuburbsAndInIndustrialZonesDangers",
+      "buildingsBuildingsInTheSuburbsAndInIndustrialZonesEntrances",
+      "buildingsBuildingsInUrbanZonesAndTheConcreteJungleDescriptionOutside",
+      "buildingsBuildingsInUrbanZonesAndTheConcreteJungleWhatSInside",
+      "buildingsBuildingsInUrbanZonesAndTheConcreteJungleResidents",
+      "buildingsBuildingsInUrbanZonesAndTheConcreteJungleDangers",
+      "buildingsBuildingsInUrbanZonesAndTheConcreteJungleEntrances"
     ]
   },
   {
@@ -15412,7 +17096,7 @@ var MERCHANT_ACTOR_NAMES = {
   clothingAndFashionware: ["Clothing Merchant", "Fashionware Merchant", "Cyberware Merchant"],
   survivalGear: ["Survival Gear Merchant"]
 };
-var MERCHANT_INVENTORY_ITEM_TYPES = /* @__PURE__ */ new Set([
+var MERCHANT_INVENTORY_ITEM_TYPES = new Set([
   "ammo",
   "armor",
   "clothing",
@@ -15522,6 +17206,11 @@ function getDatatermGroups() {
       ]
     },
     {
+      label: localize(`${MODULE_ID}.group.buildings`),
+      description: localize(`${MODULE_ID}.group.buildingsHelp`),
+      tableKeys: getImportedTableKeys("Buildings")
+    },
+    {
       label: localize(`${MODULE_ID}.group.factions`),
       description: localize(`${MODULE_ID}.group.factionsHelp`),
       tableKeys: getImportedTableKeys("Factions and Gangs")
@@ -15591,7 +17280,7 @@ function getWorldSellableItems() {
   return game.items.filter((item) => MERCHANT_INVENTORY_ITEM_TYPES.has(item.type));
 }
 function dedupeItemsByTypeAndName(items) {
-  const seen = /* @__PURE__ */ new Set;
+  const seen = new Set;
   const deduped = [];
   for (const item of items) {
     const key = `${item.type}:${item.name}`.toLowerCase();

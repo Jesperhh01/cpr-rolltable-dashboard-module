@@ -154,6 +154,11 @@ function getDatatermGroups() {
       ],
     },
     {
+      label: localize(`${MODULE_ID}.group.buildings`),
+      description: localize(`${MODULE_ID}.group.buildingsHelp`),
+      tableKeys: getImportedTableKeys("Buildings"),
+    },
+    {
       label: localize(`${MODULE_ID}.group.factions`),
       description: localize(`${MODULE_ID}.group.factionsHelp`),
       tableKeys: getImportedTableKeys("Factions and Gangs"),

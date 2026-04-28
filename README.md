@@ -48,7 +48,7 @@ Every roll appears in the **Latest Roll** panel on the right. Use **Post rolls t
 
 Use **Import Bundled Tables to World** once as a GM to create organized RollTables under a `CPR Rolltable Dashboard` folder. After import, individual bundled tables can be rolled directly from the dashboard.
 
-The bundled rolltables are organized into GM-facing categories: **Economy**, **Hustles**, **Locations and Scenes**, **Factions and Gangs**, and **Corporate, Loot, and Jobs**. The updated Desktop rolltable sources are included as generated module data, including role hustles, gang/cult generators, location generators, corporate/job tables, loot finds, and vendit inventories.
+The bundled rolltables are organized into GM-facing categories: **Economy**, **Hustles**, **Locations and Scenes**, **Buildings**, **Factions and Gangs**, and **Corporate, Loot, and Jobs**. The updated Desktop rolltable sources are included as generated module data, including role hustles, gang/cult generators, location generators, building generators, corporate/job tables, loot finds, and vendit inventories.
 
 ### Custom Chains
 
