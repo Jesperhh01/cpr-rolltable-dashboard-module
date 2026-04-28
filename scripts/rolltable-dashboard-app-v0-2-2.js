@@ -371,7 +371,15 @@ export default class CPRRolltableDashboard extends FormApplication {
     const safeTitle = allowHtml ? title : escapeHtml(title);
     const safeLines = allowHtml ? lines : lines.map((line) => escapeHtml(line));
     const timestamp = new Date().toLocaleTimeString();
-    this._resultHistory.unshift({ id: foundry.utils.randomID(), title: safeTitle, lines: safeLines, timestamp, metadata, actions });
+    this._resultHistory.unshift({
+      id: foundry.utils.randomID(),
+      title: safeTitle,
+      lines: safeLines,
+      timestamp,
+      metadata,
+      actions,
+      canPopulateMerchants: actions.some((action) => action.type === "populateNightMarketMerchants"),
+    });
     this._resultHistory = this._resultHistory.slice(0, RESULT_HISTORY_LIMIT);
     this._renderResultPanel();
     if (!postToChat) return;
@@ -411,14 +419,16 @@ export default class CPRRolltableDashboard extends FormApplication {
   }
 
   _renderResultActions(result) {
-    if (!game.user.isGM || !Array.isArray(result.actions) || result.actions.length === 0) return null;
+    if (!game.user.isGM || !this._canPopulateMerchantsFromResult(result)) return null;
     const actions = $("<div class='cpr-result-actions'></div>");
-    result.actions.forEach((action) => {
-      if (action.type !== "populateNightMarketMerchants") return;
-      const button = $(`<button type="button" class="cpr-result-action js-populate-night-market-merchants" data-result-id="${result.id}">${escapeHtml(localize(`${MODULE_ID}.button.populateMerchants`))}</button>`);
-      actions.append(button);
-    });
+    const button = $(`<button type="button" class="cpr-result-action js-populate-night-market-merchants" data-result-id="${result.id}">${escapeHtml(localize(`${MODULE_ID}.button.populateMerchants`))}</button>`);
+    actions.append(button);
     return actions.children().length > 0 ? actions : null;
+  }
+
+  _canPopulateMerchantsFromResult(result) {
+    if (result?.canPopulateMerchants === true) return true;
+    return Array.isArray(result?.actions) && result.actions.some((action) => action.type === "populateNightMarketMerchants");
   }
 
   _clearResultHistory() {

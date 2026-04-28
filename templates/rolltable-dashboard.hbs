@@ -263,6 +263,13 @@
                 <strong class="cpr-result-title">{{{result.title}}}</strong>
                 <span class="cpr-result-time">{{result.timestamp}}</span>
               </div>
+              {{#if ../isGM}}
+                {{#if result.canPopulateMerchants}}
+                  <div class="cpr-result-actions">
+                    <button type="button" class="cpr-result-action js-populate-night-market-merchants" data-result-id="{{result.id}}">{{localize "cpr-rolltable-dashboard.button.populateMerchants"}}</button>
+                  </div>
+                {{/if}}
+              {{/if}}
               <ol class="cpr-result-lines">
                 {{#each result.lines as |line|}}
                   <li>{{{line}}}</li>
