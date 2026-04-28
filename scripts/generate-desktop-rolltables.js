@@ -6,6 +6,10 @@ const sources = [
   { file: "Hustles.txt", category: "Hustles", folder: "Hustles" },
   { file: "Gang generators.txt", category: "Factions", folder: "Factions and Gangs" },
   { file: "Location generators.txt", category: "Locations", folder: "Locations and Scenes" },
+  { file: "Buildings/Combat_zone&abandoned.txt", category: "Buildings", folder: "Buildings" },
+  { file: "Buildings/Outskirks&Open_roads.txt", category: "Buildings", folder: "Buildings" },
+  { file: "Buildings/Suburbs&Industrial_zones.txt", category: "Buildings", folder: "Buildings" },
+  { file: "Buildings/Urban zones.txt", category: "Buildings", folder: "Buildings" },
   { file: "What's is.txt", category: "CorporateLoot", folder: "Corporate, Loot, and Jobs" },
   { file: "vendits.txt", category: "Whats", folder: "What's..?" },
   { file: "file.txt", category: "Whats", folder: "What's..?", title: "What's in the File?" },
@@ -208,13 +212,28 @@ function parseSource(source, used) {
   return output;
 }
 
-const used = new Set();
-const entries = sources.flatMap((source) => parseSource(source, used));
+async function loadExistingEntries(regeneratingCategories) {
+  try {
+    const existing = await import("./desktop-rolltables.js");
+    return Object.entries(existing.DESKTOP_ROLLTABLES || {})
+      .map(([key, table]) => ({ key, ...table }))
+      .filter((entry) => !regeneratingCategories.has(entry.category));
+  } catch (error) {
+    return [];
+  }
+}
+
+const availableSources = sources.filter((source) => fs.existsSync(path.join(sourceDir, source.file)));
+const regeneratingCategories = new Set(availableSources.map((source) => source.category));
+const preservedEntries = await loadExistingEntries(regeneratingCategories);
+const used = new Set(preservedEntries.map((entry) => entry.key));
+const entries = preservedEntries.concat(availableSources.flatMap((source) => parseSource(source, used)));
 const tableObject = Object.fromEntries(entries.map(({ key, ...table }) => [key, table]));
 const groups = [
   ["Role Hustles", "Downtime job tables for Cyberpunk RED roles, imported from Hustles.txt.", "Hustles"],
   ["Factions and Gangs", "Road gangs, city gangs, organized crime, cults, and strange crews.", "Factions"],
   ["Locations and Scenes", "Clubs, bodegas, pop-up markets, alleys, downtown blocks, and other scene dressing.", "Locations"],
+  ["Buildings", "Building generators for urban zones, suburbs, industrial zones, combat zones, abandoned areas, outskirts, and open roads.", "Buildings"],
   ["Corporate, Loot, and Jobs", "Corporate industries, civic bodies, computer finds, loot, job complications, and vendit inventory.", "CorporateLoot"],
   ["What's..?", "Vendit inventory and other what-is-it chained generators.", "Whats"],
 ].map(([label, description, category]) => ({
@@ -226,4 +245,5 @@ const groups = [
 const contents = `/* eslint-disable max-len */\n\n// Generated from C:/Users/jesp0/Desktop/Rolltables/*.txt.\n// Keep this file as data only; edit the source txt files and regenerate when adding large table drops.\n\nexport const DESKTOP_ROLLTABLES = ${JSON.stringify(tableObject, null, 2)};\n\nexport const DESKTOP_TABLE_GROUPS = ${JSON.stringify(groups, null, 2)};\n`;
 fs.writeFileSync("scripts/desktop-rolltables.js", contents, "utf8");
 console.log(`Generated ${entries.length} tables`);
+if (availableSources.length !== sources.length) console.log(`Preserved existing generated data for ${sources.length - availableSources.length} missing source file(s)`);
 console.log(groups.map((group) => `${group.label}: ${group.tableKeys.length}`).join("\n"));
