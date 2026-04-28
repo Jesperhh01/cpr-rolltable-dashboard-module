@@ -77,12 +77,12 @@ const VENDIT_CATEGORIES = [
 ];
 
 const SCENE_CATEGORY_DEFINITIONS = [
-  { id: "economy", labelKey: `${MODULE_ID}.ui.economy`, descriptionKey: `${MODULE_ID}.ui.economyHelp` },
-  { id: "street", labelKey: `${MODULE_ID}.ui.street`, descriptionKey: `${MODULE_ID}.ui.streetHelp` },
-  { id: "factions", labelKey: `${MODULE_ID}.group.factions`, descriptionKey: `${MODULE_ID}.group.factionsHelp` },
-  { id: "locations", labelKey: `${MODULE_ID}.group.locations`, descriptionKey: `${MODULE_ID}.group.locationsHelp` },
-  { id: "buildings", labelKey: `${MODULE_ID}.group.buildings`, descriptionKey: `${MODULE_ID}.group.buildingsHelp` },
-  { id: "whats", labelKey: `${MODULE_ID}.group.whats`, descriptionKey: `${MODULE_ID}.group.whatsHelp` },
+  { id: "economy", labelKey: `${MODULE_ID}.ui.economy`, descriptionKey: `${MODULE_ID}.ui.economyHelp`, accentColor: "#d6b25e", accentSoftColor: "rgba(214, 178, 94, 0.16)" },
+  { id: "street", labelKey: `${MODULE_ID}.ui.street`, descriptionKey: `${MODULE_ID}.ui.streetHelp`, accentColor: "#d77062", accentSoftColor: "rgba(215, 112, 98, 0.15)" },
+  { id: "factions", labelKey: `${MODULE_ID}.group.factions`, descriptionKey: `${MODULE_ID}.group.factionsHelp`, accentColor: "#c77ad9", accentSoftColor: "rgba(199, 122, 217, 0.14)" },
+  { id: "locations", labelKey: `${MODULE_ID}.group.locations`, descriptionKey: `${MODULE_ID}.group.locationsHelp`, accentColor: "#6fb1e8", accentSoftColor: "rgba(111, 177, 232, 0.14)" },
+  { id: "buildings", labelKey: `${MODULE_ID}.group.buildings`, descriptionKey: `${MODULE_ID}.group.buildingsHelp`, accentColor: "#8bbf7a", accentSoftColor: "rgba(139, 191, 122, 0.14)" },
+  { id: "whats", labelKey: `${MODULE_ID}.group.whats`, descriptionKey: `${MODULE_ID}.group.whatsHelp`, accentColor: "#63c7b2", accentSoftColor: "rgba(99, 199, 178, 0.14)" },
 ];
 
 const SCENE_CARD_DEFINITIONS = [
@@ -875,8 +875,9 @@ export default class CPRRolltableDashboard extends FormApplication {
     panel.find(".js-clear-result-history").toggle(hasHistory);
     const feed = panel.find(".cpr-result-feed");
     feed.empty();
-    this._resultHistory.forEach((result) => {
-      const item = $("<article class='cpr-result-entry'></article>");
+    this._resultHistory.forEach((result, index) => {
+      const latestClass = index === 0 ? " is-latest" : "";
+      const item = $(`<article class='cpr-result-entry${latestClass}'></article>`);
       const header = $("<div class='cpr-result-meta'></div>");
       header.append($(`<strong class="cpr-result-title">${result.title}</strong>`));
       header.append($(`<span class="cpr-result-time">${result.timestamp}</span>`));

@@ -66,14 +66,14 @@
               {{/if}}
             </section>
             {{#each sceneBuilderCategories}}
-              <section class="cpr-scene-category {{#if isHidden}}is-hidden{{/if}}" data-category-id="{{id}}" draggable="{{#if isCustomizing}}true{{else}}false{{/if}}">
+              <section class="cpr-scene-category {{#if isHidden}}is-hidden{{/if}}" data-category-id="{{id}}" style="--cpr-category-accent: {{accentColor}}; --cpr-category-accent-soft: {{accentSoftColor}};" draggable="{{#if isCustomizing}}true{{else}}false{{/if}}">
                 <div class="cpr-scene-category-heading">
                   <button type="button" class="cpr-drag-handle" aria-label='{{localize "cpr-rolltable-dashboard.aria.dragCategory"}}'><i class="fas fa-grip-vertical"></i></button>
                   <div>
                     <span>{{label}}</span>
                     <p>{{description}}</p>
                   </div>
-                  <button type="button" class="cpr-visibility-toggle js-toggle-category-visibility" aria-expanded="{{#if isHidden}}false{{else}}true{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.toggleCategory"}}'><i class="fas {{#if isHidden}}fa-eye-slash{{else}}fa-eye{{/if}}"></i></button>
+                  <button type="button" class="cpr-visibility-toggle js-toggle-category-visibility" aria-expanded="{{#if isHidden}}false{{else}}true{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.toggleCategory"}}'><i class="fas {{#if isHidden}}fa-chevron-down{{else}}fa-chevron-up{{/if}}"></i></button>
                 </div>
                 <div class="cpr-action-grid">
                   {{#each cards}}
@@ -193,7 +193,7 @@
       <div class="cpr-result-content" {{#unless hasResultHistory}}style="display:none"{{/unless}}>
         <div class="cpr-result-feed">
           {{#each resultHistory as |result|}}
-            <article class="cpr-result-entry">
+            <article class="cpr-result-entry {{#if @first}}is-latest{{/if}}">
               <div class="cpr-result-meta">
                 <strong class="cpr-result-title">{{{result.title}}}</strong>
                 <span class="cpr-result-time">{{result.timestamp}}</span>

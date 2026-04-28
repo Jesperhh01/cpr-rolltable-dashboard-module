@@ -123,7 +123,7 @@
   "cpr-rolltable-dashboard.aria.pinCard": "Pin card to Neural Cache",
   "cpr-rolltable-dashboard.aria.dragCard": "Drag card to reorder",
   "cpr-rolltable-dashboard.aria.dragCategory": "Drag category to reorder",
-  "cpr-rolltable-dashboard.aria.toggleCategory": "Toggle category visibility",
+  "cpr-rolltable-dashboard.aria.toggleCategory": "Collapse or expand category",
   "cpr-rolltable-dashboard.import.help": "Create organized world RollTables for the bundled Dataterm content.",
   "cpr-rolltable-dashboard.import.success": "Bundled rolltables imported into the world.",
   "cpr-rolltable-dashboard.import.alreadyExists": "Bundled rolltables already exist in the world.",
