@@ -17085,9 +17085,11 @@ var CYBER_GEAR_MATCHERS = ["cyberdeck", "smart glasses", "battleglove", "linear 
 var MODULE_ID = "cpr-rolltable-dashboard";
 var CHAIN_SETTING = "rolltableDashboardChains";
 var POST_TO_CHAT_SETTING = "postRollsToChat";
+var SCENE_LAYOUT_SETTING = "sceneBuilderLayout";
 var ROOT_FOLDER_NAME = "CPR Rolltable Dashboard";
 var REQUIRED_SYSTEM_ID = "cyberpunk-red-core";
 var RESULT_HISTORY_LIMIT = 50;
+var MOST_USED_LIMIT = 6;
 var MERCHANT_ACTOR_NAMES = {
   foodAndDrugs: ["Food and Drugs"],
   personalElectronics: ["Electronics Merchant"],
@@ -17139,6 +17141,198 @@ var VENDIT_CATEGORIES = [
   { range: [5, 8], label: "Personal", tableNamePart: "Personal" },
   { range: [9, 10], label: "Weird stuff", tableNamePart: "Weird" }
 ];
+var SCENE_CATEGORY_DEFINITIONS = [
+  { id: "economy", labelKey: `${MODULE_ID}.ui.economy`, descriptionKey: `${MODULE_ID}.ui.economyHelp` },
+  { id: "street", labelKey: `${MODULE_ID}.ui.street`, descriptionKey: `${MODULE_ID}.ui.streetHelp` },
+  { id: "factions", labelKey: `${MODULE_ID}.group.factions`, descriptionKey: `${MODULE_ID}.group.factionsHelp` },
+  { id: "locations", labelKey: `${MODULE_ID}.group.locations`, descriptionKey: `${MODULE_ID}.group.locationsHelp` },
+  { id: "buildings", labelKey: `${MODULE_ID}.group.buildings`, descriptionKey: `${MODULE_ID}.group.buildingsHelp` },
+  { id: "whats", labelKey: `${MODULE_ID}.group.whats`, descriptionKey: `${MODULE_ID}.group.whatsHelp` }
+];
+var SCENE_CARD_DEFINITIONS = [
+  {
+    id: "nightMarket",
+    categoryId: "economy",
+    accentClass: "cpr-accent-market",
+    eyebrowKey: `${MODULE_ID}.ui.economy`,
+    titleKey: `${MODULE_ID}.generator.nightMarket`,
+    helpKey: `${MODULE_ID}.ui.nightMarketHelp`,
+    action: "nightMarket"
+  },
+  {
+    id: "merchant",
+    categoryId: "economy",
+    accentClass: "cpr-accent-merchant",
+    eyebrowKey: `${MODULE_ID}.ui.inventory`,
+    titleKey: `${MODULE_ID}.generator.merchant`,
+    helpKey: `${MODULE_ID}.ui.merchantHelp`,
+    action: "merchant",
+    control: "merchantCategory"
+  },
+  {
+    id: "roleHustle",
+    categoryId: "economy",
+    accentClass: "cpr-accent-hustle",
+    eyebrowKey: `${MODULE_ID}.ui.hustles`,
+    titleKey: `${MODULE_ID}.generator.hustle`,
+    helpKey: `${MODULE_ID}.ui.roleHustleHelp`,
+    action: "roleHustle",
+    control: "roleHustle"
+  },
+  {
+    id: "encounter",
+    categoryId: "street",
+    accentClass: "cpr-accent-street",
+    eyebrowKey: `${MODULE_ID}.ui.pressure`,
+    titleKey: `${MODULE_ID}.generator.encounter`,
+    helpKey: `${MODULE_ID}.ui.encounterHelp`,
+    action: "encounter",
+    control: "encounterPeriod"
+  },
+  {
+    id: "cityGangs",
+    categoryId: "factions",
+    accentClass: "cpr-accent-faction",
+    eyebrowKey: `${MODULE_ID}.ui.factions`,
+    titleKey: `${MODULE_ID}.generator.cityGangs`,
+    helpKey: `${MODULE_ID}.ui.cityGangsHelp`,
+    action: "namedChain",
+    groupLabel: "Factions and Gangs",
+    chainLabel: "City Gangs, Urban Gangs, and Organized Crime"
+  },
+  {
+    id: "roadGangs",
+    categoryId: "factions",
+    accentClass: "cpr-accent-faction",
+    eyebrowKey: `${MODULE_ID}.ui.factions`,
+    titleKey: `${MODULE_ID}.generator.roadGangs`,
+    helpKey: `${MODULE_ID}.ui.roadGangsHelp`,
+    action: "namedChain",
+    groupLabel: "Factions and Gangs",
+    chainLabel: "Road Gangs and Nomad Packs"
+  },
+  {
+    id: "cults",
+    categoryId: "factions",
+    accentClass: "cpr-accent-faction",
+    eyebrowKey: `${MODULE_ID}.ui.factions`,
+    titleKey: `${MODULE_ID}.generator.cults`,
+    helpKey: `${MODULE_ID}.ui.cultsHelp`,
+    action: "namedChain",
+    groupLabel: "Factions and Gangs",
+    chainLabel: "interesting modern Cults and Religious Weirdos"
+  },
+  {
+    id: "clubsBars",
+    categoryId: "locations",
+    accentClass: "cpr-accent-location",
+    eyebrowKey: `${MODULE_ID}.ui.locations`,
+    titleKey: `${MODULE_ID}.generator.clubsBars`,
+    helpKey: `${MODULE_ID}.ui.clubsBarsHelp`,
+    action: "namedChain",
+    groupLabel: "Locations and Scenes",
+    chainLabel: "Clubs, Bars and Nightlife spots in the City"
+  },
+  {
+    id: "bodegas",
+    categoryId: "locations",
+    accentClass: "cpr-accent-location",
+    eyebrowKey: `${MODULE_ID}.ui.locations`,
+    titleKey: `${MODULE_ID}.generator.bodegas`,
+    helpKey: `${MODULE_ID}.ui.bodegasHelp`,
+    action: "namedChain",
+    groupLabel: "Locations and Scenes",
+    chainLabel: "Bodegas, Shops, and the Strange People Found There"
+  },
+  {
+    id: "alleysStreets",
+    categoryId: "locations",
+    accentClass: "cpr-accent-location",
+    eyebrowKey: `${MODULE_ID}.ui.locations`,
+    titleKey: `${MODULE_ID}.generator.alleysStreets`,
+    helpKey: `${MODULE_ID}.ui.alleysStreetsHelp`,
+    action: "namedChain",
+    groupLabel: "Locations and Scenes",
+    chainLabel: "Alleys, Plazas, Courtyards, Walkways, Footpaths, Yards, etc"
+  },
+  {
+    id: "urbanEnvironments",
+    categoryId: "locations",
+    accentClass: "cpr-accent-location",
+    eyebrowKey: `${MODULE_ID}.ui.locations`,
+    titleKey: `${MODULE_ID}.generator.urbanEnvironments`,
+    helpKey: `${MODULE_ID}.ui.urbanEnvironmentsHelp`,
+    action: "namedChain",
+    groupLabel: "Locations and Scenes",
+    chainLabel: "busy Downtown scenes"
+  },
+  {
+    id: "buildingsUrban",
+    categoryId: "buildings",
+    accentClass: "cpr-accent-building",
+    eyebrowKey: `${MODULE_ID}.ui.buildings`,
+    titleKey: `${MODULE_ID}.generator.buildingsUrban`,
+    helpKey: `${MODULE_ID}.ui.buildingsUrbanHelp`,
+    action: "namedChain",
+    groupLabel: "Buildings",
+    chainLabel: "buildings in Urban Zones and the Concrete Jungle"
+  },
+  {
+    id: "buildingsSuburbsIndustrial",
+    categoryId: "buildings",
+    accentClass: "cpr-accent-building",
+    eyebrowKey: `${MODULE_ID}.ui.buildings`,
+    titleKey: `${MODULE_ID}.generator.buildingsSuburbsIndustrial`,
+    helpKey: `${MODULE_ID}.ui.buildingsSuburbsIndustrialHelp`,
+    action: "namedChain",
+    groupLabel: "Buildings",
+    chainLabel: "buildings in the Suburbs and in Industrial Zones"
+  },
+  {
+    id: "buildingsCombatAbandoned",
+    categoryId: "buildings",
+    accentClass: "cpr-accent-building",
+    eyebrowKey: `${MODULE_ID}.ui.buildings`,
+    titleKey: `${MODULE_ID}.generator.buildingsCombatAbandoned`,
+    helpKey: `${MODULE_ID}.ui.buildingsCombatAbandonedHelp`,
+    action: "namedChain",
+    groupLabel: "Buildings",
+    chainLabel: "buildings in Combat Zones and Abandoned Areas"
+  },
+  {
+    id: "buildingsOutskirtsRoads",
+    categoryId: "buildings",
+    accentClass: "cpr-accent-building",
+    eyebrowKey: `${MODULE_ID}.ui.buildings`,
+    titleKey: `${MODULE_ID}.generator.buildingsOutskirtsRoads`,
+    helpKey: `${MODULE_ID}.ui.buildingsOutskirtsRoadsHelp`,
+    action: "namedChain",
+    groupLabel: "Buildings",
+    chainLabel: "buildings in the Outskirts and on The Open Road"
+  },
+  {
+    id: "vendit",
+    categoryId: "whats",
+    accentClass: "cpr-accent-whats",
+    eyebrowKey: `${MODULE_ID}.ui.whats`,
+    titleKey: `${MODULE_ID}.generator.vendit`,
+    helpKey: `${MODULE_ID}.ui.venditHelp`,
+    action: "vendit"
+  },
+  {
+    id: "whatsInTheFile",
+    categoryId: "whats",
+    accentClass: "cpr-accent-whats",
+    eyebrowKey: `${MODULE_ID}.ui.whats`,
+    titleKey: `${MODULE_ID}.generator.whatsInTheFile`,
+    helpKey: `${MODULE_ID}.ui.whatsInTheFileHelp`,
+    action: "namedChain",
+    groupLabel: "What's..?",
+    chainLabel: "What's in the File?"
+  }
+];
+var SCENE_CATEGORY_IDS = SCENE_CATEGORY_DEFINITIONS.map((category) => category.id);
+var SCENE_CARD_IDS = SCENE_CARD_DEFINITIONS.map((card) => card.id);
 function localize(key) {
   return game.i18n.localize(key);
 }
@@ -17249,6 +17443,49 @@ function getSceneBuilderGroups() {
     };
   });
 }
+function getCardDefinition(cardId) {
+  return SCENE_CARD_DEFINITIONS.find((card) => card.id === cardId) || null;
+}
+function buildSceneCard(cardId, layout, context = "category") {
+  const definition = getCardDefinition(cardId);
+  if (!definition)
+    return null;
+  const useCount = layout.useCounts[cardId] || 0;
+  return {
+    ...definition,
+    context,
+    isFavorite: layout.favoriteCardIds.includes(cardId),
+    isMostUsed: useCount > 0,
+    useCount,
+    hasMerchantControl: definition.control === "merchantCategory",
+    hasRoleHustleControl: definition.control === "roleHustle",
+    hasEncounterControl: definition.control === "encounterPeriod",
+    label: localize(definition.titleKey),
+    title: localize(definition.titleKey),
+    help: localize(definition.helpKey),
+    eyebrow: localize(definition.eyebrowKey)
+  };
+}
+function getSceneBuilderCategories(layout) {
+  return layout.categoryOrder.map((categoryId) => {
+    const definition = SCENE_CATEGORY_DEFINITIONS.find((category) => category.id === categoryId);
+    if (!definition)
+      return null;
+    const isHidden = layout.hiddenCategoryIds.includes(categoryId);
+    return {
+      ...definition,
+      label: localize(definition.labelKey),
+      description: localize(definition.descriptionKey),
+      isHidden,
+      cards: (layout.cardOrderByCategory[categoryId] || []).map((cardId) => buildSceneCard(cardId, layout)).filter(Boolean)
+    };
+  }).filter(Boolean);
+}
+function getQuickAccessCards(layout) {
+  const favoriteIds = layout.favoriteCardIds;
+  const mostUsedIds = Object.entries(layout.useCounts).filter(([cardId, count]) => SCENE_CARD_IDS.includes(cardId) && count > 0 && !favoriteIds.includes(cardId)).sort(([, leftCount], [, rightCount]) => rightCount - leftCount).slice(0, MOST_USED_LIMIT).map(([cardId]) => cardId);
+  return favoriteIds.concat(mostUsedIds).map((cardId) => buildSceneCard(cardId, layout, "quickAccess")).filter(Boolean);
+}
 function findSceneBuilderChain(chainId) {
   return getSceneBuilderGroups().flatMap((group) => group.chains.map((chain) => ({ ...chain, groupLabel: group.label }))).find((chain) => chain.id === chainId);
 }
@@ -17266,6 +17503,65 @@ function getHustleChoices() {
     [NETRUNNER_HUSTLE_CHOICE]: localize(`${MODULE_ID}.generator.netrunnerHustle`),
     ...getChainChoices("Role Hustles")
   };
+}
+function getDefaultSceneLayout() {
+  const cardOrderByCategory = {};
+  SCENE_CATEGORY_IDS.forEach((categoryId) => {
+    cardOrderByCategory[categoryId] = SCENE_CARD_DEFINITIONS.filter((card) => card.categoryId === categoryId).map((card) => card.id);
+  });
+  return {
+    categoryOrder: Array.from(SCENE_CATEGORY_IDS),
+    cardOrderByCategory,
+    favoriteCardIds: [],
+    hiddenCategoryIds: [],
+    useCounts: {},
+    isCustomizing: false
+  };
+}
+function normalizeSceneLayout(layout) {
+  const defaults = getDefaultSceneLayout();
+  const input = layout && typeof layout === "object" ? layout : {};
+  const categoryOrder = Array.from(new Set(Array.isArray(input.categoryOrder) ? input.categoryOrder : [])).filter((categoryId) => SCENE_CATEGORY_IDS.includes(categoryId));
+  defaults.categoryOrder.forEach((categoryId) => {
+    if (!categoryOrder.includes(categoryId))
+      categoryOrder.push(categoryId);
+  });
+  const cardOrderByCategory = {};
+  SCENE_CATEGORY_IDS.forEach((categoryId) => {
+    const validCardIds = SCENE_CARD_DEFINITIONS.filter((card) => card.categoryId === categoryId).map((card) => card.id);
+    const savedOrder = Array.isArray(input.cardOrderByCategory?.[categoryId]) ? input.cardOrderByCategory[categoryId] : [];
+    const order = Array.from(new Set(savedOrder)).filter((cardId) => validCardIds.includes(cardId));
+    validCardIds.forEach((cardId) => {
+      if (!order.includes(cardId))
+        order.push(cardId);
+    });
+    cardOrderByCategory[categoryId] = order;
+  });
+  const favoriteCardIds = Array.from(new Set(Array.isArray(input.favoriteCardIds) ? input.favoriteCardIds : [])).filter((cardId) => SCENE_CARD_IDS.includes(cardId));
+  const hiddenCategoryIds = Array.from(new Set(Array.isArray(input.hiddenCategoryIds) ? input.hiddenCategoryIds : [])).filter((categoryId) => SCENE_CATEGORY_IDS.includes(categoryId));
+  const useCounts = {};
+  Object.entries(input.useCounts || {}).forEach(([cardId, count]) => {
+    if (SCENE_CARD_IDS.includes(cardId))
+      useCounts[cardId] = Math.max(0, Number(count) || 0);
+  });
+  return {
+    categoryOrder,
+    cardOrderByCategory,
+    favoriteCardIds,
+    hiddenCategoryIds,
+    useCounts,
+    isCustomizing: input.isCustomizing === true
+  };
+}
+function moveArrayItem(items, draggedId, targetId) {
+  const next = Array.from(items);
+  const fromIndex = next.indexOf(draggedId);
+  const toIndex = next.indexOf(targetId);
+  if (fromIndex === -1 || toIndex === -1 || fromIndex === toIndex)
+    return next;
+  next.splice(fromIndex, 1);
+  next.splice(toIndex, 0, draggedId);
+  return next;
 }
 function localizedCategoryLabel(key) {
   return localize(CATEGORY_CHOICES[key]);
@@ -17328,6 +17624,8 @@ class CPRRolltableDashboard extends FormApplication {
   }
   async getData() {
     const chains = deepClone(game.settings.get(MODULE_ID, CHAIN_SETTING) || []);
+    const sceneLayout = normalizeSceneLayout(game.settings.get(MODULE_ID, SCENE_LAYOUT_SETTING));
+    const quickAccessCards = getQuickAccessCards(sceneLayout);
     return {
       isGM: game.user.isGM,
       customChains: chains,
@@ -17340,6 +17638,10 @@ class CPRRolltableDashboard extends FormApplication {
       hasResultHistory: this._resultHistory.length > 0,
       postToChat: game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING),
       roleHustleChoices: getHustleChoices(),
+      sceneLayout,
+      sceneBuilderCategories: getSceneBuilderCategories(sceneLayout),
+      quickAccessCards,
+      hasQuickAccessCards: quickAccessCards.length > 0,
       datatermGroups: getDatatermGroups().map((group) => ({
         ...group,
         tables: group.tableKeys.map((tableKey) => ({ key: tableKey, name: DATATERM_TABLES[tableKey].name, formula: DATATERM_TABLES[tableKey].formula }))
@@ -17353,13 +17655,20 @@ class CPRRolltableDashboard extends FormApplication {
       event.preventDefault();
       this._activateDashboardTab(html, event.currentTarget.dataset.tab);
     });
-    html.find(".js-generate-night-market").click(() => this._generateNightMarket());
-    html.find(".js-generate-merchant").click(() => this._generateMerchantChat(html.find("[name='merchantCategory']").val()));
-    html.find(".js-generate-encounter").click(() => this._generateEncounter(html.find("[name='encounterPeriod']").val()));
-    html.find(".js-generate-role-hustle").click(() => this._generateHustle(html.find("[name='roleHustleGenerator']").val(), html.find("[name='roleHustleRankBand']").val()));
-    html.find(".js-generate-desktop-chain").click((event) => this._generateDesktopChain(html.find(`[name='${event.currentTarget.dataset.selectName}']`).val()));
-    html.find(".js-generate-named-chain").click((event) => this._generateNamedDesktopChain(event.currentTarget.dataset.groupLabel, event.currentTarget.dataset.chainLabel));
-    html.find(".js-generate-vendit").click(() => this._generateVendit());
+    html.find(".js-run-scene-card").click((event) => {
+      const cardElement = event.currentTarget.closest(".cpr-action-card");
+      return this._runSceneCard(cardElement?.dataset.cardId, cardElement);
+    });
+    html.find(".js-toggle-customize").click(() => this._toggleCustomizeMode());
+    html.find(".js-reset-scene-layout").click(() => this._resetSceneLayout());
+    html.find(".js-toggle-card-favorite").click((event) => this._toggleCardFavorite(event.currentTarget.closest(".cpr-action-card")?.dataset.cardId));
+    html.find(".js-toggle-category-visibility").click((event) => this._toggleCategoryVisibility(event.currentTarget.closest(".cpr-scene-category")?.dataset.categoryId));
+    html.find(".cpr-drag-handle").on("keydown", (event) => this._handleDragHandleKeydown(event));
+    html.find(".cpr-scene-category, .cpr-action-card").on("dragstart", (event) => this._handleSceneDragStart(event));
+    html.find(".cpr-scene-category, .cpr-action-card").on("dragover", (event) => this._handleSceneDragOver(event));
+    html.find(".cpr-scene-category, .cpr-action-card").on("dragleave", (event) => this._handleSceneDragLeave(event));
+    html.find(".cpr-scene-category, .cpr-action-card").on("drop", (event) => this._handleSceneDrop(event));
+    html.find(".cpr-scene-category, .cpr-action-card").on("dragend", () => this._clearSceneDragState());
     html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
     html.find(".js-clear-result-history").click(() => this._clearResultHistory());
@@ -17383,6 +17692,129 @@ class CPRRolltableDashboard extends FormApplication {
     html.find(`.cpr-dashboard-tabs .item[data-tab="${tabName}"]`).addClass("active");
     html.find(".cpr-dashboard-body .tab").removeClass("active");
     html.find(`.cpr-dashboard-body .tab[data-tab="${tabName}"]`).addClass("active");
+  }
+  _getSceneLayout() {
+    return normalizeSceneLayout(game.settings.get(MODULE_ID, SCENE_LAYOUT_SETTING));
+  }
+  async _saveSceneLayout(layout, { render = true } = {}) {
+    await game.settings.set(MODULE_ID, SCENE_LAYOUT_SETTING, normalizeSceneLayout(layout));
+    if (render)
+      this.render(true);
+  }
+  async _toggleCustomizeMode() {
+    const layout = this._getSceneLayout();
+    layout.isCustomizing = !layout.isCustomizing;
+    await this._saveSceneLayout(layout);
+  }
+  async _resetSceneLayout() {
+    await game.settings.set(MODULE_ID, SCENE_LAYOUT_SETTING, getDefaultSceneLayout());
+    this.render(true);
+  }
+  async _toggleCardFavorite(cardId) {
+    if (!cardId || !SCENE_CARD_IDS.includes(cardId))
+      return;
+    const layout = this._getSceneLayout();
+    if (layout.favoriteCardIds.includes(cardId))
+      layout.favoriteCardIds = layout.favoriteCardIds.filter((id) => id !== cardId);
+    else
+      layout.favoriteCardIds.unshift(cardId);
+    await this._saveSceneLayout(layout);
+  }
+  async _toggleCategoryVisibility(categoryId) {
+    if (!categoryId || !SCENE_CATEGORY_IDS.includes(categoryId))
+      return;
+    const layout = this._getSceneLayout();
+    if (layout.hiddenCategoryIds.includes(categoryId))
+      layout.hiddenCategoryIds = layout.hiddenCategoryIds.filter((id) => id !== categoryId);
+    else
+      layout.hiddenCategoryIds.push(categoryId);
+    await this._saveSceneLayout(layout);
+  }
+  async _recordSceneCardUse(cardId) {
+    if (!cardId || !SCENE_CARD_IDS.includes(cardId))
+      return;
+    const layout = this._getSceneLayout();
+    layout.useCounts[cardId] = (layout.useCounts[cardId] || 0) + 1;
+    await this._saveSceneLayout(layout, { render: false });
+  }
+  _getScopedCardValue(cardElement, name) {
+    const card = $(cardElement);
+    return card.find(`[name='${name}']`).val();
+  }
+  async _runSceneCard(cardId, cardElement = null) {
+    const card = getCardDefinition(cardId);
+    if (!card)
+      return;
+    await this._recordSceneCardUse(cardId);
+    if (card.action === "nightMarket")
+      return this._generateNightMarket();
+    if (card.action === "merchant")
+      return this._generateMerchantChat(this._getScopedCardValue(cardElement, "merchantCategory"));
+    if (card.action === "encounter")
+      return this._generateEncounter(this._getScopedCardValue(cardElement, "encounterPeriod"));
+    if (card.action === "roleHustle")
+      return this._generateHustle(this._getScopedCardValue(cardElement, "roleHustleGenerator"), this._getScopedCardValue(cardElement, "roleHustleRankBand"));
+    if (card.action === "namedChain")
+      return this._generateNamedDesktopChain(card.groupLabel, card.chainLabel);
+    if (card.action === "vendit")
+      return this._generateVendit();
+  }
+  _handleDragHandleKeydown(event) {
+    if (event.key !== "Enter" && event.key !== " ")
+      return;
+    event.preventDefault();
+    event.currentTarget.closest(".cpr-scene-category, .cpr-action-card")?.setAttribute("draggable", "true");
+  }
+  _handleSceneDragStart(event) {
+    const layout = this._getSceneLayout();
+    if (!layout.isCustomizing) {
+      event.preventDefault();
+      return;
+    }
+    const target = event.currentTarget;
+    const payload = target.classList.contains("cpr-action-card") ? { type: "card", id: target.dataset.cardId, categoryId: target.closest(".cpr-scene-category")?.dataset.categoryId } : { type: "category", id: target.dataset.categoryId };
+    event.originalEvent.dataTransfer.effectAllowed = "move";
+    event.originalEvent.dataTransfer.setData("application/json", JSON.stringify(payload));
+    target.classList.add("is-dragging");
+  }
+  _handleSceneDragOver(event) {
+    event.preventDefault();
+    event.currentTarget.classList.add("is-drag-target");
+  }
+  _handleSceneDragLeave(event) {
+    event.currentTarget.classList.remove("is-drag-target");
+  }
+  _clearSceneDragState() {
+    this.element.find(".is-dragging, .is-drag-target").removeClass("is-dragging is-drag-target");
+  }
+  async _handleSceneDrop(event) {
+    event.preventDefault();
+    const raw = event.originalEvent.dataTransfer.getData("application/json");
+    if (!raw) {
+      this._clearSceneDragState();
+      return;
+    }
+    let dragged = null;
+    try {
+      dragged = JSON.parse(raw);
+    } catch (error) {
+      ui.notifications.warn(`Invalid dashboard drag payload: ${error.message}`);
+      this._clearSceneDragState();
+      return;
+    }
+    const layout = this._getSceneLayout();
+    const target = event.currentTarget;
+    if (dragged.type === "category" && target.classList.contains("cpr-scene-category")) {
+      layout.categoryOrder = moveArrayItem(layout.categoryOrder, dragged.id, target.dataset.categoryId);
+    }
+    if (dragged.type === "card" && target.classList.contains("cpr-action-card")) {
+      const targetCategoryId = target.closest(".cpr-scene-category")?.dataset.categoryId;
+      if (targetCategoryId && targetCategoryId === dragged.categoryId) {
+        layout.cardOrderByCategory[targetCategoryId] = moveArrayItem(layout.cardOrderByCategory[targetCategoryId] || [], dragged.id, target.dataset.cardId);
+      }
+    }
+    this._clearSceneDragState();
+    await this._saveSceneLayout(layout);
   }
   async _getTableChoices() {
     if (this._tableChoices)
@@ -17941,6 +18373,12 @@ function registerRolltableDashboard() {
     type: Boolean,
     default: true
   });
+  game.settings.register(MODULE_ID, SCENE_LAYOUT_SETTING, {
+    scope: "client",
+    config: false,
+    type: Object,
+    default: getDefaultSceneLayout()
+  });
   Hooks.on("getSceneControlButtons", (controls) => {
     const tokenControls = controls.find((control) => control.name === "token");
     if (!tokenControls)
@@ -17962,8 +18400,8 @@ function registerRolltableDashboard() {
     });
   });
 }
-
-// scripts/module-v0-2-2.js
-Hooks.once("init", () => {
-  registerRolltableDashboard();
-});
+export {
+  registerRolltableDashboard,
+  CPRRolltableDashboard as default,
+  MODULE_ID
+};
