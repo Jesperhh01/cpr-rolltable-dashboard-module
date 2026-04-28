@@ -1,15 +1,15 @@
 .cpr-rolltable-dashboard {
-  --cpr-bg: #0f0d0d;
-  --cpr-surface: #171313;
-  --cpr-surface-soft: rgba(255, 255, 255, 0.045);
-  --cpr-border: rgba(255, 184, 77, 0.24);
-  --cpr-border-soft: rgba(255, 255, 255, 0.10);
-  --cpr-text: #f6eee0;
-  --cpr-muted: #cdbfa8;
-  --cpr-dim: #9f927f;
-  --cpr-amber: #ffb84d;
-  --cpr-red: #d83a32;
-  --cpr-cyan: #3bd6ff;
+  --cpr-bg: #121212;
+  --cpr-surface: #1a1a1a;
+  --cpr-surface-soft: rgba(255, 255, 255, 0.04);
+  --cpr-surface-active: rgba(255, 255, 255, 0.08);
+  --cpr-border: rgba(255, 255, 255, 0.08);
+  --cpr-border-strong: rgba(255, 255, 255, 0.16);
+  --cpr-border-soft: rgba(255, 255, 255, 0.06);
+  --cpr-text: #e4e4e7;
+  --cpr-muted: #a1a1aa;
+  --cpr-dim: #71717a;
+  --cpr-accent: #b8a77a;
 }
 
 .app.cpr-rolltable-dashboard,
@@ -47,7 +47,7 @@
   border: 1px solid var(--cpr-border);
   border-radius: 12px;
   background: var(--cpr-surface);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
 }
 
 .cpr-dashboard-hero {
@@ -99,7 +99,7 @@
 .cpr-action-card span,
 .cpr-scene-category-heading span {
   margin: 0 0 4px;
-  color: var(--cpr-amber);
+  color: var(--cpr-muted);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -124,8 +124,8 @@
 }
 
 .cpr-dashboard-tabs .item.active {
-  border-color: rgba(216, 58, 50, 0.7);
-  background: rgba(216, 58, 50, 0.20);
+  border-color: var(--cpr-border-strong);
+  background: var(--cpr-surface-active);
   color: var(--cpr-text);
   text-shadow: none;
 }
@@ -244,7 +244,7 @@
 
 .cpr-action-card {
   position: relative;
-  border-left: 4px solid var(--cpr-amber);
+  border-left: 0;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease, opacity 160ms ease;
 }
 
@@ -284,17 +284,17 @@
 .cpr-pin-toggle:focus-visible,
 .cpr-drag-handle:focus-visible,
 .cpr-visibility-toggle:focus-visible {
-  outline: 2px solid rgba(255, 184, 77, 0.74);
+  outline: 2px solid var(--cpr-border-strong);
   outline-offset: 2px;
-  background: rgba(255, 184, 77, 0.18);
-  color: var(--cpr-amber);
+  background: var(--cpr-surface-active);
+  color: var(--cpr-text);
 }
 
 .cpr-pin-toggle.is-pinned,
 .cpr-action-card.is-favorite .cpr-pin-toggle {
-  border-color: rgba(255, 184, 77, 0.58);
-  color: var(--cpr-amber);
-  filter: drop-shadow(0 0 5px rgba(255, 184, 77, 0.55));
+  border-color: rgba(184, 167, 122, 0.45);
+  color: var(--cpr-accent);
+  filter: none;
 }
 
 .cpr-drag-handle {
@@ -307,8 +307,8 @@
 }
 
 .cpr-configure-deck.is-active {
-  border-color: rgba(216, 58, 50, 0.75);
-  background: rgba(216, 58, 50, 0.20);
+  border-color: var(--cpr-border-strong);
+  background: var(--cpr-surface-active);
   color: var(--cpr-text);
   text-shadow: none;
 }
@@ -329,8 +329,8 @@
 
 .cpr-scene-category.is-drag-target,
 .cpr-action-card.is-drag-target {
-  border-color: rgba(59, 214, 255, 0.8);
-  box-shadow: 0 0 0 2px rgba(59, 214, 255, 0.18), 0 12px 26px rgba(0, 0, 0, 0.28);
+  border-color: var(--cpr-border-strong);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05), 0 10px 20px rgba(0, 0, 0, 0.20);
   transform: translateY(-1px);
 }
 
@@ -349,9 +349,9 @@
 }
 
 .cpr-quick-access {
-  border-color: rgba(59, 214, 255, 0.42);
-  background: rgba(59, 214, 255, 0.055);
-  box-shadow: inset 0 0 34px rgba(59, 214, 255, 0.035);
+  border-color: var(--cpr-border-strong);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: none;
 }
 
 .cpr-quick-access .cpr-scene-category-heading {
@@ -359,19 +359,19 @@
 }
 
 .cpr-quick-access .cpr-scene-category-heading span {
-  color: var(--cpr-cyan);
+  color: var(--cpr-muted);
 }
 
 .cpr-accent-market,
 .cpr-accent-merchant,
 .cpr-accent-hustle,
 .cpr-accent-building,
-.cpr-accent-corporate { border-left-color: var(--cpr-amber); }
+.cpr-accent-corporate,
 .cpr-accent-street,
-.cpr-accent-faction { border-left-color: var(--cpr-red); }
+.cpr-accent-faction,
 .cpr-accent-net,
 .cpr-accent-location,
-.cpr-accent-whats { border-left-color: var(--cpr-cyan); }
+.cpr-accent-whats { border-color: var(--cpr-border-soft); }
 
 .cpr-inline-controls,
 .cpr-chain-meta,
@@ -422,7 +422,7 @@
 .cpr-result-content::-webkit-scrollbar-thumb,
 .cpr-result-empty::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgba(255, 184, 77, 0.38);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .cpr-scene-categories::-webkit-scrollbar-track,
@@ -491,15 +491,15 @@
 
 .cpr-rolltable-dashboard button,
 .cpr-primary-action {
-  border: 1px solid rgba(255, 184, 77, 0.48);
+  border: 1px solid var(--cpr-border-strong);
   border-radius: 8px;
-  background: rgba(255, 184, 77, 0.10);
+  background: rgba(255, 255, 255, 0.045);
   color: var(--cpr-text);
 }
 
 .cpr-rolltable-dashboard button:hover,
 .cpr-primary-action:hover {
-  background: rgba(255, 184, 77, 0.24);
+  background: var(--cpr-surface-active);
   color: var(--cpr-text);
 }
 
@@ -565,7 +565,7 @@
   position: relative;
   padding: 14px 12px 16px;
   border: 1px solid var(--cpr-border);
-  border-left: 4px solid var(--cpr-amber);
+  border-left: 0;
   border-radius: 10px;
   background: var(--cpr-surface-soft);
 }
@@ -577,17 +577,16 @@
   left: 12px;
   right: 12px;
   height: 1px;
-  background: rgba(255, 184, 77, 0.22);
+  background: var(--cpr-border-soft);
 }
 
 .cpr-result-entry:first-child {
-  border-left-color: var(--cpr-red);
-  background: rgba(216, 58, 50, 0.075);
+  background: var(--cpr-surface-soft);
 }
 
 .cpr-result-entry .cpr-result-meta {
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 184, 77, 0.30);
+  border-bottom: 1px solid var(--cpr-border-soft);
 }
 
 .cpr-result-entry .cpr-result-lines {
@@ -607,7 +606,7 @@
 }
 
 .cpr-result-empty i {
-  color: var(--cpr-amber);
+  color: var(--cpr-muted);
   font-size: 36px;
 }
 
