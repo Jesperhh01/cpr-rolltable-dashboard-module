@@ -15404,6 +15404,28 @@ var POST_TO_CHAT_SETTING = "postRollsToChat";
 var ROOT_FOLDER_NAME = "CPR Rolltable Dashboard";
 var REQUIRED_SYSTEM_ID = "cyberpunk-red-core";
 var RESULT_HISTORY_LIMIT = 50;
+var MERCHANT_ACTOR_NAMES = {
+  foodAndDrugs: ["Food and Drugs"],
+  personalElectronics: ["Electronics Merchant"],
+  weaponsAndArmor: ["Weapon Merchant", "Weapons Merchant"],
+  cyberware: ["Cyberware Merchant"],
+  clothingAndFashionware: ["Clothing Merchant", "Fashionware Merchant", "Cyberware Merchant"],
+  survivalGear: ["Survival Gear Merchant"]
+};
+var MERCHANT_INVENTORY_ITEM_TYPES = /* @__PURE__ */ new Set([
+  "ammo",
+  "armor",
+  "clothing",
+  "cyberdeck",
+  "cyberware",
+  "drug",
+  "gear",
+  "itemUpgrade",
+  "netarch",
+  "program",
+  "vehicle",
+  "weapon"
+]);
 var CATEGORY_CHOICES = {
   random: `${MODULE_ID}.category.random`,
   foodAndDrugs: `${MODULE_ID}.category.foodAndDrugs`,
@@ -15435,6 +15457,9 @@ var VENDIT_CATEGORIES = [
 ];
 function localize(key) {
   return game.i18n.localize(key);
+}
+function format(key, data) {
+  return game.i18n.format(key, data);
 }
 function deepClone(data) {
   return foundry.utils.deepClone(data);
@@ -15562,6 +15587,21 @@ async function getSystemCompendiumDocs(compendiumId) {
     return [];
   return pack.getDocuments();
 }
+function getWorldSellableItems() {
+  return game.items.filter((item) => MERCHANT_INVENTORY_ITEM_TYPES.has(item.type));
+}
+function dedupeItemsByTypeAndName(items) {
+  const seen = /* @__PURE__ */ new Set;
+  const deduped = [];
+  for (const item of items) {
+    const key = `${item.type}:${item.name}`.toLowerCase();
+    if (seen.has(key))
+      continue;
+    seen.add(key);
+    deduped.push(item);
+  }
+  return deduped;
+}
 async function getOrCreateFolder(name, parentFolder = null) {
   const parentId = parentFolder?.id ?? null;
   const existing = game.folders.find((folder) => folder.name === name && folder.type === "RollTable" && (folder.folder?.id ?? null) === parentId);
@@ -15634,6 +15674,7 @@ class CPRRolltableDashboard extends FormApplication {
     html.find(".js-toggle-public-chat").change((event) => game.settings.set(MODULE_ID, POST_TO_CHAT_SETTING, event.currentTarget.checked));
     html.find(".js-roll-bundled-table").click((event) => this._rollBundledTable(event.currentTarget.dataset.tableKey));
     html.find(".js-clear-result-history").click(() => this._clearResultHistory());
+    html.on("click", ".js-populate-night-market-merchants", (event) => this._populateNightMarketMerchants(event.currentTarget.dataset.resultId));
     if (!game.user.isGM)
       return;
     html.find(".js-import-bundled").click(() => this._importBundledTables());
@@ -15672,11 +15713,11 @@ class CPRRolltableDashboard extends FormApplication {
     return choices;
   }
   async _publishResult(title, lines, options = {}) {
-    const { postToChat = game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING), allowHtml = false } = options;
+    const { postToChat = game.settings.get(MODULE_ID, POST_TO_CHAT_SETTING), allowHtml = false, metadata = null, actions = [] } = options;
     const safeTitle = allowHtml ? title : escapeHtml(title);
     const safeLines = allowHtml ? lines : lines.map((line) => escapeHtml(line));
     const timestamp = new Date().toLocaleTimeString();
-    this._resultHistory.unshift({ id: foundry.utils.randomID(), title: safeTitle, lines: safeLines, timestamp });
+    this._resultHistory.unshift({ id: foundry.utils.randomID(), title: safeTitle, lines: safeLines, timestamp, metadata, actions });
     this._resultHistory = this._resultHistory.slice(0, RESULT_HISTORY_LIMIT);
     this._renderResultPanel();
     if (!postToChat)
@@ -15705,9 +15746,25 @@ class CPRRolltableDashboard extends FormApplication {
       header.append($(`<span class="cpr-result-time">${result.timestamp}</span>`));
       const list = $("<ol class='cpr-result-lines'></ol>");
       result.lines.forEach((line) => list.append($(`<li>${line}</li>`)));
-      item.append(header, list);
+      const actions = this._renderResultActions(result);
+      item.append(header);
+      if (actions)
+        item.append(actions);
+      item.append(list);
       feed.append(item);
     });
+  }
+  _renderResultActions(result) {
+    if (!game.user.isGM || !Array.isArray(result.actions) || result.actions.length === 0)
+      return null;
+    const actions = $("<div class='cpr-result-actions'></div>");
+    result.actions.forEach((action) => {
+      if (action.type !== "populateNightMarketMerchants")
+        return;
+      const button = $(`<button type="button" class="cpr-result-action js-populate-night-market-merchants" data-result-id="${result.id}">${escapeHtml(localize(`${MODULE_ID}.button.populateMerchants`))}</button>`);
+      actions.append(button);
+    });
+    return actions.children().length > 0 ? actions : null;
   }
   _clearResultHistory() {
     this._resultHistory = [];
@@ -15875,7 +15932,11 @@ class CPRRolltableDashboard extends FormApplication {
         merchant.items.forEach((item) => lines.push(`- ${item.name} (${item.price} eb)`));
         return lines;
       })
-    ], { allowHtml: true });
+    ], {
+      allowHtml: true,
+      metadata: { type: "nightMarket", merchants },
+      actions: [{ type: "populateNightMarketMerchants" }]
+    });
   }
   async _generateMerchantChat(category) {
     const merchant = await this._generateMerchantInventory(category);
@@ -15900,7 +15961,8 @@ class CPRRolltableDashboard extends FormApplication {
       count,
       items: shuffled.slice(0, Math.min(count, shuffled.length)).map((item) => ({
         name: item.name,
-        price: item.system?.price?.market ?? "?"
+        price: item.system?.price?.market ?? "?",
+        sourceUuid: item.uuid
       }))
     };
   }
@@ -15910,7 +15972,7 @@ class CPRRolltableDashboard extends FormApplication {
     return this._merchantCache[categoryKey] || [];
   }
   async _buildMerchantCache() {
-    const [gear, weapons, armor, cyberware, clothing, drugs] = await Promise.all([
+    const [coreGear, coreWeapons, coreArmor, coreCyberware, coreClothing, coreDrugs] = await Promise.all([
       getSystemCompendiumDocs("cyberpunk-red-core.core_gear"),
       getSystemCompendiumDocs("cyberpunk-red-core.core_weapons"),
       getSystemCompendiumDocs("cyberpunk-red-core.core_armor"),
@@ -15918,6 +15980,13 @@ class CPRRolltableDashboard extends FormApplication {
       getSystemCompendiumDocs("cyberpunk-red-core.core_clothing"),
       getSystemCompendiumDocs("cyberpunk-red-core.core_drugs")
     ]);
+    const worldItems = getWorldSellableItems();
+    const gear = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "gear"), ...coreGear]);
+    const weapons = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "weapon"), ...coreWeapons]);
+    const armor = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "armor"), ...coreArmor]);
+    const cyberware = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "cyberware"), ...coreCyberware]);
+    const clothing = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "clothing"), ...coreClothing]);
+    const drugs = dedupeItemsByTypeAndName([...worldItems.filter((item) => item.type === "drug"), ...coreDrugs]);
     return {
       foodAndDrugs: [...drugs, ...gear.filter((item) => FOOD_GEAR_NAMES.includes(item.name))],
       personalElectronics: gear.filter((item) => item.system?.isElectronic === true),
@@ -15935,6 +16004,67 @@ class CPRRolltableDashboard extends FormApplication {
         return !CYBER_GEAR_MATCHERS.some((matcher) => item.name.toLowerCase().includes(matcher));
       })
     };
+  }
+  async _populateNightMarketMerchants(resultId) {
+    if (!game.user.isGM) {
+      notify("warn", `${MODULE_ID}.merchantPopulate.gmOnly`);
+      return;
+    }
+    const result = this._resultHistory.find((entry) => entry.id === resultId);
+    const merchants = result?.metadata?.type === "nightMarket" ? result.metadata.merchants : [];
+    if (!merchants.length) {
+      notify("warn", `${MODULE_ID}.merchantPopulate.missingResult`);
+      return;
+    }
+    const populated = [];
+    const missingActors = [];
+    const missingItems = [];
+    for (const merchant of merchants) {
+      const actor = this._findMerchantActor(merchant.category);
+      if (!actor) {
+        missingActors.push(merchant.categoryLabel);
+        continue;
+      }
+      const created = await this._replaceMerchantInventory(actor, merchant.items, missingItems);
+      populated.push(`${actor.name} (${created})`);
+    }
+    if (populated.length > 0) {
+      ui.notifications.info(format(`${MODULE_ID}.merchantPopulate.success`, { actors: populated.join(", ") }));
+    }
+    if (missingActors.length > 0) {
+      ui.notifications.warn(format(`${MODULE_ID}.merchantPopulate.missingActors`, { categories: missingActors.join(", ") }));
+    }
+    if (missingItems.length > 0) {
+      ui.notifications.warn(format(`${MODULE_ID}.merchantPopulate.missingItems`, { items: missingItems.join(", ") }));
+    }
+  }
+  _findMerchantActor(category) {
+    const candidateNames = MERCHANT_ACTOR_NAMES[category] || [];
+    const normalizedCandidates = candidateNames.map((name) => name.toLowerCase());
+    return game.actors.find((actor) => normalizedCandidates.includes(actor.name.toLowerCase())) || null;
+  }
+  async _replaceMerchantInventory(actor, items, missingItems) {
+    const deletableItemIds = actor.items.filter((item) => MERCHANT_INVENTORY_ITEM_TYPES.has(item.type) && item.system?.core !== true).map((item) => item.id);
+    if (deletableItemIds.length > 0) {
+      await actor.deleteEmbeddedDocuments("Item", deletableItemIds, { deleteInstalled: true, unloadAmmo: true });
+    }
+    const itemData = [];
+    for (const item of items) {
+      const source = item.sourceUuid ? await fromUuid(item.sourceUuid) : null;
+      if (!source) {
+        missingItems.push(item.name);
+        continue;
+      }
+      const data = source.toObject();
+      delete data._id;
+      if (data.system?.core === true)
+        data.system.core = false;
+      itemData.push(data);
+    }
+    if (itemData.length === 0)
+      return 0;
+    const created = await actor.createEmbeddedDocuments("Item", itemData, { createInstalled: true });
+    return created.length;
   }
   async _importBundledTables() {
     const root = await getOrCreateFolder(ROOT_FOLDER_NAME);
