@@ -406,6 +406,7 @@ function buildSceneCard(cardId, layout, context = "category") {
   return {
     ...definition,
     context,
+    isCustomizing: layout.isCustomizing === true,
     isFavorite: layout.favoriteCardIds.includes(cardId),
     isMostUsed: useCount > 0,
     useCount,
@@ -429,6 +430,7 @@ function getSceneBuilderCategories(layout) {
       label: localize(definition.labelKey),
       description: localize(definition.descriptionKey),
       isHidden,
+      isCustomizing: layout.isCustomizing === true,
       cards: (layout.cardOrderByCategory[categoryId] || []).map((cardId) => buildSceneCard(cardId, layout)).filter(Boolean),
     };
   }).filter(Boolean);
@@ -506,8 +508,9 @@ function normalizeSceneLayout(layout) {
 
   const favoriteCardIds = Array.from(new Set(Array.isArray(input.favoriteCardIds) ? input.favoriteCardIds : []))
     .filter((cardId) => SCENE_CARD_IDS.includes(cardId));
-  const hiddenCategoryIds = Array.from(new Set(Array.isArray(input.hiddenCategoryIds) ? input.hiddenCategoryIds : []))
+  let hiddenCategoryIds = Array.from(new Set(Array.isArray(input.hiddenCategoryIds) ? input.hiddenCategoryIds : []))
     .filter((categoryId) => SCENE_CATEGORY_IDS.includes(categoryId));
+  if (hiddenCategoryIds.length >= SCENE_CATEGORY_IDS.length) hiddenCategoryIds = [];
   const useCounts = {};
   Object.entries(input.useCounts || {}).forEach(([cardId, count]) => {
     if (SCENE_CARD_IDS.includes(cardId)) useCounts[cardId] = Math.max(0, Number(count) || 0);
@@ -636,14 +639,27 @@ export default class CPRRolltableDashboard extends FormApplication {
       this._activateDashboardTab(html, event.currentTarget.dataset.tab);
     });
 
-    html.find(".js-run-scene-card").click((event) => {
+    html.on("click", ".js-run-scene-card", (event) => {
+      event.preventDefault();
       const cardElement = event.currentTarget.closest(".cpr-action-card");
       return this._runSceneCard(cardElement?.dataset.cardId, cardElement);
     });
-    html.find(".js-toggle-customize").click(() => this._toggleCustomizeMode());
-    html.find(".js-reset-scene-layout").click(() => this._resetSceneLayout());
-    html.find(".js-toggle-card-favorite").click((event) => this._toggleCardFavorite(event.currentTarget.closest(".cpr-action-card")?.dataset.cardId));
-    html.find(".js-toggle-category-visibility").click((event) => this._toggleCategoryVisibility(event.currentTarget.closest(".cpr-scene-category")?.dataset.categoryId));
+    html.on("click", ".js-toggle-customize", (event) => {
+      event.preventDefault();
+      return this._toggleCustomizeMode();
+    });
+    html.on("click", ".js-reset-scene-layout", (event) => {
+      event.preventDefault();
+      return this._resetSceneLayout();
+    });
+    html.on("click", ".js-toggle-card-favorite", (event) => {
+      event.preventDefault();
+      return this._toggleCardFavorite(event.currentTarget.closest(".cpr-action-card")?.dataset.cardId);
+    });
+    html.on("click", ".js-toggle-category-visibility", (event) => {
+      event.preventDefault();
+      return this._toggleCategoryVisibility(event.currentTarget.closest(".cpr-scene-category")?.dataset.categoryId);
+    });
     html.find(".cpr-drag-handle").on("keydown", (event) => this._handleDragHandleKeydown(event));
     html.find(".cpr-scene-category, .cpr-action-card").on("dragstart", (event) => this._handleSceneDragStart(event));
     html.find(".cpr-scene-category, .cpr-action-card").on("dragover", (event) => this._handleSceneDragOver(event));

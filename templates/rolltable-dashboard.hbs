@@ -33,7 +33,7 @@
             </div>
             <div class="cpr-customize-actions">
               <button type="button" class="cpr-configure-deck js-toggle-customize {{#if sceneLayout.isCustomizing}}is-active{{/if}}"><i class="fas fa-sliders"></i> {{localize "cpr-rolltable-dashboard.button.configureDeck"}}</button>
-              {{#if sceneLayout.isCustomizing}}<button type="button" class="js-reset-scene-layout">{{localize "cpr-rolltable-dashboard.button.resetLayout"}}</button>{{/if}}
+              <button type="button" class="cpr-reset-layout js-reset-scene-layout">{{localize "cpr-rolltable-dashboard.button.resetLayout"}}</button>
             </div>
           </div>
           <div class="cpr-scene-categories {{#if sceneLayout.isCustomizing}}is-customizing{{/if}}">
@@ -65,29 +65,29 @@
                 <p class="cpr-empty-note">{{localize "cpr-rolltable-dashboard.group.neuralCacheEmpty"}}</p>
               {{/if}}
             </section>
-            {{#each sceneBuilderCategories as |category|}}
-              <section class="cpr-scene-category {{#if category.isHidden}}is-hidden{{/if}}" data-category-id="{{category.id}}" draggable="{{#if ../sceneLayout.isCustomizing}}true{{else}}false{{/if}}">
+            {{#each sceneBuilderCategories}}
+              <section class="cpr-scene-category {{#if isHidden}}is-hidden{{/if}}" data-category-id="{{id}}" draggable="{{#if isCustomizing}}true{{else}}false{{/if}}">
                 <div class="cpr-scene-category-heading">
                   <button type="button" class="cpr-drag-handle" aria-label='{{localize "cpr-rolltable-dashboard.aria.dragCategory"}}'><i class="fas fa-grip-vertical"></i></button>
                   <div>
-                    <span>{{category.label}}</span>
-                    <p>{{category.description}}</p>
+                    <span>{{label}}</span>
+                    <p>{{description}}</p>
                   </div>
-                  <button type="button" class="cpr-visibility-toggle js-toggle-category-visibility" aria-expanded="{{#if category.isHidden}}false{{else}}true{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.toggleCategory"}}'><i class="fas {{#if category.isHidden}}fa-eye-slash{{else}}fa-eye{{/if}}"></i></button>
+                  <button type="button" class="cpr-visibility-toggle js-toggle-category-visibility" aria-expanded="{{#if isHidden}}false{{else}}true{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.toggleCategory"}}'><i class="fas {{#if isHidden}}fa-eye-slash{{else}}fa-eye{{/if}}"></i></button>
                 </div>
                 <div class="cpr-action-grid">
-                  {{#each category.cards as |card|}}
-                    <article class="cpr-action-card {{card.accentClass}} {{#if card.isFavorite}}is-favorite{{/if}}" data-card-id="{{card.id}}" draggable="{{#if ../../sceneLayout.isCustomizing}}true{{else}}false{{/if}}">
+                  {{#each cards}}
+                    <article class="cpr-action-card {{accentClass}} {{#if isFavorite}}is-favorite{{/if}}" data-card-id="{{id}}" draggable="{{#if isCustomizing}}true{{else}}false{{/if}}">
                       <div class="cpr-card-controls">
-                        <button type="button" class="cpr-pin-toggle js-toggle-card-favorite {{#if card.isFavorite}}is-pinned{{/if}}" role="switch" aria-checked="{{#if card.isFavorite}}true{{else}}false{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.pinCard"}}'><i class="fas fa-star"></i></button>
+                        <button type="button" class="cpr-pin-toggle js-toggle-card-favorite {{#if isFavorite}}is-pinned{{/if}}" role="switch" aria-checked="{{#if isFavorite}}true{{else}}false{{/if}}" aria-label='{{localize "cpr-rolltable-dashboard.aria.pinCard"}}'><i class="fas fa-star"></i></button>
                         <button type="button" class="cpr-drag-handle" aria-label='{{localize "cpr-rolltable-dashboard.aria.dragCard"}}'><i class="fas fa-grip-vertical"></i></button>
                       </div>
-                      <span>{{card.eyebrow}}</span>
-                      <h3>{{card.title}}</h3>
-                      <p>{{card.help}}</p>
-                      {{#if card.hasMerchantControl}}<div class="cpr-inline-controls"><select name="merchantCategory">{{selectOptions ../../categoryChoices selected="random" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
-                      {{#if card.hasRoleHustleControl}}<div class="cpr-inline-controls cpr-inline-controls-stacked"><select name="roleHustleGenerator">{{selectOptions ../../roleHustleChoices}}</select><select name="roleHustleRankBand">{{selectOptions ../../rankChoices selected="rank1to4" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
-                      {{#if card.hasEncounterControl}}<div class="cpr-inline-controls"><select name="encounterPeriod">{{selectOptions ../../periodChoices selected="day" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
+                      <span>{{eyebrow}}</span>
+                      <h3>{{title}}</h3>
+                      <p>{{help}}</p>
+                      {{#if hasMerchantControl}}<div class="cpr-inline-controls"><select name="merchantCategory">{{selectOptions ../../categoryChoices selected="random" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
+                      {{#if hasRoleHustleControl}}<div class="cpr-inline-controls cpr-inline-controls-stacked"><select name="roleHustleGenerator">{{selectOptions ../../roleHustleChoices}}</select><select name="roleHustleRankBand">{{selectOptions ../../rankChoices selected="rank1to4" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
+                      {{#if hasEncounterControl}}<div class="cpr-inline-controls"><select name="encounterPeriod">{{selectOptions ../../periodChoices selected="day" localize=true}}</select><button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button></div>{{else}}
                       <button type="button" class="js-run-scene-card">{{localize "cpr-rolltable-dashboard.button.roll"}}</button>{{/if}}{{/if}}{{/if}}
                     </article>
                   {{/each}}
