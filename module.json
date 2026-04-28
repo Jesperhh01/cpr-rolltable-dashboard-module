@@ -2,7 +2,7 @@
   "id": "cpr-rolltable-dashboard",
   "title": "CPR Rolltable Dashboard",
   "description": "Standalone Foundry VTT module for Cyberpunk RED rolltable dashboards, merchant generators, encounter generators, Netrunner hustles, and custom chained rolltable workflows.",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "authors": [
     {
       "name": "jesp0 + Hephaestus"
