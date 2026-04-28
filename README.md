@@ -6,6 +6,7 @@ Standalone Foundry VTT module for the `cyberpunk-red-core` system. It is built a
 
 - Foundry VTT v12-compatible toolbar dashboard
 - GM-focused tab layout for quick generators, bundled rolltables, and custom chains
+- Drag-and-drop Scene Builder layout customization with a personal Neural Cache for favorites and most-used generators
 - In-dashboard **Latest Roll** result panel so rolls stay clean and visible inside the modal
 - Night Market generation with location, clientele, danger, seller, duration, and merchants
 - Merchant inventory generation using existing Cyberpunk RED core compendium items
@@ -41,6 +42,7 @@ Use this tab when you need something immediately during play:
 - **Hustles** contains Netrunner Hustle and Role Hustle chained generators.
 - **Street Pressure** contains daytime and nighttime encounter generation.
 - **Factions and Gangs**, **Locations and Scenes**, and **Corporate, Loot, and Jobs** generate connected table chains from the bundled Desktop sources.
+- Use **Configure Deck** to reorder generator categories/cards, hide categories, and pin cards into **Neural Cache** for quick access.
 
 Every roll appears in the **Latest Roll** panel on the right. Use **Post rolls to public chat** to control whether those results are also posted to the main chat.
 
